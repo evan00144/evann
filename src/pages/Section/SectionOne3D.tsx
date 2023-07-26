@@ -68,7 +68,7 @@ export default function SectionOne3D() {
           top: "-250px",
           left: "-150px",
           pointerEvents: "auto",
-          // cursor: "grab",
+          cursor: "grab",
         }}
         scene="https://prod.spline.design/7AZswQpLlWuQZEkv/scene.splinecode"
       />
