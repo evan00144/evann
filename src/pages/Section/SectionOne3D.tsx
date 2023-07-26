@@ -7,7 +7,8 @@ export default function SectionOne3D() {
       style={{
         height: "100vh",
         position: "relative",
-        background: "url('img/bg/jumbotron.svg",
+        background: "url('img/bg/jumbotron.png')",
+        // background:'rgb(22 33 72)',
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
