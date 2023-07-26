@@ -65,7 +65,7 @@ export default function SectionOne3D() {
           position: "absolute",
           height: "fit-content",
           width: "fit-content",
-          top: "-250px",
+          top: "-200px",
           left: "-150px",
           pointerEvents: "auto",
           cursor: "grab",
