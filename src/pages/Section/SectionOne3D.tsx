@@ -64,12 +64,12 @@ export default function SectionOne3D() {
           position: "absolute",
           height: "fit-content",
           width: "fit-content",
-          top: "-20rem",
-          left: "-60rem",
+          top: "-40rem",
+          left: "-15rem",
           pointerEvents: "auto",
           cursor: "grab",
         }}
-        scene="https://prod.spline.design/oiGJ0ksUZAMMUMtj/scene.splinecode"
+        scene="https://prod.spline.design/vjmmer6SDlaR5P5n/scene.splinecode"
       />
     </div>
   );

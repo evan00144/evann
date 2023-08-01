@@ -8,6 +8,9 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import CodeIcon from "../../icons/CodeIcon";
+import CaseClockIcon from "../../icons/CaseClockIcon";
+import MedalIcon from "../../icons/MedalIcon";
 
 export default function SectionTwo() {
   const [value, setValue] = useState(0);
@@ -30,8 +33,8 @@ export default function SectionTwo() {
         {...other}
       >
         {value === index && (
-          <Box sx={{ p: 3 }}>
-            <Typography>{children}</Typography>
+          <Box>
+            {children}
           </Box>
         )}
       </div>
@@ -46,7 +49,7 @@ export default function SectionTwo() {
   };
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-    console.log(newValue)
+    console.log(newValue);
     setValue(newValue);
   };
   return (
@@ -83,32 +86,60 @@ export default function SectionTwo() {
             </Button>
           </Grid>
           <Grid item sm={6}>
-            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Box sx={{ mb:'2rem'}}>
               <Tabs
                 sx={{
                   ".MuiTab-root": {
                     background: "#1C1C22",
                     color: "rgba(248, 247, 251, 0.5)",
+                    gap: ".75rem",
+                    padding: "0 1rem",
+                    minHeight: "3.5rem",
+                    display: "flex",
+                    verticalAlign: "middle",
+                    boxSizing: "border-box",
                   },
                   ".MuiTabs-indicator": {
                     background: "transparent",
                   },
                   ".Mui-selected": {
                     background: "#05070F",
-                    color: "white",
+                    color: "white !important",
                   },
                 }}
                 value={value}
                 onChange={handleChange}
                 aria-label="basic secondary tabs example"
               >
-                <Tab label="Skills" {...a11yProps(0)} />
-                <Tab label="Expriences" {...a11yProps(1)} />
-                <Tab label="Ceritificates" {...a11yProps(2)} />
+                <Tab
+                  icon={<CodeIcon />}
+                  iconPosition="start"
+                  label="Skills"
+                  {...a11yProps(0)}
+                />
+                <Tab
+                  icon={<CaseClockIcon />}
+                  iconPosition="start"
+                  label="Expriences"
+                  {...a11yProps(1)}
+                />
+                <Tab
+                  icon={<MedalIcon />}
+                  iconPosition="start"
+                  label="Ceritificates"
+                  {...a11yProps(2)}
+                />
               </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
-              Skills
+              <Box
+                sx={{
+                  background: "#05070F",
+                  width: "100%",
+                  minHeight: "10rem",
+                  borderRadius: "1rem",
+                }}
+              ></Box>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
               Expriences
