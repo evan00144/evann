@@ -45,7 +45,8 @@ export default function SectionTwo() {
     };
   };
 
-  const handleChange = (newValue: number) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+    console.log(newValue)
     setValue(newValue);
   };
   return (
