@@ -56,11 +56,11 @@ export default function SectionTwo() {
     <div
       style={{
         position: "relative",
-        background: "rgb(22 33 72)",
+        background: "primary.main",
       }}
     >
       <Container maxWidth="xl" sx={{ height: "100vh" }}>
-        <Grid container alignContent={"center"} sx={{ height: "100%" }}>
+        <Grid container alignContent={"center"} spacing={20} sx={{ height: "100%" }}>
           <Grid item sm={6}>
             <Typography variant="h6" marginBottom={"3rem"} color={"white"}>
               <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span> is

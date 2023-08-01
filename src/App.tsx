@@ -9,12 +9,11 @@ function App() {
     palette: {
       primary: {
         main: "#182145",
+        contrastText: "white",
       },
       secondary: {
         main: "#40B084",
-        light: "#42a5f5",
-        dark: "#1565c0",
-        contrastText: "#fff",
+        contrastText: "#182145",
       },
     },
   });
