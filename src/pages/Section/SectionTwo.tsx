@@ -32,11 +32,7 @@ export default function SectionTwo() {
         aria-labelledby={`simple-tab-${index}`}
         {...other}
       >
-        {value === index && (
-          <Box>
-            {children}
-          </Box>
-        )}
+        {value === index && <Box>{children}</Box>}
       </div>
     );
   };
@@ -59,8 +55,13 @@ export default function SectionTwo() {
         background: "primary.main",
       }}
     >
-      <Container maxWidth="xl" sx={{ height: "100vh" }}>
-        <Grid container alignContent={"center"} spacing={20} sx={{ height: "100%" }}>
+      <Container maxWidth="xl" sx={{ minHeight: "100vh" }}>
+        <Grid
+          container
+          alignContent={"center"}
+          spacing={20}
+          sx={{ height: "100%" }}
+        >
           <Grid item sm={6}>
             <Typography variant="h6" marginBottom={"3rem"} color={"white"}>
               <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span> is
@@ -86,7 +87,7 @@ export default function SectionTwo() {
             </Button>
           </Grid>
           <Grid item sm={6}>
-            <Box sx={{ mb:'2rem'}}>
+            <Box sx={{ mb: "2rem" }}>
               <Tabs
                 sx={{
                   ".MuiTab-root": {

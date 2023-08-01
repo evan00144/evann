@@ -5,7 +5,7 @@ export default function SectionOne3D() {
   return (
     <div
       style={{
-        height: "100vh",
+        minHeight: "100vh",
         position: "relative",
         background: "url('img/bg/jumbotron.png')",
         backgroundSize: "cover",
@@ -14,7 +14,7 @@ export default function SectionOne3D() {
       }}
     >
       <Container maxWidth="xl">
-        <div style={{ height: "100vh", position: "relative" }}>
+        <div style={{ minHeight: "100vh", position: "relative" }}>
           <div
             style={{
               position: "absolute",
