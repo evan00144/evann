@@ -51,15 +51,17 @@ export default function SectionTwo() {
   return (
     <div
       style={{
-        position: "relative",
         background: "primary.main",
       }}
     >
-      <Container maxWidth="xl" sx={{ minHeight: "100vh" }}>
+      <Container maxWidth="xl" sx={{ 
+        height: "100vh"
+      // , height: "100%"
+       }}>
         <Grid
           container
           alignContent={"center"}
-          spacing={20}
+          // spacing={20}
           sx={{ height: "100%" }}
         >
           <Grid item sm={6}>
