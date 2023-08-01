@@ -5,17 +5,16 @@ export default function SectionOne3D() {
   return (
     <div
       style={{
-        height: "100vh",
+        minHeight: "100vh",
         position: "relative",
         background: "url('img/bg/jumbotron.png')",
-        // background:'rgb(22 33 72)',
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
       }}
     >
-      <Container maxWidth="lg">
-        <div style={{ height: "100vh", position: "relative" }}>
+      <Container maxWidth="xl">
+        <div style={{ minHeight: "100vh", position: "relative" }}>
           <div
             style={{
               position: "absolute",
@@ -65,12 +64,12 @@ export default function SectionOne3D() {
           position: "absolute",
           height: "fit-content",
           width: "fit-content",
-          top: "-200px",
-          left: "-150px",
+          top: "-40rem",
+          left: "-15rem",
           pointerEvents: "auto",
           cursor: "grab",
         }}
-        scene="https://prod.spline.design/7AZswQpLlWuQZEkv/scene.splinecode"
+        scene="https://prod.spline.design/vjmmer6SDlaR5P5n/scene.splinecode"
       />
     </div>
   );
