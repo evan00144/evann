@@ -2,6 +2,17 @@ import { Container, Grid, Typography } from "@mui/material";
 import Spline from "@splinetool/react-spline";
 
 export default function SectionOne3D() {
+  const canvas: HTMLCanvasElement | null = document.getElementById(
+    "responsive-canvas"
+  ) as HTMLCanvasElement | null;
+  const heightRatio = 1.5;
+
+  if (canvas) {
+    canvas.height = canvas.width * heightRatio;
+  } else {
+    console.error("Canvas element with ID 'responsive-canvas' not found.");
+  }
+
   return (
     <div
       style={{
@@ -64,8 +75,8 @@ export default function SectionOne3D() {
           position: "absolute",
           height: "fit-content",
           width: "fit-content",
-          top: "-40rem",
-          left: "-15rem",
+          top: "-20rem",
+          left: "-20rem",
           pointerEvents: "auto",
           cursor: "grab",
         }}
