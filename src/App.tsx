@@ -1,4 +1,5 @@
-import { ThemeProvider, createTheme } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
 import "./App.scss";
 import Header from "./pages/Header/Header";
 import SectionOne3D from "./pages/Section/SectionOne3D";
