@@ -19,9 +19,9 @@ export default function SectionOne3D() {
         minHeight: "100vh",
         position: "relative",
         background: "url('img/bg/jumbotron.png')",
-        backgroundSize: "cover",
+        // backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
+        backgroundPosition: "50% 100%",
       }}
     >
       <Container maxWidth="xl">
@@ -40,7 +40,7 @@ export default function SectionOne3D() {
             <Grid
               container
               alignContent={"center"}
-              sx={{ height: "100%", color: "white" }}
+              sx={{ height: "100%", color: "white",pb:'7vh' }}
             >
               <Grid item sm={6}></Grid>
               <Grid item sm={3}>
