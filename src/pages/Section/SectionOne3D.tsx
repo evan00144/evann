@@ -40,7 +40,7 @@ export default function SectionOne3D() {
             <Grid
               container
               alignContent={"center"}
-              sx={{ height: "100%", color: "white",pb:'7vh' }}
+              sx={{ height: "100%", color: "white", pb: "7vh" }}
             >
               <Grid item sm={6}></Grid>
               <Grid item sm={3}>
@@ -71,6 +71,7 @@ export default function SectionOne3D() {
         </div>
       </Container>
       <Spline
+        id="responsive-canvas"
         style={{
           position: "absolute",
           height: "fit-content",
