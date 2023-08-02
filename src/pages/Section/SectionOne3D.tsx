@@ -70,7 +70,7 @@ export default function SectionOne3D() {
           </div>
         </div>
       </Container>
-      <Spline
+      {/* <Spline
         id="responsive-canvas"
         style={{
           position: "absolute",
@@ -82,7 +82,7 @@ export default function SectionOne3D() {
           cursor: "grab",
         }}
         scene="https://prod.spline.design/vjmmer6SDlaR5P5n/scene.splinecode"
-      />
+      /> */}
     </div>
   );
 }

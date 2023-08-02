@@ -8,14 +8,12 @@ import {
   Tab,
   Tabs,
   Typography,
-  keyframes,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CodeIcon from "../../icons/CodeIcon";
 import CaseClockIcon from "../../icons/CaseClockIcon";
 import MedalIcon from "../../icons/MedalIcon";
-import { styled } from "styled-components";
-import { gsap } from "gsap";
+import { keyframes, styled } from "styled-components";
 
 export default function SectionTwo() {
   const [value, setValue] = useState(0);
@@ -54,143 +52,22 @@ export default function SectionTwo() {
     setValue(newValue);
   };
 
-  useEffect(() => {
-    interface SvgPath {
-      y: number | null;
-      smoothing: number | null;
-    }
-
-    document
-      .querySelectorAll<HTMLButtonElement>(".button")
-      .forEach((button) => {
-        console.log(button);
-        const duration = 3000;
-        const svg: Element | null = button.querySelector("svg");
-        const svgPath: SvgPath = new Proxy(
-          {
-            y: null,
-            smoothing: null,
-          },
-          {
-            set(target, key:keyof SvgPath, value) {
-              target[key] = value;
-              if (target.y !== null && target.smoothing !== null) {
-                svg!.innerHTML = getPath(target.y, target.smoothing, null);
-              }
-              return true;
-            },
-            get(target, key:keyof SvgPath) {
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-              return target[key];
-            },
-          }
-        );
-
-        button.style.setProperty("--duration", `${duration}ms`);
-
-        svgPath.y = 20;
-        svgPath.smoothing = 0;
-
-        button.addEventListener("click", (e) => {
-          e.preventDefault();
-
-          if (!button.classList.contains("loading")) {
-            button.classList.add("loading");
-
-            gsap.to(svgPath, {
-              smoothing: 0.3,
-              duration: (duration * 0.065) / 1000,
-            });
-
-            gsap.to(svgPath, {
-              y: 12,
-              duration: (duration * 0.265) / 1000,
-              delay: (duration * 0.065) / 1000,
-              ease: Elastic.easeOut.config(1.12, 0.4),
-            });
-
-            setTimeout(() => {
-              svg!.innerHTML = getPath(0, 0, [
-                [3, 14],
-                [8, 19],
-                [21, 6],
-              ]);
-            }, duration / 2);
-          }
-        });
-      });
-
-    function getPoint(
-      point: number[],
-      i: number,
-      a: number[][],
-      smoothing: number
-    ): string {
-      const cp = (
-        current: number[],
-        previous: number[] | null,
-        next: number[] | null,
-        reverse: boolean
-      ) => {
-        const p = previous || current;
-        const n = next || current;
-        const o = {
-          length: Math.sqrt(
-            Math.pow(n[0] - p[0], 2) + Math.pow(n[1] - p[1], 2)
-          ),
-          angle: Math.atan2(n[1] - p[1], n[0] - p[0]),
-        };
-        const angle = o.angle + (reverse ? Math.PI : 0);
-        const length = o.length * smoothing;
-        return [
-          current[0] + Math.cos(angle) * length,
-          current[1] + Math.sin(angle) * length,
-        ];
-      };
-      const cps = cp(a[i - 1], a[i - 2], point, false);
-      const cpe = cp(point, a[i - 1], a[i + 1], true);
-      return `C ${cps[0]},${cps[1]} ${cpe[0]},${cpe[1]} ${point[0]},${point[1]}`;
-    }
-
-    function getPath(
-      update: number,
-      smoothing: number,
-      pointsNew: number[][] | null
-    ): string {
-      const points = pointsNew
-        ? pointsNew
-        : [
-            [4, 12],
-            [12, update],
-            [20, 12],
-          ];
-      const d = points.reduce(
-        (acc, point, i, a) =>
-          i === 0
-            ? `M ${point[0]},${point[1]}`
-            : `${acc} ${getPoint(point, i, a, smoothing)}`,
-        ""
-      );
-      return `<path d="${d}" />`;
-    }
-  }, []);
-
   return (
     <div>
       <Container
         maxWidth="xl"
         sx={{
           minHeight: "100vh",
-          // , height: "100%"
           display: "flex",
         }}
       >
-        <div style={{ flex: "1" }}>
+        <Box sx={{ flex: "1", position: "relative" }}>
           <Grid
             container
             alignContent={"center"}
             // spacing={20}
-            sx={{ height: "100%", flex: 1 }}
+            columnSpacing={15}
+            sx={{ height: "100%", flex: 1, padding: "3rem" }}
           >
             <Grid item sm={6}>
               <Typography variant="h6" marginBottom={"3rem"} color={"white"}>
@@ -207,88 +84,53 @@ export default function SectionTwo() {
                 and can handle multiple projects simultaneously in a fast-paced
                 and dynamic environment.
               </Typography>
-              <Button
-                variant="contained"
-                color="secondary"
-                size="large"
-                sx={{ padding: "1.5rem 2.25rem", fontSize: "2.5rem" }}
-              >
-                Download CV
-              </Button>
               <ButtonGroup
                 className="button"
                 variant="contained"
+                color="secondary"
                 size="large"
                 sx={{
                   button: {
                     "&:hover": {
-                      background: (theme) => theme.palette.primary.main,
+                      background: (theme) => theme.palette.secondary.main,
                     },
                     ".MuiTouchRipple-root": {
                       display: "none",
                     },
                   },
-                  "&.loading": {
-                    ".MuiButtonBase-root ul": {
-                      // animation: `${textTransform} calc(var(--duration) * 1ms) linear forwards calc(var(--duration) * .065ms)`,
-                      animation: `${textTransform} 3s linear forwards`,
-                    },
-                    div: {
-                      " &:before": {
-                        animation: `${lineKeyframes} 3s linear forwards`,
-                      },
-                      " &:after": {
-                        animation: `${backgroundKeyframes} 3s linear forwards`,
-                      },
-                      svg: {
-                        animation: `${svgKeyframes} 3s linear forwards `,
-                      },
-                    },
-                  },
-                  div: {
-                    position: "relative",
-                    width: "60px",
-                    height: "60px",
-                    overflow: "hidden",
-                    background: "blue",
-                    "&:before, &:after": {
-                      content: '""',
-                      display: "block",
-                      position: "absolute",
-                    },
-                    "&:before": {
-                      borderRadius: "1px",
-                      width: "2px",
-                      top: "50%",
-                      left: "50%",
-                      height: "17px",
-                      margin: "-9px 0 0 -1px",
-                      background: "white",
-                    },
-                    "&:after": {
-                      width: "100%",
-                      height: "100%",
-                      transformOrigin: "50% 0",
-                      borderRadius: "0 0 80% 80%",
-                      background: "red",
-                      top: "0",
-                      left: "0",
-                      transform: "scaleY(0)",
-                    },
-                  },
                 }}
               >
-                <Button sx={{ overflow: "hidden" }}>
-                  <CustomUL>
-                    <li>&#68;ownload</li>
-                    <li>&#68;ownloading</li>
-                    <li>Open File</li>
-                  </CustomUL>
+                <Button
+                  color={"secondary"}
+                  sx={{
+                    overflow: "hidden",
+                    padding: "1rem 2.25rem",
+                    fontSize: "2rem",
+                  }}
+                >
+                  Download CV
                 </Button>
-                <Button>
-                  <div>
-                    <CustomSVG viewBox="0 0 24 24"></CustomSVG>
-                  </div>
+                <Button
+                  color={"secondary"}
+                  sx={{
+                    padding: "1rem 2rem",
+                  }}
+                >
+                  <svg
+                    width="29"
+                    height="30"
+                    viewBox="0 0 29 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      id="svgTest"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M14.1446 0C15.328 0 16.2874 0.95939 16.2874 2.14286V22.6722L24.6252 14.3078C25.4607 13.4697 26.8175 13.4675 27.6557 14.303C28.4938 15.1385 28.496 16.4953 27.6605 17.3335L15.6622 29.37C15.2602 29.7733 14.7142 30 14.1447 30C13.5753 30 13.0292 29.7734 12.6271 29.3702L0.625438 17.3337C-0.210188 16.4957 -0.208226 15.1389 0.629822 14.3032C1.46787 13.4676 2.82465 13.4696 3.66028 14.3076L12.0017 22.6732V2.14286C12.0017 0.95939 12.9611 0 14.1446 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </Button>
               </ButtonGroup>
             </Grid>
@@ -356,53 +198,13 @@ export default function SectionTwo() {
               </CustomTabPanel>
             </Grid>
           </Grid>
-        </div>
+          <GlassBg />
+          <RadialCircle />
+        </Box>
       </Container>
     </div>
   );
 }
-
-const CustomUL = styled.ul`
-  margin: 0;
-  padding: 16px 40px;
-  list-style: none;
-  text-align: center;
-  position: relative;
-  backface-visibility: hidden;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 28px;
-  li {
-    &:not(:first-child) {
-      top: 16px;
-      left: 0;
-      right: 0;
-      position: absolute;
-    }
-    &:nth-child(2) {
-      top: 76px;
-    }
-    &:nth-child(3) {
-      top: 136px;
-    }
-  }
-`;
-
-const CustomSVG = styled.svg`
-  display: block;
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  left: 50%;
-  top: 50%;
-  margin: -9px 0 0 -10px;
-  fill: none;
-  z-index: 1;
-  stroke-width: 2px;
-  stroke: white;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-`;
 
 const textTransform = keyframes`
   10%, 85% {
@@ -413,68 +215,56 @@ const textTransform = keyframes`
   }
 `;
 
-const lineKeyframes = keyframes`
-  5%, 10% {
-    transform: translateY(-30px);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  65% {
-    transform: translateY(0);
-  }
-  75%, 100% {
-    transform: translateY(30px);
-  }
+const GlassBg = styled(Box)`
+  position: absolute;
+  width: 100%;
+  height: 55vh;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.3px);
+  -webkit-backdrop-filter: blur(12.3px);
 `;
 
-const svgKeyframes = keyframes`
-  0%, 20% {
-    stroke-dasharray: 0;
-    stroke-dashoffset: 0;
-  }
-  21%, 89% {
-    stroke-dasharray: 26px;
-    stroke-dashoffset: 26px;
-    stroke-width: 3px;
-    margin: -10px 0 0 -10px;
-    stroke: white;
-  }
-  100% {
-    stroke-dasharray: 26px;
-    stroke-dashoffset: 0;
-    margin: -10px 0 0 -10px;
-    stroke: white;
-  }
-  12% {
-    opacity: 1;
-  }
-  20%, 89% {
-    opacity: 0;
-  }
-  90%, 100% {
-    opacity: 1;
-  }
-`;
+const randomNumber = (max:number) => Math.floor(Math.random() * max);
 
-const backgroundKeyframes = keyframes`
-  10% {
-    transform: scaleY(0);
-  }
-  40% {
-    transform: scaleY(.15);
-  }
-  65% {
-    transform: scaleY(.5);
-    border-radius: 0 0 50% 50%;
-  }
-  75% {
-    border-radius: 0 0 50% 50%;
-  }
-  90%, 100% {
-    border-radius: 0;
-  }
-  75%, 100% {
-    transform: scaleY(1);
-  }
+
+const movingCircleKeyframes = keyframes`
+0% {
+  transform: translate(0, 0);
+}
+10% {
+  transform: translate(${randomNumber(100)}vw, ${randomNumber(100)}vh);
+}
+25% {
+  transform: translate(${randomNumber(100)}vw, ${randomNumber(100)}vh);
+}
+50% {
+  transform: translate(${randomNumber(100)}vw, ${randomNumber(100)}vh);
+}
+90% {
+  transform: translate(${randomNumber(100)}vw, ${randomNumber(100)}vh);
+}
+100% {
+  transform: translate(0, 0);
+}
+`;
+const RadialCircle = styled(Box)`
+  position: absolute;
+  width: 15rem;
+  height: 15rem;
+  z-index: -2;
+  top:0;
+  left:0;
+  border-radius: 50%;
+  background: rgb(157, 142, 254);
+  background: radial-gradient(
+    circle,
+    rgba(157, 142, 254, 1) 0%,
+    rgba(0, 107, 208, 1) 100%
+  );
+  animation: ${movingCircleKeyframes} 12s linear infinite;
 `;
