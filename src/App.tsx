@@ -16,6 +16,11 @@ function App() {
         contrastText: "#182145",
       },
     },
+    typography:{
+      allVariants:{
+        color: "white"
+      }
+    }
   });
 
   return (
