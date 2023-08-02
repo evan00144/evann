@@ -2,15 +2,26 @@ import { Container, Grid, Typography } from "@mui/material";
 import Spline from "@splinetool/react-spline";
 
 export default function SectionOne3D() {
+  const canvas: HTMLCanvasElement | null = document.getElementById(
+    "responsive-canvas"
+  ) as HTMLCanvasElement | null;
+  const heightRatio = 1.5;
+
+  if (canvas) {
+    canvas.height = canvas.width * heightRatio;
+  } else {
+    console.error("Canvas element with ID 'responsive-canvas' not found.");
+  }
+
   return (
     <div
       style={{
         minHeight: "100vh",
         position: "relative",
         background: "url('img/bg/jumbotron.png')",
-        backgroundSize: "cover",
+        // backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
+        backgroundPosition: "50% 100%",
       }}
     >
       <Container maxWidth="xl">
@@ -29,7 +40,7 @@ export default function SectionOne3D() {
             <Grid
               container
               alignContent={"center"}
-              sx={{ height: "100%", color: "white" }}
+              sx={{ height: "100%", color: "white",pb:'7vh' }}
             >
               <Grid item sm={6}></Grid>
               <Grid item sm={3}>
@@ -64,8 +75,8 @@ export default function SectionOne3D() {
           position: "absolute",
           height: "fit-content",
           width: "fit-content",
-          top: "-40rem",
-          left: "-15rem",
+          top: "-20rem",
+          left: "-20rem",
           pointerEvents: "auto",
           cursor: "grab",
         }}
