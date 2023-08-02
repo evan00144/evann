@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import {
   Box,
   Button,
@@ -206,14 +205,6 @@ export default function SectionTwo() {
   );
 }
 
-const textTransform = keyframes`
-  10%, 85% {
-    transform: translateY(-100%);
-  }
-  95%,100% {
-    transform: translateY(-200%);
-  }
-`;
 
 const GlassBg = styled(Box)`
   position: absolute;

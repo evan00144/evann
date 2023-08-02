@@ -1,5 +1,5 @@
 import { Container, Grid, Typography } from "@mui/material";
-import Spline from "@splinetool/react-spline";
+// import Spline from "@splinetool/react-spline";
 
 export default function SectionOne3D() {
   const canvas: HTMLCanvasElement | null = document.getElementById(
