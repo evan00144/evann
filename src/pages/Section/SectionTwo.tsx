@@ -72,14 +72,14 @@ export default function SectionTwo() {
             smoothing: null,
           },
           {
-            set(target, key, value) {
+            set(target, key:keyof SvgPath, value) {
               target[key] = value;
               if (target.y !== null && target.smoothing !== null) {
                 svg!.innerHTML = getPath(target.y, target.smoothing, null);
               }
               return true;
             },
-            get(target, key) {
+            get(target, key:keyof SvgPath) {
               // eslint-disable-next-line @typescript-eslint/no-unsafe-return
               return target[key];
             },
