@@ -1,5 +1,5 @@
 import { Container, Grid, Typography } from "@mui/material";
-import Spline from "@splinetool/react-spline";
+// import Spline from "@splinetool/react-spline";
 
 export default function SectionOne3D() {
   const canvas: HTMLCanvasElement | null = document.getElementById(
@@ -40,7 +40,7 @@ export default function SectionOne3D() {
             <Grid
               container
               alignContent={"center"}
-              sx={{ height: "100%", color: "white",pb:'7vh' }}
+              sx={{ height: "100%", color: "white", pb: "7vh" }}
             >
               <Grid item sm={6}></Grid>
               <Grid item sm={3}>
@@ -70,7 +70,8 @@ export default function SectionOne3D() {
           </div>
         </div>
       </Container>
-      <Spline
+      {/* <Spline
+        id="responsive-canvas"
         style={{
           position: "absolute",
           height: "fit-content",
@@ -81,7 +82,7 @@ export default function SectionOne3D() {
           cursor: "grab",
         }}
         scene="https://prod.spline.design/vjmmer6SDlaR5P5n/scene.splinecode"
-      />
+      /> */}
     </div>
   );
 }
