@@ -6,73 +6,71 @@ import QuoteIcon from "../../icons/QuoteIcon";
 
 export default function SectionFourTestimonial() {
   return (
-    <Box
+    <Stack
+      justifyContent={"end"}
+      direction={"row"}
       sx={{
-        minHeight: "100vh",
+        height: "100vh",
         position: "relative",
       }}
     >
-      <Container maxWidth="xl">
-        <Grid
-          container
-          alignItems={'center'}
-          sx={{
-            position: "absolute",
-            height: "100%",
-          }}
-        >
-          <Grid item sm={5}>
-            <Typography variant="h3" fontWeight={600} marginBottom={'2.6rem'}>
-              Lorem ipsum dolor sit amet
-            </Typography>
-            <Typography variant="h5" marginBottom={"5rem"}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua
-            </Typography>
+      <Grid
+        container
+        alignItems={"center"}
+        sx={{
+          position: "absolute",
+          height: "100%",
+          paddingLeft: "5rem",
+        }}
+      >
+        <Grid item sm={5}>
+          <Typography variant="h3" fontWeight={600} marginBottom={"2.6rem"}>
+            Lorem ipsum dolor sit amet
+          </Typography>
+          <Typography variant="h5" marginBottom={"5rem"}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua
+          </Typography>
 
-            <Stack direction={"row"} spacing={3} alignItems={"center"}>
-              <Box
-                sx={{ width: "60px", height: "60px" }}
-                display={"flex"}
-                alignItems={"center"}
-                justifyContent={"center"}
-              >
-                <LinkedInIcon />
-              </Box>
-              <Typography variant="body1">linkedin.com/in/evan0014/</Typography>
-            </Stack>
-            <Stack direction={"row"} spacing={3} alignItems={"center"}>
-              <Box
-                sx={{ width: "60px", height: "60px" }}
-                display={"flex"}
-                alignItems={"center"}
-                justifyContent={"center"}
-              >
-                <GitHubIcon />
-              </Box>
-              <Typography variant="body1">linkedin.com/in/evan0014/</Typography>
-            </Stack>
-            <Stack direction={"row"} spacing={3} alignItems={"center"}>
-              <Box
-                sx={{ width: "60px", height: "60px" }}
-                display={"flex"}
-                alignItems={"center"}
-                justifyContent={"center"}
-              >
-                <GmailIcon />
-              </Box>
-              <Typography variant="body1">linkedin.com/in/evan0014/</Typography>
-            </Stack>
-          </Grid>
+          <Stack direction={"row"} spacing={3} alignItems={"center"}>
+            <Box
+              sx={{ width: "60px", height: "60px" }}
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"center"}
+            >
+              <LinkedInIcon />
+            </Box>
+            <Typography variant="body1">linkedin.com/in/evan0014/</Typography>
+          </Stack>
+          <Stack direction={"row"} spacing={3} alignItems={"center"}>
+            <Box
+              sx={{ width: "60px", height: "60px" }}
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"center"}
+            >
+              <GitHubIcon />
+            </Box>
+            <Typography variant="body1">linkedin.com/in/evan0014/</Typography>
+          </Stack>
+          <Stack direction={"row"} spacing={3} alignItems={"center"}>
+            <Box
+              sx={{ width: "60px", height: "60px" }}
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"center"}
+            >
+              <GmailIcon />
+            </Box>
+            <Typography variant="body1">linkedin.com/in/evan0014/</Typography>
+          </Stack>
         </Grid>
-      </Container>
+      </Grid>
 
       <Box
         sx={{
           width: "50%",
-          position: "absolute",
-          bottom: "0",
-          right: "0",
           height: "100%",
         }}
       >
@@ -124,16 +122,7 @@ export default function SectionFourTestimonial() {
             </Box>
           </Grid>
           <Grid item sm={6} sx={{ position: "relative" }}>
-            <Grid
-              container
-              direction={"row"}
-              sx={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                height: "100%",
-              }}
-            >
+            <Grid container direction={"row"} sx={{ height: "100%" }}>
               <Grid item sm={12}>
                 <Box
                   sx={{
@@ -227,6 +216,6 @@ export default function SectionFourTestimonial() {
           </Grid>
         </Grid>
       </Box>
-    </Box>
+    </Stack>
   );
 }
