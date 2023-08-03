@@ -8,7 +8,7 @@ import {
   Tabs,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CodeIcon from "../../icons/CodeIcon";
 import CaseClockIcon from "../../icons/CaseClockIcon";
 import MedalIcon from "../../icons/MedalIcon";
@@ -51,6 +51,32 @@ export default function SectionTwo() {
     setValue(newValue);
   };
 
+  const [glassHeight, setGlassHeight] = useState<number | undefined>(0);
+
+  const contentHeight = document.querySelector(
+    ".content-height-box"
+  )?.clientHeight;
+
+  useEffect(() => {
+    setGlassHeight(contentHeight);
+  }, [contentHeight]);
+
+  console.log(contentHeight);
+
+  const GlassBg = styled(Box)`
+    position: absolute;
+    width: 100%;
+    height: calc(${glassHeight}px + 6rem);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.3px);
+    -webkit-backdrop-filter: blur(12.3px);
+  `;
+
   return (
     <div>
       <Container
@@ -68,7 +94,7 @@ export default function SectionTwo() {
             columnSpacing={15}
             sx={{ height: "100%", flex: 1, padding: "3rem" }}
           >
-            <Grid item sm={6}>
+            <Grid item sm={6} className="content-height-box">
               <Typography variant="h6" marginBottom={"3rem"} color={"white"}>
                 <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span>{" "}
                 is a Front-End / Web Developer with almost 2 years of work
@@ -198,6 +224,7 @@ export default function SectionTwo() {
             </Grid>
           </Grid>
           <GlassBg />
+          <RadialCircle2 />
           <RadialCircle />
         </Box>
       </Container>
@@ -205,42 +232,66 @@ export default function SectionTwo() {
   );
 }
 
-
-const GlassBg = styled(Box)`
-  position: absolute;
-  width: 100%;
-  height: 55vh;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: -1;
-  background: rgba(255, 255, 255, 0.14);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(12.3px);
-  -webkit-backdrop-filter: blur(12.3px);
-`;
-
-const randomNumber = (max:number) => Math.floor(Math.random() * max);
-
+const randomNumber = (max: number) => Math.floor(Math.random() * max);
+const generateXY = (number: number) => {
+  const x = randomNumber(number);
+  const y = randomNumber(number);
+  return `left: ${x}%;
+  top: ${y}%;
+  transform: translate(-${x}%, -${y}%);
+  `;
+};
 
 const movingCircleKeyframes = keyframes`
 0% {
-  transform: translate(0, 0);
+  ${generateXY(100)}
 }
-10% {
-  transform: translate(${randomNumber(100)}vw, ${randomNumber(100)}vh);
+20% {
+  ${generateXY(100)}
+  scale: 1.2;
 }
-25% {
-  transform: translate(${randomNumber(100)}vw, ${randomNumber(100)}vh);
+40% {
+  ${generateXY(100)}
+  scale: 1.5;
 }
-50% {
-  transform: translate(${randomNumber(100)}vw, ${randomNumber(100)}vh);
+60% {
+  ${generateXY(100)}
+  scale: .7;
 }
-90% {
-  transform: translate(${randomNumber(100)}vw, ${randomNumber(100)}vh);
+80% {
+  ${generateXY(100)}
+  scale: 2;
 }
 100% {
-  transform: translate(0, 0);
+  left: 0;
+  top: 0;  
+  scale: 1;
+}
+`;
+const movingCircleKeyframes2 = keyframes`
+0% {
+  ${generateXY(100)}
+  
+}
+20% {
+  ${generateXY(100)}
+  scale: 1.2;
+}
+40% {
+  ${generateXY(100)}
+  scale: 1.5;
+}
+60% {
+  ${generateXY(100)}
+  scale: .7;
+}
+80% {
+  ${generateXY(100)}
+  scale: 2;
+}
+100% {
+  ${generateXY(100)}
+  scale: 1;
 }
 `;
 const RadialCircle = styled(Box)`
@@ -248,8 +299,8 @@ const RadialCircle = styled(Box)`
   width: 15rem;
   height: 15rem;
   z-index: -2;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   border-radius: 50%;
   background: rgb(157, 142, 254);
   background: radial-gradient(
@@ -258,4 +309,21 @@ const RadialCircle = styled(Box)`
     rgba(0, 107, 208, 1) 100%
   );
   animation: ${movingCircleKeyframes} 12s linear infinite;
+`;
+
+const RadialCircle2 = styled(Box)`
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #40b084 0%,
+    rgba(24, 33, 69, 0) 100%
+  );
+  animation: ${movingCircleKeyframes2} 12s linear infinite;
 `;
