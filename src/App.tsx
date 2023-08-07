@@ -3,9 +3,9 @@ import { ThemeProvider } from "@mui/material/styles";
 import "./App.scss";
 import Header from "./pages/Header/Header";
 import SectionOne3D from "./pages/Section/SectionOne3D";
-import SectionTwo from "./pages/Section/SectionTwo";
 import SectionFourTestimonial from "./pages/Section/SectionFourTestimonial";
 import { theme } from "./theme";
+import SectionTwoPage from "./pages/Section/SectionTwo/SectionTwoPage";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -22,7 +22,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Header />
       <SectionOne3D />
-      <SectionTwo />
+      <SectionTwoPage />
       <SectionFourTestimonial />
     </ThemeProvider>
   );

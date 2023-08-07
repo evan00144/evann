@@ -12,19 +12,23 @@ import {
   styled,
 } from "@mui/material";
 import { useEffect, useState } from "react";
-import CodeIcon from "../../icons/CodeIcon";
-import CaseClockIcon from "../../icons/CaseClockIcon";
-import MedalIcon from "../../icons/MedalIcon";
-import { theme } from "../../theme";
-import {
-  TertiaryText,
-  WhiteText,
-  SecondaryText,
-  GreyText,
-} from "../../styled/text-color.styled";
+import ReactTyped from "react-typed";
+import { useInView } from "react-intersection-observer";
+import CaseClockIcon from "../../../icons/CaseClockIcon";
+import CodeIcon from "../../../icons/CodeIcon";
+import MedalIcon from "../../../icons/MedalIcon";
+import CertificateTab from "./CertificateTab";
+import ExperienceTab from "./ExperienceTab";
+import SkillTab from "./SkillTab";
 
-export default function SectionTwo() {
+export default function SectionTwoPage() {
+  const [ref, inView] = useInView({});
   const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    console.log(inView);
+  }, [inView]);
+
   interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
@@ -78,321 +82,6 @@ export default function SectionTwo() {
   useEffect(() => {
     setGlassHeight(contentHeight as number);
   }, [contentHeight]);
-
-  interface iSkillContent {
-    title: string;
-    content: string;
-  }
-
-  interface iExperienceContent {
-    title: string;
-    content: string;
-    comment: string;
-  }
-
-  interface iCertificateContent {
-    title: string;
-    content: string;
-    comment: string;
-    link: string;
-  }
-
-  const SkillContent = ({ title, content }: iSkillContent) => {
-    return (
-      <>
-        <Box>
-          <TertiaryText component={"span"} theme={theme}>
-            {`<div `}
-          </TertiaryText>
-          <WhiteText component={"span"}>{`class`}</WhiteText>
-          <TertiaryText component={"span"} theme={theme}>{`="`}</TertiaryText>
-          <SecondaryText
-            component={"span"}
-            theme={theme}
-          >{`${title}`}</SecondaryText>
-          <TertiaryText component={"span"} theme={theme}>{`">`}</TertiaryText>
-        </Box>
-        <Box
-          sx={{
-            paddingLeft: "2rem",
-          }}
-        >
-          <WhiteText
-            sx={{
-              whiteSpace: "nowrap",
-            }}
-            component={"span"}
-          >{`${content}`}</WhiteText>
-        </Box>
-        <Box>
-          <TertiaryText
-            component={"span"}
-            theme={theme}
-          >{`</div>`}</TertiaryText>
-        </Box>
-      </>
-    );
-  };
-
-  const SkillTab = () => {
-    return (
-      <>
-        <Stack direction={"row"}>
-          <Box
-            sx={{
-              color: "#6e7681",
-              paddingRight: "1rem",
-              "& > *": {
-                lineHeight: "1.568rem",
-                fontFamily: "'Inconsolata', monospace !important",
-              },
-            }}
-          >
-            {Array.from(Array(15).keys()).map((item) => (
-              <Box key={item}>{item + 1}</Box>
-            ))}
-          </Box>
-          <Box
-            sx={{
-              overflowX: "auto",
-            }}
-          >
-            <SkillContent
-              title={"programming-language"}
-              content={"Java, HTML, CSS, JS, C, MySQL, PHP"}
-            />
-            <Box>-</Box> {/** Spacer */}
-            <SkillContent
-              title={"framework/library"}
-              content={
-                "ReactJS, jQuery, Bootstrap, Firebase, Code Igniter, Ionic React, GSAP, Angular JS"
-              }
-            />
-            <Box>-</Box> {/** Spacer */}
-            <SkillContent
-              title={"software"}
-              content={
-                "VS Code, Android Studio, IntelliJ, GitHub, Figma, Google Colab"
-              }
-            />
-            <Box>-</Box> {/** Spacer */}
-            <SkillContent
-              title={"language"}
-              content={
-                "Bahasa Indonesia (Native), English (Limited Working Proficiency)"
-              }
-            />
-          </Box>
-        </Stack>
-      </>
-    );
-  };
-
-  const ExperienceContent = ({
-    title,
-    content,
-    comment,
-  }: iExperienceContent) => {
-    return (
-      <>
-        <Box>
-          <TertiaryText component={"span"} theme={theme}>
-            {`<div `}
-          </TertiaryText>
-          <WhiteText component={"span"}>{`class`}</WhiteText>
-          <TertiaryText component={"span"} theme={theme}>{`="`}</TertiaryText>
-          <SecondaryText
-            component={"span"}
-            theme={theme}
-          >{`${title}`}</SecondaryText>
-          <TertiaryText component={"span"} theme={theme}>{`">`}</TertiaryText>
-        </Box>
-        <Box
-          sx={{
-            paddingLeft: "2rem",
-          }}
-        >
-          <WhiteText component={"span"}>{`${content}`}</WhiteText>
-        </Box>
-        <Box
-          sx={{
-            paddingLeft: "2rem",
-          }}
-        >
-          <GreyText component={"span"}>//({`${comment}`})</GreyText>
-        </Box>
-        <Box>
-          <TertiaryText
-            component={"span"}
-            theme={theme}
-          >{`</div>`}</TertiaryText>
-        </Box>
-      </>
-    );
-  };
-
-  const ExperienceTab = () => {
-    return (
-      <>
-        <Stack direction={"row"}>
-          <Box
-            sx={{
-              color: "#6e7681",
-              paddingRight: "1rem",
-              "& > *": {
-                lineHeight: "1.568rem",
-                fontFamily: "'Inconsolata', monospace !important",
-              },
-            }}
-          >
-            {Array.from(Array(15).keys()).map((item) => (
-              <Box key={item}>{item + 1}</Box>
-            ))}
-          </Box>
-          <Box
-            sx={{
-              overflowX: "auto",
-            }}
-          >
-            <ExperienceContent
-              title={"Jan2023-Jun2023"}
-              content="Frontend Developer - PT Indonesia Indicator"
-              comment="South Jakarta, Hybrid"
-            />
-            <Box>-</Box> {/** Spacer */}
-            <ExperienceContent
-              title={"Aug2022-Dec2022"}
-              content="Frontend Developer Intern - PT Indonesia Indicator"
-              comment="South Jakarta, Hybrid"
-            />
-            <Box>-</Box> {/** Spacer */}
-            <ExperienceContent
-              title={"Feb2022-Jun2022"}
-              content="Frontend Developer Intern - PT Hashmicro Solusi Indonesia"
-              comment="South Jakarta, Hybrid"
-            />
-          </Box>
-        </Stack>
-      </>
-    );
-  };
-
-  const CertificateContent = ({
-    title,
-    content,
-    comment,
-    link,
-  }: iCertificateContent) => {
-    return (
-      <>
-        <Box>
-          <TertiaryText component={"span"} theme={theme}>
-            {`<div `}
-          </TertiaryText>
-          <WhiteText component={"span"}>{`class`}</WhiteText>
-          <TertiaryText component={"span"} theme={theme}>{`="`}</TertiaryText>
-          <SecondaryText component={"span"} theme={theme}>
-            {`${title}`}-
-            <a href={link} target="_blank">
-              Certificate
-            </a>
-          </SecondaryText>
-          <TertiaryText component={"span"} theme={theme}>{`">`}</TertiaryText>
-        </Box>
-        <Box
-          sx={{
-            paddingLeft: "2rem",
-          }}
-        >
-          <WhiteText component={"span"}>{`${content}`}</WhiteText>
-        </Box>
-        <Box
-          sx={{
-            paddingLeft: "2rem",
-          }}
-        >
-          <TertiaryText component={"span"} theme={theme}>
-            {`{`}
-          </TertiaryText>
-          <GreyText
-            sx={{
-              whiteSpace: "nowrap",
-            }}
-            component={"span"}
-          >
-            /*{`${comment}`}*/
-          </GreyText>
-
-          <TertiaryText component={"span"} theme={theme}>
-            {`}`}
-          </TertiaryText>
-        </Box>
-        <Box>
-          <TertiaryText
-            component={"span"}
-            theme={theme}
-          >{`</div>`}</TertiaryText>
-        </Box>
-      </>
-    );
-  };
-
-  const CertificateTab = () => {
-    return (
-      <>
-        <Stack direction={"row"}>
-          <Box
-            sx={{
-              color: "#6e7681",
-              paddingRight: "1rem",
-              "& > *": {
-                lineHeight: "1.568rem",
-                fontFamily: "'Inconsolata', monospace !important",
-              },
-            }}
-          >
-            {Array.from(Array(15).keys()).map((item) => (
-              <Box key={item}>{item + 1}</Box>
-            ))}
-          </Box>
-          <Box
-            sx={{
-              overflowX: "auto",
-            }}
-          >
-            <CertificateContent
-              title={"Feb2023"}
-              content="IT Specialist - Javascript by Certiport"
-              comment={
-                "Certification for recognizing, writing, and debugging JavaScriptcode that will logically solve a problem."
-              }
-              link={
-                "https://www.credly.com/badges/666f44c5-c702-46cd-884f-c5f1fdf5d6e2/linked_in?t=rqhoc5"
-              }
-            />
-            <Box>-</Box> {/** Spacer */}
-            <CertificateContent
-              title={"Feb2022"}
-              content="Jquery Couse by Sololearn"
-              comment={
-                "Learned to manipulate CSS and DOM. Created an effect such as hide/show, fade, slide, and animate an element."
-              }
-              link={"https://www.sololearn.com/Certificate/CT-X7ZKJHZM/jpg"}
-            />
-            <Box>-</Box> {/** Spacer */}
-            <CertificateContent
-              title={"Jun2022"}
-              content="Belajar membuat Front-End Web untuk Pemula by Dicoding"
-              comment={
-                "Learned about basic Javascript (data type, array, operator, etc.) and web storage (loca storage, session storage)"
-              }
-              link={"https://www.dicoding.com/certificates/53XE04Q09XRN"}
-            />
-          </Box>
-        </Stack>
-      </>
-    );
-  };
 
   const GlassBg = styled(Box)({
     position: "absolute",
@@ -457,6 +146,7 @@ export default function SectionTwo() {
                 }}
               >
                 <Button
+                  ref={ref}
                   color={"secondary"}
                   sx={{
                     overflow: "hidden",
@@ -620,67 +310,67 @@ const generateXY = (number: number) => {
   const x = randomNumber(number);
   const y = randomNumber(number);
   return `left: ${x}%;  
-  top: ${y}%;
-  transform: translate(-${x}%, -${y}%);
-  `;
+    top: ${y}%;
+    transform: translate(-${x}%, -${y}%);
+    `;
 };
 
 const movingCircleKeyframes = keyframes`
-0% {
-  top:0;
-  left:0;
-}
-20% {
-  ${generateXY(100)}
-  scale: 1.2;
-}
-40% {
-  ${generateXY(100)}
-  scale: 1.5;
-}
-60% {
-  ${generateXY(100)}
-  scale: .7;
-}
-80% {
-  ${generateXY(100)}
-  scale: 2;
-}
-100% {
-  left: 0;
-  top: 0;  
-  scale: 1;
-}
-`;
+  0% {
+    top:0;
+    left:0;
+  }
+  20% {
+    ${generateXY(100)}
+    scale: 1.2;
+  }
+  40% {
+    ${generateXY(100)}
+    scale: 1.5;
+  }
+  60% {
+    ${generateXY(100)}
+    scale: .7;
+  }
+  80% {
+    ${generateXY(100)}
+    scale: 2;
+  }
+  100% {
+    left: 0;
+    top: 0;  
+    scale: 1;
+  }
+  `;
 const movingCircleKeyframes2 = keyframes`
-0% {
-  top:100%;
-  left:100%;
-  transform: translate(-100%, -100%);  
-}
-20% {
-  ${generateXY(100)}
-  scale: 1.2;
-}
-40% {
-  ${generateXY(100)}
-  scale: 1.5;
-}
-60% {
-  ${generateXY(100)}
-  scale: .7;
-}
-80% {
-  ${generateXY(100)}
-  scale: 2;
-}
-100% {
-  top:100%;
-  left:100%;
-  transform: translate(-100%, -100%); 
-     scale: 1;
-}
-`;
+  0% {
+    top:100%;
+    left:100%;
+    transform: translate(-100%, -100%);  
+  }
+  20% {
+    ${generateXY(100)}
+    scale: 1.2;
+  }
+  40% {
+    ${generateXY(100)}
+    scale: 1.5;
+  }
+  60% {
+    ${generateXY(100)}
+    scale: .7;
+  }
+  80% {
+    ${generateXY(100)}
+    scale: 2;
+  }
+  100% {
+    top:100%;
+    left:100%;
+    transform: translate(-100%, -100%); 
+       scale: 1;
+  }
+  `;
 const RadialCircle = styled(Box)`
   position: absolute;
   width: 15rem;
