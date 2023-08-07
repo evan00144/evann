@@ -20,7 +20,7 @@ import ExperienceTab from "./ExperienceTab";
 import SkillTab from "./SkillTab";
 
 export default function SectionTwoPage() {
-  const [ref,inView] = useInView({});
+  const [ref, inView] = useInView({});
   const [value, setValue] = useState(0);
 
   interface TabPanelProps {
@@ -108,7 +108,7 @@ export default function SectionTwoPage() {
             justifyContent={"space-between"}
             sx={{ height: "100%", flex: 1, padding: "3rem" }}
           >
-            <Grid item sm={5} className="content-height-box">
+            <Grid item sm={5} ref={ref} className="content-height-box">
               <Typography variant="body1" marginBottom={"3rem"} color={"white"}>
                 <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span>{" "}
                 is a Front-End / Web Developer with almost 2 years of work
@@ -140,7 +140,6 @@ export default function SectionTwoPage() {
                 }}
               >
                 <Button
-                  ref={ref}
                   color={"secondary"}
                   sx={{
                     overflow: "hidden",
@@ -203,7 +202,7 @@ export default function SectionTwoPage() {
                         verticalAlign: "middle",
                         boxSizing: "border-box",
                         overflow: "unset",
-                        fontSize:'.625rem !important',
+                        fontSize: ".625rem !important",
                         borderTop: ".05px solid transparent",
                         borderLeft: ".05px solid transparent",
                         borderRight: ".05px solid transparent",
@@ -274,20 +273,20 @@ export default function SectionTwoPage() {
                     },
                   }}
                 >
-                    <>
-                      {/* SKILLS */}
-                      <CustomTabPanel value={value} index={0}>
-                        <SkillTab  inView={inView}/>
-                      </CustomTabPanel>
-                      {/* EXPERIENCE */}
-                      <CustomTabPanel value={value} index={1}>
-                        <ExperienceTab inView={inView} />
-                      </CustomTabPanel>
-                      {/* CERTIFICATE */}
-                      <CustomTabPanel value={value} index={2}>
-                        <CertificateTab inView={inView} />
-                      </CustomTabPanel>
-                    </>
+                  <>
+                    {/* SKILLS */}
+                    <CustomTabPanel value={value} index={0}>
+                      <SkillTab inView={inView} />
+                    </CustomTabPanel>
+                    {/* EXPERIENCE */}
+                    <CustomTabPanel value={value} index={1}>
+                      <ExperienceTab inView={inView} />
+                    </CustomTabPanel>
+                    {/* CERTIFICATE */}
+                    <CustomTabPanel value={value} index={2}>
+                      <CertificateTab inView={inView} />
+                    </CustomTabPanel>
+                  </>
                 </Box>
               </Box>
             </Grid>
