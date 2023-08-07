@@ -203,7 +203,7 @@ export default function SectionTwoPage() {
                         verticalAlign: "middle",
                         boxSizing: "border-box",
                         overflow: "unset",
-
+                        fontSize:'.8rem',
                         borderTop: "1px solid transparent",
                         borderLeft: "1px solid transparent",
                         borderRight: "1px solid transparent",
@@ -262,7 +262,7 @@ export default function SectionTwoPage() {
                 <Box
                   sx={{
                     background: "#05070F",
-                    height: "23.518125rem",
+                    height: "23.6rem",
                     overflowY: "auto",
                     padding: "1.5rem",
                     span: {

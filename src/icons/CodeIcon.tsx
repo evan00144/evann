@@ -1,8 +1,8 @@
 export default function CodeIcon() {
   return (
     <svg
-      width="29"
-      height="29"
+      width="25"
+      height="25"
       viewBox="0 0 29 29"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
