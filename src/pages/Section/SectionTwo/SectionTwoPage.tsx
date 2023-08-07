@@ -179,14 +179,14 @@ export default function SectionTwoPage() {
                 sx={{
                   borderRadius: ".75rem",
                   overflow: "hidden",
-                  border: "1px solid #707070",
+                  border: "1px solid rgba(248, 247, 251, 0.5)",
                 }}
               >
                 <Box
                   sx={{
                     background: "#1C1C22",
                     padding: ".75rem 2.25rem 0 2.25rem",
-                    borderBottom: "1px solid #707070",
+                    borderBottom: "1px solid rgba(248, 247, 251, 0.5)",
                   }}
                 >
                   <Tabs
@@ -218,7 +218,7 @@ export default function SectionTwoPage() {
                         background: "#05070F",
                         color: "white !important",
                         position: "relative",
-                        borderColor: "#707070",
+                        borderColor: "rgba(248, 247, 251, 0.5)",
                         "&:after": {
                           content: '""',
                           position: "absolute",
