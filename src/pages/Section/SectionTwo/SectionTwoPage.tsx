@@ -20,12 +20,8 @@ import ExperienceTab from "./ExperienceTab";
 import SkillTab from "./SkillTab";
 
 export default function SectionTwoPage() {
-  const [ref, inView] = useInView({});
+  const [ref] = useInView({});
   const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    console.log(inView);
-  }, [inView]);
 
   interface TabPanelProps {
     children?: React.ReactNode;
@@ -266,7 +262,7 @@ export default function SectionTwoPage() {
                 <Box
                   sx={{
                     background: "#05070F",
-                    // height: "23.6rem",
+                    height: "23.518125rem",
                     overflowY: "auto",
                     padding: "1.5rem",
                     span: {
@@ -278,18 +274,20 @@ export default function SectionTwoPage() {
                     },
                   }}
                 >
-                  {/* SKILLS */}
-                  <CustomTabPanel value={value} index={0}>
-                    <SkillTab />
-                  </CustomTabPanel>
-                  {/* EXPERIENCE */}
-                  <CustomTabPanel value={value} index={1}>
-                    <ExperienceTab />
-                  </CustomTabPanel>
-                  {/* CERTIFICATE */}
-                  <CustomTabPanel value={value} index={2}>
-                    <CertificateTab />
-                  </CustomTabPanel>
+                    <>
+                      {/* SKILLS */}
+                      <CustomTabPanel value={value} index={0}>
+                        <SkillTab />
+                      </CustomTabPanel>
+                      {/* EXPERIENCE */}
+                      <CustomTabPanel value={value} index={1}>
+                        <ExperienceTab />
+                      </CustomTabPanel>
+                      {/* CERTIFICATE */}
+                      <CustomTabPanel value={value} index={2}>
+                        <CertificateTab />
+                      </CustomTabPanel>
+                    </>
                 </Box>
               </Box>
             </Grid>

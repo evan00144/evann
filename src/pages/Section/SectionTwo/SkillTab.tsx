@@ -65,6 +65,7 @@ export default function SkillTab() {
             <Box key={item}>{item + 1}</Box>
           ))}
         </Box>
+        {/* {inView && ( */}
         <Box
           sx={{
             overflowX: "auto",
@@ -156,6 +157,7 @@ export default function SkillTab() {
             />
           </Box>
         </Box>
+        {/* )} */}
       </Stack>
     </>
   );
