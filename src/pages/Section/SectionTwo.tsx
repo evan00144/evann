@@ -4,19 +4,27 @@ import {
   ButtonGroup,
   Container,
   Grid,
+  Stack,
   Tab,
   Tabs,
   Typography,
+  keyframes,
+  styled,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import CodeIcon from "../../icons/CodeIcon";
 import CaseClockIcon from "../../icons/CaseClockIcon";
 import MedalIcon from "../../icons/MedalIcon";
-import { keyframes, styled } from "styled-components";
+import { theme } from "../../theme";
+import {
+  TertiaryText,
+  WhiteText,
+  SecondaryText,
+  GreyText,
+} from "../../styled/text-color.styled";
 
 export default function SectionTwo() {
   const [value, setValue] = useState(0);
-
   interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
@@ -34,7 +42,17 @@ export default function SectionTwo() {
         aria-labelledby={`simple-tab-${index}`}
         {...other}
       >
-        {value === index && <Box>{children}</Box>}
+        {value === index && (
+          <Box
+            sx={{
+              "& > *": {
+                lineHeight: "1.5rem",
+              },
+            }}
+          >
+            {children}
+          </Box>
+        )}
       </div>
     );
   };
@@ -61,7 +79,300 @@ export default function SectionTwo() {
     setGlassHeight(contentHeight);
   }, [contentHeight]);
 
-  console.log(contentHeight);
+  interface iSkillContent {
+    title: string;
+    content: string[];
+  }
+
+  interface iExperienceContent {
+    title: string;
+    content: string;
+    comment: string;
+  }
+
+  interface iCertificateContent {
+    title: string;
+    content: string;
+    comment: string[];
+  }
+
+  const SkillContent = ({ title, content }: iSkillContent) => {
+    return (
+      <>
+        <Box>
+          <TertiaryText component={"span"} theme={theme}>
+            {`<div `}
+          </TertiaryText>
+          <WhiteText component={"span"}>{`class`}</WhiteText>
+          <TertiaryText component={"span"} theme={theme}>{`="`}</TertiaryText>
+          <SecondaryText
+            component={"span"}
+            theme={theme}
+          >{`${title}`}</SecondaryText>
+          <TertiaryText component={"span"} theme={theme}>{`">`}</TertiaryText>
+        </Box>
+        {content.map((item, num) => (
+          <Box
+            key={num}
+            sx={{
+              paddingLeft: "2rem",
+            }}
+          >
+            <WhiteText component={"span"}>{`${item}`}</WhiteText>
+          </Box>
+        ))}
+        <Box>
+          <TertiaryText
+            component={"span"}
+            theme={theme}
+          >{`</div>`}</TertiaryText>
+        </Box>
+        <Box>-</Box> {/** Spacer */}
+      </>
+    );
+  };
+
+  const SkillTab = () => {
+    return (
+      <>
+        <Stack direction={"row"}>
+          <Box
+            sx={{
+              color: "#6e7681",
+              paddingRight: "1rem",
+              "& > *": {
+                lineHeight: "1.552rem",
+                fontFamily: "'Inconsolata', monospace !important",
+              },
+            }}
+          >
+            {Array.from(Array(16).keys()).map((item) => (
+              <Box key={item}>{item + 1}</Box>
+            ))}
+          </Box>
+          <Box>
+            <SkillContent
+              title={"programming-language"}
+              content={["Java, HTML, CSS, JS, C, MySQL, PHP"]}
+            />
+            <SkillContent
+              title={"framework/library"}
+              content={[
+                "ReactJS, jQuery, Bootstrap, Firebase, Code Igniter, Ionic React,",
+                "GSAP, Angular JS",
+              ]}
+            />
+            <SkillContent
+              title={"software"}
+              content={[
+                "VS Code, Android Studio, IntelliJ, GitHub, Figma, Google Colab",
+              ]}
+            />
+            <SkillContent
+              title={"language"}
+              content={[
+                "Bahasa Indonesia (Native), English (Limited Working Proficiency",
+              ]}
+            />
+          </Box>
+        </Stack>
+      </>
+    );
+  };
+
+  const ExperienceContent = ({
+    title,
+    content,
+    comment,
+  }: iExperienceContent) => {
+    return (
+      <>
+        <Box>
+          <TertiaryText component={"span"} theme={theme}>
+            {`<div `}
+          </TertiaryText>
+          <WhiteText component={"span"}>{`class`}</WhiteText>
+          <TertiaryText component={"span"} theme={theme}>{`="`}</TertiaryText>
+          <SecondaryText
+            component={"span"}
+            theme={theme}
+          >{`${title}`}</SecondaryText>
+          <TertiaryText component={"span"} theme={theme}>{`">`}</TertiaryText>
+        </Box>
+        <Box
+          sx={{
+            paddingLeft: "2rem",
+          }}
+        >
+          <WhiteText component={"span"}>{`${content}`}</WhiteText>
+        </Box>
+        <Box
+          sx={{
+            paddingLeft: "2rem",
+          }}
+        >
+          <GreyText component={"span"}>//({`${comment}`})</GreyText>
+        </Box>
+        <Box>
+          <TertiaryText
+            component={"span"}
+            theme={theme}
+          >{`</div>`}</TertiaryText>
+        </Box>
+        <Box>-</Box> {/** Spacer */}
+      </>
+    );
+  };
+
+  const ExperienceTab = () => {
+    return (
+      <>
+        <Stack direction={"row"}>
+          <Box
+            sx={{
+              color: "#6e7681",
+              paddingRight: "1rem",
+              "& > *": {
+                lineHeight: "1.552rem",
+                fontFamily: "'Inconsolata', monospace !important",
+              },
+            }}
+          >
+            {Array.from(Array(14).keys()).map((item) => (
+              <Box key={item}>{item + 1}</Box>
+            ))}
+          </Box>
+          <Box>
+            <ExperienceContent
+              title={"Jan2023-Jun2023"}
+              content="Frontend Developer - PT Indonesia Indicator"
+              comment="South Jakarta, Hybrid"
+            />
+
+            <ExperienceContent
+              title={"Aug2022-Dec2022"}
+              content="Frontend Developer Intern - PT Indonesia Indicator"
+              comment="South Jakarta, Hybrid"
+            />
+
+            <ExperienceContent
+              title={"Feb2022-Jun2022"}
+              content="Frontend Developer Intern - PT Hashmicro Solusi Indonesia"
+              comment="South Jakarta, Hybrid"
+            />
+          </Box>
+        </Stack>
+      </>
+    );
+  };
+
+  const CertificateContent = ({
+    title,
+    content,
+    comment,
+  }: iCertificateContent) => {
+    return (
+      <>
+        <Box>
+          <TertiaryText component={"span"} theme={theme}>
+            {`<div `}
+          </TertiaryText>
+          <WhiteText component={"span"}>{`class`}</WhiteText>
+          <TertiaryText component={"span"} theme={theme}>{`="`}</TertiaryText>
+          <SecondaryText
+            component={"span"}
+            theme={theme}
+          >{`${title}`}</SecondaryText>
+          <TertiaryText component={"span"} theme={theme}>{`">`}</TertiaryText>
+        </Box>
+        <Box
+          sx={{
+            paddingLeft: "2rem",
+          }}
+        >
+          <WhiteText component={"span"}>{`${content}`}</WhiteText>
+        </Box>
+        <Box
+          sx={{
+            paddingLeft: "2rem",
+          }}
+        >
+          <TertiaryText component={"span"} theme={theme}>
+            {`{ `}
+          </TertiaryText>
+          <GreyText component={"span"}>/*{`${comment[0]}`}</GreyText>
+        </Box>
+        <Box
+          sx={{
+            paddingLeft: "2rem",
+          }}
+        >
+          <GreyText component={"span"}>{`${comment[1]}`}*/</GreyText>
+          <TertiaryText component={"span"} theme={theme}>
+            {`} `}
+          </TertiaryText>
+        </Box>
+        <Box>
+          <TertiaryText
+            component={"span"}
+            theme={theme}
+          >{`</div>`}</TertiaryText>
+        </Box>
+        <Box>-</Box> {/** Spacer */}
+      </>
+    );
+  };
+
+  const CertificateTab = () => {
+    return (
+      <>
+        <Stack direction={"row"}>
+          <Box
+            sx={{
+              color: "#6e7681",
+              paddingRight: "1rem",
+              "& > *": {
+                lineHeight: "1.552rem",
+                fontFamily: "'Inconsolata', monospace !important",
+              },
+            }}
+          >
+            {Array.from(Array(14).keys()).map((item) => (
+              <Box key={item}>{item + 1}</Box>
+            ))}
+          </Box>
+          <Box>
+            <CertificateContent
+              title={"Feb2023"}
+              content="IT Specialist - Javascript by Certiport"
+              comment={[
+                "Certification for recognizing, writing, and debugging JavaScript",
+                "code that will logically solve a problem.",
+              ]}
+            />
+
+            <CertificateContent
+              title={"Feb2022"}
+              content="Jquery Couse by Sololearn"
+              comment={[
+                "Learned to manipulate CSS and DOM. Created an effect such as",
+                "hide/show, fade, slide, and animate an element.",
+              ]}
+            />
+
+            <CertificateContent
+              title={"Jun2022"}
+              content="Belajar membuat Front-End Web untuk Pemula by Dicoding"
+              comment={[
+                "Learned about basic Javascript (data type, array, operator, etc.)",
+                "and web storage (loca storage, session storage)",
+              ]}
+            />
+          </Box>
+        </Stack>
+      </>
+    );
+  };
 
   const GlassBg = styled(Box)`
     position: absolute;
@@ -92,10 +403,11 @@ export default function SectionTwo() {
             alignContent={"center"}
             // spacing={20}
             columnSpacing={15}
+            justifyContent={"space-between"}
             sx={{ height: "100%", flex: 1, padding: "3rem" }}
           >
-            <Grid item sm={6} className="content-height-box">
-              <Typography variant="h6" marginBottom={"3rem"} color={"white"}>
+            <Grid item sm={5} className="content-height-box">
+              <Typography variant="body1" marginBottom={"3rem"} color={"white"}>
                 <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span>{" "}
                 is a Front-End / Web Developer with almost 2 years of work
                 experience. He is a graduate of Multimedia Nusantara University
@@ -160,67 +472,91 @@ export default function SectionTwo() {
               </ButtonGroup>
             </Grid>
             <Grid item sm={6}>
-              <Box sx={{ mb: "2rem" }}>
-                <Tabs
+              <Box
+                sx={{
+                  borderRadius: ".75rem",
+                  overflow: "hidden",
+                }}
+              >
+                <Box
                   sx={{
-                    ".MuiTab-root": {
-                      background: "#1C1C22",
-                      color: "rgba(248, 247, 251, 0.5)",
-                      gap: ".75rem",
-                      padding: "0 1rem",
-                      minHeight: "3.5rem",
-                      display: "flex",
-                      verticalAlign: "middle",
-                      boxSizing: "border-box",
-                    },
-                    ".MuiTabs-indicator": {
-                      background: "transparent",
-                    },
-                    ".Mui-selected": {
-                      background: "#05070F",
-                      color: "white !important",
-                    },
+                    background: "#1C1C22",
+                    padding: ".75rem 2.25rem 0 2.25rem",
                   }}
-                  value={value}
-                  onChange={handleChange}
-                  aria-label="basic secondary tabs example"
                 >
-                  <Tab
-                    icon={<CodeIcon />}
-                    iconPosition="start"
-                    label="Skills"
-                    {...a11yProps(0)}
-                  />
-                  <Tab
-                    icon={<CaseClockIcon />}
-                    iconPosition="start"
-                    label="Expriences"
-                    {...a11yProps(1)}
-                  />
-                  <Tab
-                    icon={<MedalIcon />}
-                    iconPosition="start"
-                    label="Ceritificates"
-                    {...a11yProps(2)}
-                  />
-                </Tabs>
-              </Box>
-              <CustomTabPanel value={value} index={0}>
+                  <Tabs
+                    sx={{
+                      ".MuiTab-root": {
+                        background: "#1C1C22",
+                        color: "rgba(248, 247, 251, 0.5)",
+                        gap: ".75rem",
+                        padding: "0 1rem",
+                        minHeight: "3.5rem",
+                        display: "flex",
+                        verticalAlign: "middle",
+                        boxSizing: "border-box",
+                      },
+                      ".MuiTabs-indicator": {
+                        background: "transparent",
+                      },
+                      ".Mui-selected": {
+                        background: "#05070F",
+                        color: "white !important",
+                      },
+                      ".MuiButtonBase-root": {
+                        borderTopRightRadius: ".75rem !important",
+                        borderTopLeftRadius: ".75rem !important",
+                      },
+                    }}
+                    value={value}
+                    onChange={handleChange}
+                    aria-label="basic secondary tabs example"
+                  >
+                    <Tab
+                      icon={<CodeIcon />}
+                      iconPosition="start"
+                      label="Skills"
+                      {...a11yProps(0)}
+                    />
+                    <Tab
+                      icon={<CaseClockIcon />}
+                      iconPosition="start"
+                      label="Expriences"
+                      {...a11yProps(1)}
+                    />
+                    <Tab
+                      icon={<MedalIcon />}
+                      iconPosition="start"
+                      label="Ceritificates"
+                      {...a11yProps(2)}
+                    />
+                  </Tabs>
+                </Box>
                 <Box
                   sx={{
                     background: "#05070F",
-                    width: "100%",
-                    minHeight: "10rem",
-                    borderRadius: "1rem",
+                    height: "32rem",
+                    overflow: "auto",
+                    padding: "1.5rem",
+                    span: {
+                      fontFamily: "'Inconsolata', monospace !important",
+                    },
                   }}
-                ></Box>
-              </CustomTabPanel>
-              <CustomTabPanel value={value} index={1}>
-                Expriences
-              </CustomTabPanel>
-              <CustomTabPanel value={value} index={2}>
-                Ceritificates
-              </CustomTabPanel>
+                >
+                  {/* SKILLS */}
+                  <CustomTabPanel value={value} index={0}>
+                    <SkillTab />
+                  </CustomTabPanel>
+                  {/* EXPERIENCE */}
+                  <CustomTabPanel value={value} index={1}>
+                    <ExperienceTab />
+                  </CustomTabPanel>
+                  {/* CERTIFICATE */}
+                  <CustomTabPanel value={value} index={2}>
+                    <CertificateTab />
+                  </CustomTabPanel>
+                </Box>
+              </Box>
             </Grid>
           </Grid>
           <GlassBg />
@@ -236,7 +572,7 @@ const randomNumber = (max: number) => Math.floor(Math.random() * max);
 const generateXY = (number: number) => {
   const x = randomNumber(number);
   const y = randomNumber(number);
-  return `left: ${x}%;
+  return `left: ${x}%;  
   top: ${y}%;
   transform: translate(-${x}%, -${y}%);
   `;
@@ -244,7 +580,8 @@ const generateXY = (number: number) => {
 
 const movingCircleKeyframes = keyframes`
 0% {
-  ${generateXY(100)}
+  top:0;
+  left:0;
 }
 20% {
   ${generateXY(100)}
@@ -270,8 +607,9 @@ const movingCircleKeyframes = keyframes`
 `;
 const movingCircleKeyframes2 = keyframes`
 0% {
-  ${generateXY(100)}
-  
+  top:100%;
+  left:100%;
+  transform: translate(-100%, -100%);  
 }
 20% {
   ${generateXY(100)}
@@ -290,8 +628,10 @@ const movingCircleKeyframes2 = keyframes`
   scale: 2;
 }
 100% {
-  ${generateXY(100)}
-  scale: 1;
+  top:100%;
+  left:100%;
+  transform: translate(-100%, -100%); 
+     scale: 1;
 }
 `;
 const RadialCircle = styled(Box)`
