@@ -4,7 +4,6 @@ import {
   ButtonGroup,
   Container,
   Grid,
-  Stack,
   Tab,
   Tabs,
   Typography,
@@ -12,7 +11,6 @@ import {
   styled,
 } from "@mui/material";
 import { useEffect, useState } from "react";
-import ReactTyped from "react-typed";
 import { useInView } from "react-intersection-observer";
 import CaseClockIcon from "../../../icons/CaseClockIcon";
 import CodeIcon from "../../../icons/CodeIcon";
