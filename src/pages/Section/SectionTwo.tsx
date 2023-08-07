@@ -482,26 +482,48 @@ export default function SectionTwo() {
                   sx={{
                     background: "#1C1C22",
                     padding: ".75rem 2.25rem 0 2.25rem",
+                    borderBottom: "1px solid #707070",
                   }}
                 >
                   <Tabs
                     sx={{
+                      overflow: "unset",
                       ".MuiTab-root": {
                         background: "#1C1C22",
                         color: "rgba(248, 247, 251, 0.5)",
                         gap: ".75rem",
                         padding: "0 1rem",
-                        minHeight: "3.5rem",
+                        minHeight: "3rem",
                         display: "flex",
                         verticalAlign: "middle",
                         boxSizing: "border-box",
+                        overflow: "unset",
+
+                        borderTop: "1px solid transparent",
+                        borderLeft: "1px solid transparent",
+                        borderRight: "1px solid transparent",
                       },
                       ".MuiTabs-indicator": {
                         background: "transparent",
                       },
+                      ".MuiTabs-scroller": {
+                        overflow: "unset !important ",
+                      },
                       ".Mui-selected": {
                         background: "#05070F",
                         color: "white !important",
+                        position: "relative",
+                        borderColor: "#707070",
+                        "&:after": {
+                          content: '""',
+                          position: "absolute",
+                          bottom: "-1px",
+                          left: "0",
+                          right: "0",
+                          height: "1px",
+                          background: "#05070f",
+                          zIndex: "5",
+                        },
                       },
                       ".MuiButtonBase-root": {
                         borderTopRightRadius: ".75rem !important",
