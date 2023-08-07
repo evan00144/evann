@@ -69,19 +69,19 @@ export default function SectionTwo() {
     setValue(newValue);
   };
 
-  const [glassHeight, setGlassHeight] = useState<number | undefined>(0);
+  const [glassHeight, setGlassHeight] = useState<number>(0);
 
   const contentHeight = document.querySelector(
     ".content-height-box"
   )?.clientHeight;
 
   useEffect(() => {
-    setGlassHeight(contentHeight);
+    setGlassHeight(contentHeight as number);
   }, [contentHeight]);
 
   interface iSkillContent {
     title: string;
-    content: string[];
+    content: string;
   }
 
   interface iExperienceContent {
@@ -93,7 +93,8 @@ export default function SectionTwo() {
   interface iCertificateContent {
     title: string;
     content: string;
-    comment: string[];
+    comment: string;
+    link: string;
   }
 
   const SkillContent = ({ title, content }: iSkillContent) => {
@@ -111,23 +112,24 @@ export default function SectionTwo() {
           >{`${title}`}</SecondaryText>
           <TertiaryText component={"span"} theme={theme}>{`">`}</TertiaryText>
         </Box>
-        {content.map((item, num) => (
-          <Box
-            key={num}
+        <Box
+          sx={{
+            paddingLeft: "2rem",
+          }}
+        >
+          <WhiteText
             sx={{
-              paddingLeft: "2rem",
+              whiteSpace: "nowrap",
             }}
-          >
-            <WhiteText component={"span"}>{`${item}`}</WhiteText>
-          </Box>
-        ))}
+            component={"span"}
+          >{`${content}`}</WhiteText>
+        </Box>
         <Box>
           <TertiaryText
             component={"span"}
             theme={theme}
           >{`</div>`}</TertiaryText>
         </Box>
-        <Box>-</Box> {/** Spacer */}
       </>
     );
   };
@@ -146,33 +148,35 @@ export default function SectionTwo() {
               },
             }}
           >
-            {Array.from(Array(16).keys()).map((item) => (
+            {Array.from(Array(15).keys()).map((item) => (
               <Box key={item}>{item + 1}</Box>
             ))}
           </Box>
           <Box>
             <SkillContent
               title={"programming-language"}
-              content={["Java, HTML, CSS, JS, C, MySQL, PHP"]}
+              content={"Java, HTML, CSS, JS, C, MySQL, PHP"}
             />
+            <Box>-</Box> {/** Spacer */}
             <SkillContent
               title={"framework/library"}
-              content={[
-                "ReactJS, jQuery, Bootstrap, Firebase, Code Igniter, Ionic React,",
-                "GSAP, Angular JS",
-              ]}
+              content={
+                "ReactJS, jQuery, Bootstrap, Firebase, Code Igniter, Ionic React, GSAP, Angular JS"
+              }
             />
+            <Box>-</Box> {/** Spacer */}
             <SkillContent
               title={"software"}
-              content={[
-                "VS Code, Android Studio, IntelliJ, GitHub, Figma, Google Colab",
-              ]}
+              content={
+                "VS Code, Android Studio, IntelliJ, GitHub, Figma, Google Colab"
+              }
             />
+            <Box>-</Box> {/** Spacer */}
             <SkillContent
               title={"language"}
-              content={[
-                "Bahasa Indonesia (Native), English (Limited Working Proficiency",
-              ]}
+              content={
+                "Bahasa Indonesia (Native), English (Limited Working Proficiency)"
+              }
             />
           </Box>
         </Stack>
@@ -219,7 +223,6 @@ export default function SectionTwo() {
             theme={theme}
           >{`</div>`}</TertiaryText>
         </Box>
-        <Box>-</Box> {/** Spacer */}
       </>
     );
   };
@@ -233,12 +236,12 @@ export default function SectionTwo() {
               color: "#6e7681",
               paddingRight: "1rem",
               "& > *": {
-                lineHeight: "1.552rem",
+                lineHeight: "1.568rem",
                 fontFamily: "'Inconsolata', monospace !important",
               },
             }}
           >
-            {Array.from(Array(14).keys()).map((item) => (
+            {Array.from(Array(15).keys()).map((item) => (
               <Box key={item}>{item + 1}</Box>
             ))}
           </Box>
@@ -248,13 +251,13 @@ export default function SectionTwo() {
               content="Frontend Developer - PT Indonesia Indicator"
               comment="South Jakarta, Hybrid"
             />
-
+            <Box>-</Box> {/** Spacer */}
             <ExperienceContent
               title={"Aug2022-Dec2022"}
               content="Frontend Developer Intern - PT Indonesia Indicator"
               comment="South Jakarta, Hybrid"
             />
-
+            <Box>-</Box> {/** Spacer */}
             <ExperienceContent
               title={"Feb2022-Jun2022"}
               content="Frontend Developer Intern - PT Hashmicro Solusi Indonesia"
@@ -270,6 +273,7 @@ export default function SectionTwo() {
     title,
     content,
     comment,
+    link,
   }: iCertificateContent) => {
     return (
       <>
@@ -279,10 +283,12 @@ export default function SectionTwo() {
           </TertiaryText>
           <WhiteText component={"span"}>{`class`}</WhiteText>
           <TertiaryText component={"span"} theme={theme}>{`="`}</TertiaryText>
-          <SecondaryText
-            component={"span"}
-            theme={theme}
-          >{`${title}`}</SecondaryText>
+          <SecondaryText component={"span"} theme={theme}>
+            {`${title}`}-
+            <a href={link} target="_blank">
+              Certificate
+            </a>
+          </SecondaryText>
           <TertiaryText component={"span"} theme={theme}>{`">`}</TertiaryText>
         </Box>
         <Box
@@ -298,18 +304,19 @@ export default function SectionTwo() {
           }}
         >
           <TertiaryText component={"span"} theme={theme}>
-            {`{ `}
+            {`{`}
           </TertiaryText>
-          <GreyText component={"span"}>/*{`${comment[0]}`}</GreyText>
-        </Box>
-        <Box
-          sx={{
-            paddingLeft: "2rem",
-          }}
-        >
-          <GreyText component={"span"}>{`${comment[1]}`}*/</GreyText>
+          <GreyText
+            sx={{
+              whiteSpace: "nowrap",
+            }}
+            component={"span"}
+          >
+            /*{`${comment}`}*/
+          </GreyText>
+
           <TertiaryText component={"span"} theme={theme}>
-            {`} `}
+            {`}`}
           </TertiaryText>
         </Box>
         <Box>
@@ -318,7 +325,6 @@ export default function SectionTwo() {
             theme={theme}
           >{`</div>`}</TertiaryText>
         </Box>
-        <Box>-</Box> {/** Spacer */}
       </>
     );
   };
@@ -337,36 +343,42 @@ export default function SectionTwo() {
               },
             }}
           >
-            {Array.from(Array(14).keys()).map((item) => (
+            {Array.from(Array(15).keys()).map((item) => (
               <Box key={item}>{item + 1}</Box>
             ))}
           </Box>
-          <Box>
+          <Box
+            sx={{
+              overflowX: "auto",
+            }}
+          >
             <CertificateContent
               title={"Feb2023"}
               content="IT Specialist - Javascript by Certiport"
-              comment={[
-                "Certification for recognizing, writing, and debugging JavaScript",
-                "code that will logically solve a problem.",
-              ]}
+              comment={
+                "Certification for recognizing, writing, and debugging JavaScriptcode that will logically solve a problem."
+              }
+              link={
+                "https://www.credly.com/badges/666f44c5-c702-46cd-884f-c5f1fdf5d6e2/linked_in?t=rqhoc5"
+              }
             />
-
+            <Box>-</Box> {/** Spacer */}
             <CertificateContent
               title={"Feb2022"}
               content="Jquery Couse by Sololearn"
-              comment={[
-                "Learned to manipulate CSS and DOM. Created an effect such as",
-                "hide/show, fade, slide, and animate an element.",
-              ]}
+              comment={
+                "Learned to manipulate CSS and DOM. Created an effect such as hide/show, fade, slide, and animate an element."
+              }
+              link={"https://www.sololearn.com/Certificate/CT-X7ZKJHZM/jpg"}
             />
-
+            <Box>-</Box> {/** Spacer */}
             <CertificateContent
               title={"Jun2022"}
               content="Belajar membuat Front-End Web untuk Pemula by Dicoding"
-              comment={[
-                "Learned about basic Javascript (data type, array, operator, etc.)",
-                "and web storage (loca storage, session storage)",
-              ]}
+              comment={
+                "Learned about basic Javascript (data type, array, operator, etc.) and web storage (loca storage, session storage)"
+              }
+              link={"https://www.dicoding.com/certificates/53XE04Q09XRN"}
             />
           </Box>
         </Stack>
@@ -374,19 +386,18 @@ export default function SectionTwo() {
     );
   };
 
-  const GlassBg = styled(Box)`
-    position: absolute;
-    width: 100%;
-    height: calc(${glassHeight}px + 6rem);
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: -1;
-    background: rgba(255, 255, 255, 0.14);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(12.3px);
-    -webkit-backdrop-filter: blur(12.3px);
-  `;
+  const GlassBg = styled(Box)({
+    position: "absolute",
+    width: "100%",
+    height: `calc(${glassHeight}px + 6rem)`,
+    top: "50%",
+    transform: "translateY(-50%)",
+    zIndex: -1,
+    background: "rgba(255, 255, 255, 0.14)",
+    borderRadius: "16px",
+    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+    backdropFilter: "blur(12.3px)",
+  });
 
   return (
     <div>
@@ -557,11 +568,15 @@ export default function SectionTwo() {
                 <Box
                   sx={{
                     background: "#05070F",
-                    height: "32rem",
-                    overflow: "auto",
+                    height: "23.5rem",
+                    overflowY: "auto",
                     padding: "1.5rem",
                     span: {
                       fontFamily: "'Inconsolata', monospace !important",
+                    },
+                    a: {
+                      fontFamily: "'Inconsolata', monospace !important",
+                      color: (theme) => theme.palette.secondary.main,
                     },
                   }}
                 >
