@@ -1,10 +1,10 @@
 import { Container, Grid, Typography } from "@mui/material";
 import ReactTyped from "react-typed";
-import Spline from "@splinetool/react-spline";
-import { useState } from "react";
+// import Spline from "@splinetool/react-spline";
+// import { useState } from "react";
 
 export default function SectionOne3D() {
-  const [render, setRender] = useState(false);
+  // const [render, setRender] = useState(false);
   const canvas: HTMLCanvasElement | null = document.getElementById(
     "responsive-canvas"
   ) as HTMLCanvasElement | null;
@@ -15,9 +15,9 @@ export default function SectionOne3D() {
   } else {
     console.error("Canvas element with ID 'responsive-canvas' not found.");
   }
-  const onLoadSpline = () => {
-    setRender(true);
-  };
+  // const onLoadSpline = () => {
+  //   setRender(true);
+  // };
 
   return (
     <div
@@ -30,7 +30,7 @@ export default function SectionOne3D() {
         backgroundPosition: "50% 100%",
       }}
     >
-      {render && (
+      {/* {render && ( */}
         <Container maxWidth="xl">
           <div style={{ minHeight: "100vh", position: "relative" }}>
             <div
@@ -82,8 +82,8 @@ export default function SectionOne3D() {
             </div>
           </div>
         </Container>
-      )}
-      <Spline
+      {/* )} */}
+      {/* <Spline
         id="responsive-canvas"
         onLoad={onLoadSpline}
         style={{
@@ -96,7 +96,7 @@ export default function SectionOne3D() {
           cursor: "grab",
         }}
         scene="https://prod.spline.design/vjmmer6SDlaR5P5n/scene.splinecode"
-      />
+      /> */}
     </div>
   );
 }
