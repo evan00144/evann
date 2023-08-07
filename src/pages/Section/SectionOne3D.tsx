@@ -1,7 +1,10 @@
 import { Container, Grid, Typography } from "@mui/material";
-// import Spline from "@splinetool/react-spline";
+import ReactTyped from "react-typed";
+import Spline from "@splinetool/react-spline";
+import { useState } from "react";
 
 export default function SectionOne3D() {
+  const [render, setRender] = useState(false);
   const canvas: HTMLCanvasElement | null = document.getElementById(
     "responsive-canvas"
   ) as HTMLCanvasElement | null;
@@ -12,6 +15,9 @@ export default function SectionOne3D() {
   } else {
     console.error("Canvas element with ID 'responsive-canvas' not found.");
   }
+  const onLoadSpline = () => {
+    setRender(true);
+  };
 
   return (
     <div
@@ -24,54 +30,62 @@ export default function SectionOne3D() {
         backgroundPosition: "50% 100%",
       }}
     >
-      <Container maxWidth="xl">
-        <div style={{ minHeight: "100vh", position: "relative" }}>
-          <div
-            style={{
-              position: "absolute",
-              height: "100%",
-              width: "100%",
-              top: "0",
-              left: "0",
-              zIndex: 1,
-              pointerEvents: "none",
-            }}
-          >
-            <Grid
-              container
-              alignContent={"center"}
-              sx={{ height: "100%", color: "white", pb: "7vh" }}
+      {render && (
+        <Container maxWidth="xl">
+          <div style={{ minHeight: "100vh", position: "relative" }}>
+            <div
+              style={{
+                position: "absolute",
+                height: "100%",
+                width: "100%",
+                top: "0",
+                left: "0",
+                zIndex: 1,
+                pointerEvents: "none",
+              }}
             >
-              <Grid item sm={6}></Grid>
-              <Grid item sm={3}>
-                <Typography variant="h6">
-                  Need a website? <br /> I'll make it for you
-                </Typography>
+              <Grid
+                container
+                alignContent={"center"}
+                sx={{ height: "100%", color: "white", pb: "7vh" }}
+              >
+                <Grid item sm={6}></Grid>
+                <Grid item sm={3}>
+                  <Typography variant="h6">
+                    <ReactTyped strings={["Need a website?"]} typeSpeed={40} />
+                    <br />
+                    <ReactTyped
+                      strings={["^1120 I'll make it for you"]}
+                      typeSpeed={40}
+                    />
+                  </Typography>
+                </Grid>
+                <Grid item sm={3}></Grid>
+                <Grid item sm={12}>
+                  <Typography
+                    variant="h1"
+                    fontWeight={"bold"}
+                    textAlign={"center"}
+                    fontSize={"15rem"}
+                  >
+                    Evan
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    fontWeight={"light"}
+                    textAlign={"center"}
+                  >
+                    Front-End / Web Developer
+                  </Typography>
+                </Grid>
               </Grid>
-              <Grid item sm={3}></Grid>
-              <Grid item sm={12}>
-                <Typography
-                  variant="h1"
-                  fontWeight={"bold"}
-                  textAlign={"center"}
-                  fontSize={"15rem"}
-                >
-                  Evan
-                </Typography>
-                <Typography
-                  variant="h5"
-                  fontWeight={"light"}
-                  textAlign={"center"}
-                >
-                  Frontend / Web Developer
-                </Typography>
-              </Grid>
-            </Grid>
+            </div>
           </div>
-        </div>
-      </Container>
-      {/* <Spline
+        </Container>
+      )}
+      <Spline
         id="responsive-canvas"
+        onLoad={onLoadSpline}
         style={{
           position: "absolute",
           height: "fit-content",
@@ -82,7 +96,7 @@ export default function SectionOne3D() {
           cursor: "grab",
         }}
         scene="https://prod.spline.design/vjmmer6SDlaR5P5n/scene.splinecode"
-      /> */}
+      />
     </div>
   );
 }
