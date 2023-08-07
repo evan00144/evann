@@ -96,6 +96,8 @@ export default function CertificateTab() {
         <Box
           sx={{
             overflowX: "auto",
+            overflowY: "hidden",
+
           }}
         >
           <Box>
