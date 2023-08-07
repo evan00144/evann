@@ -94,6 +94,10 @@ export default function SectionTwoPage() {
     <div>
       <Container
         maxWidth="xl"
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+        }}
       >
         <Box sx={{ flex: "1", position: "relative" }}>
           <Grid
