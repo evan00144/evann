@@ -50,8 +50,10 @@ const ExperienceContent = ({ title, content, comment }: iExperienceContent) => {
     </>
   );
 };
-
-export default function ExperienceTab() {
+interface iProps{
+    inView:boolean
+}
+export default function ExperienceTab({inView}:iProps) {
   return (
     <>
       <Stack direction={"row"}>
@@ -69,6 +71,7 @@ export default function ExperienceTab() {
             <Box key={item}>{item + 1}</Box>
           ))}
         </Box>
+        {inView && (
         <Box
           sx={{
             overflowX: "auto",
@@ -177,6 +180,7 @@ export default function ExperienceTab() {
             />
           </Box>
         </Box>
+        )} 
       </Stack>
     </>
   );

@@ -20,7 +20,7 @@ import ExperienceTab from "./ExperienceTab";
 import SkillTab from "./SkillTab";
 
 export default function SectionTwoPage() {
-  const [ref] = useInView({});
+  const [ref,inView] = useInView({});
   const [value, setValue] = useState(0);
 
   interface TabPanelProps {
@@ -277,15 +277,15 @@ export default function SectionTwoPage() {
                     <>
                       {/* SKILLS */}
                       <CustomTabPanel value={value} index={0}>
-                        <SkillTab />
+                        <SkillTab  inView={inView}/>
                       </CustomTabPanel>
                       {/* EXPERIENCE */}
                       <CustomTabPanel value={value} index={1}>
-                        <ExperienceTab />
+                        <ExperienceTab inView={inView} />
                       </CustomTabPanel>
                       {/* CERTIFICATE */}
                       <CustomTabPanel value={value} index={2}>
-                        <CertificateTab />
+                        <CertificateTab inView={inView} />
                       </CustomTabPanel>
                     </>
                 </Box>

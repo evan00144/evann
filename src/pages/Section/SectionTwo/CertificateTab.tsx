@@ -8,8 +8,10 @@ import {
 } from "../../../styled/text-color.styled";
 import { theme } from "../../../theme";
 import { animatedTextFadeUp } from "../../../styled/animation.styled";
-
-export default function CertificateTab() {
+interface iProps{
+    inView:boolean
+}
+export default function CertificateTab({inView}:iProps) {
   interface iCertificateContent {
     title: string;
     content: string;
@@ -99,6 +101,7 @@ export default function CertificateTab() {
             <Box key={item}>{item + 1}</Box>
           ))}
         </Box>
+        {inView && (
         <Box
           sx={{
             overflowX: "auto",
@@ -229,7 +232,8 @@ export default function CertificateTab() {
             />
           </Box>
         </Box>
-      </Stack>
+        )} 
+        </Stack>
     </>
   );
 }
