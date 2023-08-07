@@ -94,10 +94,6 @@ export default function SectionTwoPage() {
     <div>
       <Container
         maxWidth="xl"
-        sx={{
-          minHeight: "100vh",
-          display: "flex",
-        }}
       >
         <Box sx={{ flex: "1", position: "relative" }}>
           <Grid
@@ -179,14 +175,14 @@ export default function SectionTwoPage() {
                 sx={{
                   borderRadius: ".75rem",
                   overflow: "hidden",
-                  border: "1px solid rgba(248, 247, 251, 0.5)",
+                  border: ".05px solid rgba(248, 247, 251, 0.25)",
                 }}
               >
                 <Box
                   sx={{
                     background: "#1C1C22",
-                    padding: ".75rem 2.25rem 0 2.25rem",
-                    borderBottom: "1px solid rgba(248, 247, 251, 0.5)",
+                    padding: ".75rem 1rem 0 1rem",
+                    borderBottom: ".05px solid rgba(248, 247, 251, 0.25)",
                   }}
                 >
                   <Tabs
@@ -203,10 +199,10 @@ export default function SectionTwoPage() {
                         verticalAlign: "middle",
                         boxSizing: "border-box",
                         overflow: "unset",
-                        fontSize:'.8rem',
-                        borderTop: "1px solid transparent",
-                        borderLeft: "1px solid transparent",
-                        borderRight: "1px solid transparent",
+                        fontSize:'.625rem !important',
+                        borderTop: ".05px solid transparent",
+                        borderLeft: ".05px solid transparent",
+                        borderRight: ".05px solid transparent",
                       },
                       ".MuiTabs-indicator": {
                         background: "transparent",
@@ -218,7 +214,7 @@ export default function SectionTwoPage() {
                         background: "#05070F",
                         color: "white !important",
                         position: "relative",
-                        borderColor: "rgba(248, 247, 251, 0.5)",
+                        borderColor: "rgba(248, 247, 251, 0.25)",
                         "&:after": {
                           content: '""',
                           position: "absolute",
@@ -231,8 +227,8 @@ export default function SectionTwoPage() {
                         },
                       },
                       ".MuiButtonBase-root": {
-                        borderTopRightRadius: ".75rem !important",
-                        borderTopLeftRadius: ".75rem !important",
+                        borderTopRightRadius: ".5rem !important",
+                        borderTopLeftRadius: ".5rem !important",
                       },
                     }}
                     value={value}
@@ -248,7 +244,7 @@ export default function SectionTwoPage() {
                     <Tab
                       icon={<CaseClockIcon />}
                       iconPosition="start"
-                      label="Expriences"
+                      label="Experiences"
                       {...a11yProps(1)}
                     />
                     <Tab
@@ -262,9 +258,9 @@ export default function SectionTwoPage() {
                 <Box
                   sx={{
                     background: "#05070F",
-                    height: "23.6rem",
+                    height: "25rem",
                     overflowY: "auto",
-                    padding: "1.5rem",
+                    padding: "1rem 0 1rem 1.5rem",
                     span: {
                       fontFamily: "'Inconsolata', monospace !important",
                     },
