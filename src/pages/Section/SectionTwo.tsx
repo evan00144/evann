@@ -143,7 +143,7 @@ export default function SectionTwo() {
               color: "#6e7681",
               paddingRight: "1rem",
               "& > *": {
-                lineHeight: "1.552rem",
+                lineHeight: "1.568rem",
                 fontFamily: "'Inconsolata', monospace !important",
               },
             }}
@@ -152,7 +152,11 @@ export default function SectionTwo() {
               <Box key={item}>{item + 1}</Box>
             ))}
           </Box>
-          <Box>
+          <Box
+            sx={{
+              overflowX: "auto",
+            }}
+          >
             <SkillContent
               title={"programming-language"}
               content={"Java, HTML, CSS, JS, C, MySQL, PHP"}
@@ -245,7 +249,11 @@ export default function SectionTwo() {
               <Box key={item}>{item + 1}</Box>
             ))}
           </Box>
-          <Box>
+          <Box
+            sx={{
+              overflowX: "auto",
+            }}
+          >
             <ExperienceContent
               title={"Jan2023-Jun2023"}
               content="Frontend Developer - PT Indonesia Indicator"
@@ -338,7 +346,7 @@ export default function SectionTwo() {
               color: "#6e7681",
               paddingRight: "1rem",
               "& > *": {
-                lineHeight: "1.552rem",
+                lineHeight: "1.568rem",
                 fontFamily: "'Inconsolata', monospace !important",
               },
             }}
@@ -487,6 +495,7 @@ export default function SectionTwo() {
                 sx={{
                   borderRadius: ".75rem",
                   overflow: "hidden",
+                  border: "1px solid #707070",
                 }}
               >
                 <Box
@@ -499,12 +508,13 @@ export default function SectionTwo() {
                   <Tabs
                     sx={{
                       overflow: "unset",
+                      alignItems: "end",
                       ".MuiTab-root": {
                         background: "#1C1C22",
                         color: "rgba(248, 247, 251, 0.5)",
                         gap: ".75rem",
                         padding: "0 1rem",
-                        minHeight: "3rem",
+                        minHeight: "2.8rem",
                         display: "flex",
                         verticalAlign: "middle",
                         boxSizing: "border-box",
@@ -568,7 +578,7 @@ export default function SectionTwo() {
                 <Box
                   sx={{
                     background: "#05070F",
-                    height: "23.5rem",
+                    // height: "23.6rem",
                     overflowY: "auto",
                     padding: "1.5rem",
                     span: {
