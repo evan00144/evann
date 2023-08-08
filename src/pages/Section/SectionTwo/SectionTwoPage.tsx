@@ -67,46 +67,112 @@ export default function SectionTwoPage() {
     setValue(newValue);
   };
 
-  const [glassHeight, setGlassHeight] = useState<number>(0);
-
-  const contentHeight = document.querySelector(
-    ".content-height-box"
-  )?.clientHeight;
-
   useEffect(() => {
-    setGlassHeight(contentHeight as number);
-  }, [contentHeight]);
+    // let mouseX = 0,
+    //   mouseY = 0;
+    // let xp = 0,
+    //   yp = 0;
 
-  const GlassBg = styled(Box)({
-    position: "absolute",
-    width: "100%",
-    height: `calc(${glassHeight}px + 6rem)`,
-    top: "50%",
-    transform: "translateY(-50%)",
-    zIndex: -1,
-    background: "rgba(255, 255, 255, 0.14)",
-    borderRadius: "16px",
-    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-    backdropFilter: "blur(12.3px)",
-  });
+    // document.getElementById("glass-bg")?.addEventListener("mousemove", (e) => {
+    //   mouseX = e.offsetX - 250;
+    //   mouseY = e.offsetY - 130;
+    //   updateCircle();
+    // });
+    // const updateCircle = () => {
+    //   xp += (mouseX - xp) / 2;
+    //   yp += (mouseY - yp) / 2;
+    //   const circle = document.getElementById("circle");
+    //   if (circle) {
+    //     circle.style.transform = `translate(${xp}px, ${yp}px)`;
+    //   }
+    // };
+
+    const circle = document.getElementById("circle") as HTMLElement;
+    const inner = document.getElementById("glass-bg") as HTMLElement;
+
+    // Mouse
+    const mouse = {
+      _x: 0,
+      _y: 0,
+      x: 0,
+      y: 0,
+      updatePosition(event: MouseEvent) {
+        const e = event || window.event;
+        this.x = e.clientX - this._x;
+        this.y = (e.clientY - this._y) * -1;
+      },
+      setOrigin(e: HTMLElement) {
+        this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
+        this._y = e.offsetTop + Math.floor(e.offsetHeight / 2);
+      },
+      show() {
+        return `(${this.x}, ${this.y})`;
+      },
+    };
+
+    // Track the mouse position relative to the center of the container.
+    mouse.setOrigin(inner);
+
+    //-----------------------------------------
+
+    let counter = 0;
+    const updateRate = 10;
+    const isTimeToUpdate = () => {
+      return counter++ % updateRate === 0;
+    };
+
+    //-----------------------------------------
+
+    const onMouseEnterHandler = (event: MouseEvent) => {
+      update(event);
+    };
+
+    const onMouseLeaveHandler = () => {
+      inner.style.transform = "";
+    };
+
+    const onMouseMoveHandler = (event: MouseEvent) => {
+      if (isTimeToUpdate()) {
+        update(event);
+      }
+    };
+
+    //-----------------------------------------
+
+    const update = (event: MouseEvent) => {
+      mouse.updatePosition(event);
+      updateTransformStyle(
+        (mouse.y / inner.offsetHeight / 2).toFixed(2),
+        (mouse.x / inner.offsetWidth / 2).toFixed(2)
+      );
+    };
+
+    const updateTransformStyle = (x: string, y: string) => {
+      const style = `perspective(500px) rotateX(${x}deg) rotateY(${y}deg)`;
+      inner.style.transform = style;
+      // circle follow cursor
+      circle.style.transform = `translate(${
+        mouse.x +circle.offsetWidth / 2 -100
+      }px, ${-mouse.y +circle.offsetHeight -150 }px)`;
+    };
+
+    //-----------------------------------------
+
+    inner.onmouseenter = onMouseEnterHandler;
+    inner.onmouseleave = onMouseLeaveHandler;
+    inner.onmousemove = onMouseMoveHandler;
+  }, []);
 
   return (
     <div>
-      <Container
-        maxWidth="xl"
-        sx={{
-          minHeight: "100vh",
-          display: "flex",
-        }}
-      >
-        <Box sx={{ flex: "1", position: "relative" }}>
+      <Container maxWidth="xl" sx={{}}>
+        <GlassBg id="glass-bg">
           <Grid
             container
             alignContent={"center"}
-            // spacing={20}
             columnSpacing={15}
+            sx={{}}
             justifyContent={"space-between"}
-            sx={{ height: "100%", flex: 1, padding: "3rem" }}
           >
             <Grid item sm={5} ref={ref} className="content-height-box">
               <Typography variant="body1" marginBottom={"3rem"} color={"white"}>
@@ -261,7 +327,7 @@ export default function SectionTwoPage() {
                 <Box
                   sx={{
                     background: "#05070F",
-                    height: "25rem",
+                    height: "26.5rem",
                     overflowY: "auto",
                     padding: "1rem 0 1rem 1.5rem",
                     span: {
@@ -291,111 +357,42 @@ export default function SectionTwoPage() {
               </Box>
             </Grid>
           </Grid>
-          <GlassBg />
-          <RadialCircle2 />
-          <RadialCircle />
-        </Box>
+          <RadialCircle2 className="moving-circle" id={"circle"} />
+        </GlassBg>
       </Container>
     </div>
   );
 }
 
-const randomNumber = (max: number) => Math.floor(Math.random() * max);
-const generateXY = (number: number) => {
-  const x = randomNumber(number);
-  const y = randomNumber(number);
-  return `left: ${x}%;  
-    top: ${y}%;
-    transform: translate(-${x}%, -${y}%);
-    `;
-};
-
-const movingCircleKeyframes = keyframes`
-  0% {
-    top:0;
-    left:0;
-  }
-  20% {
-    ${generateXY(100)}
-    scale: 1.2;
-  }
-  40% {
-    ${generateXY(100)}
-    scale: 1.5;
-  }
-  60% {
-    ${generateXY(100)}
-    scale: .7;
-  }
-  80% {
-    ${generateXY(100)}
-    scale: 2;
-  }
-  100% {
-    left: 0;
-    top: 0;  
-    scale: 1;
-  }
-  `;
-const movingCircleKeyframes2 = keyframes`
-  0% {
-    top:100%;
-    left:100%;
-    transform: translate(-100%, -100%);  
-  }
-  20% {
-    ${generateXY(100)}
-    scale: 1.2;
-  }
-  40% {
-    ${generateXY(100)}
-    scale: 1.5;
-  }
-  60% {
-    ${generateXY(100)}
-    scale: .7;
-  }
-  80% {
-    ${generateXY(100)}
-    scale: 2;
-  }
-  100% {
-    top:100%;
-    left:100%;
-    transform: translate(-100%, -100%); 
-       scale: 1;
-  }
-  `;
-const RadialCircle = styled(Box)`
-  position: absolute;
-  width: 15rem;
-  height: 15rem;
-  z-index: -2;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-  background: rgb(157, 142, 254);
-  background: radial-gradient(
-    circle,
-    rgba(157, 142, 254, 1) 0%,
-    rgba(0, 107, 208, 1) 100%
-  );
-  animation: ${movingCircleKeyframes} 12s linear infinite;
-`;
+const GlassBg = styled(Box)({
+  padding: "2rem",
+  position: "relative",
+  background: "rgba(5, 7, 15, 0.2)",
+  borderRadius: "16px",
+  boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+  backdropFilter: "blur(12.3px)",
+  overflow: "hidden",
+  "&:hover": {
+    ".moving-circle": {
+      display: "block",
+    },
+  },
+});
 
 const RadialCircle2 = styled(Box)`
   position: absolute;
-  width: 20rem;
-  height: 20rem;
+  width: 50rem;
+  height: 50rem;
   z-index: -2;
   top: 0;
   left: 0;
   border-radius: 50%;
-
+  opacity: 0.5;
+  display: none;
   background: radial-gradient(
     50% 50% at 50% 50%,
     #40b084 0%,
     rgba(24, 33, 69, 0) 100%
   );
-  animation: ${movingCircleKeyframes2} 12s linear infinite;
+  transition: all 0.1s ease-in-out;
 `;

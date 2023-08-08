@@ -6,7 +6,6 @@ import {
   SecondaryText,
   GreyText,
 } from "../../../styled/text-color.styled";
-import { theme } from "../../../theme";
 import { animatedTextFadeUp } from "../../../styled/animation.styled";
 interface iProps{
     inView:boolean
@@ -28,18 +27,18 @@ export default function CertificateTab({inView}:iProps) {
     return (
       <>
         <Box>
-          <TertiaryText component={"span"} theme={theme}>
+          <TertiaryText component={"span"}>
             {`<div `}
           </TertiaryText>
           <WhiteText component={"span"}>{`class`}</WhiteText>
-          <TertiaryText component={"span"} theme={theme}>{`="`}</TertiaryText>
-          <SecondaryText component={"span"} theme={theme}>
+          <TertiaryText component={"span"}>{`="`}</TertiaryText>
+          <SecondaryText component={"span"}>
             {`${title}`}-
             <a href={link} target="_blank">
               Certificate
             </a>
           </SecondaryText>
-          <TertiaryText component={"span"} theme={theme}>{`">`}</TertiaryText>
+          <TertiaryText component={"span"}>{`">`}</TertiaryText>
         </Box>
         <Box
           sx={{
@@ -53,7 +52,7 @@ export default function CertificateTab({inView}:iProps) {
             paddingLeft: "2rem",
           }}
         >
-          <TertiaryText component={"span"} theme={theme}>
+          <TertiaryText component={"span"}>
             {`{`}
           </TertiaryText>
           <GreyText
@@ -70,7 +69,7 @@ export default function CertificateTab({inView}:iProps) {
               paddingRight: "1.5rem",
             }}
             component={"span"}
-            theme={theme}
+          
           >
             {`}`}
           </TertiaryText>
@@ -78,7 +77,7 @@ export default function CertificateTab({inView}:iProps) {
         <Box>
           <TertiaryText
             component={"span"}
-            theme={theme}
+          
           >{`</div>`}</TertiaryText>
         </Box>
       </>
@@ -128,7 +127,7 @@ export default function CertificateTab({inView}:iProps) {
           }}
         >
           <Box>
-            <TertiaryText component={"span"} theme={theme}>
+            <TertiaryText component={"span"}>
               <ReactTyped
                 strings={[`&lt;div&nbsp;`]}
                 typeSpeed={40}
@@ -142,14 +141,14 @@ export default function CertificateTab({inView}:iProps) {
                 showCursor={false}
               />
             </WhiteText>
-            <TertiaryText component={"span"} theme={theme}>
+            <TertiaryText component={"span"}>
               <ReactTyped
                 strings={[`^400="`]}
                 typeSpeed={40}
                 showCursor={false}
               />
             </TertiaryText>
-            <SecondaryText component={"span"} theme={theme}>
+            <SecondaryText component={"span"}>
               <ReactTyped
                 strings={[
                   `^480Feb2023-<a href={'https://www.credly.com/badges/666f44c5-c702-46cd-884f-c5f1fdf5d6e2/linked_in?t=rqhoc5'} target="_blank">Certificate</a>`,
@@ -158,7 +157,7 @@ export default function CertificateTab({inView}:iProps) {
                 showCursor={false}
               />
             </SecondaryText>
-            <TertiaryText component={"span"} theme={theme}>
+            <TertiaryText component={"span"}>
               <ReactTyped
                 strings={[`^1600">`]}
                 typeSpeed={40}
@@ -188,7 +187,7 @@ export default function CertificateTab({inView}:iProps) {
                 paddingLeft: "2rem",
               }}
             >
-              <TertiaryText component={"span"} theme={theme}>
+              <TertiaryText component={"span"}>
                 {`{`}
               </TertiaryText>
               <GreyText
@@ -202,14 +201,14 @@ export default function CertificateTab({inView}:iProps) {
                 */
               </GreyText>
 
-              <TertiaryText component={"span"} theme={theme}>
+              <TertiaryText component={"span"}>
                 {`}`}
               </TertiaryText>
             </Box>
             <Box>
               <TertiaryText
                 component={"span"}
-                theme={theme}
+              
               >{`</div>`}</TertiaryText>
             </Box>
             <Box>-</Box> {/** Spacer */}
@@ -226,7 +225,7 @@ export default function CertificateTab({inView}:iProps) {
               title={"Jun2022"}
               content="Belajar membuat Front-End Web untuk Pemula by Dicoding"
               comment={
-                "Learned about basic Javascript (data type, array, operator, etc.) and web storage (loca storage, session storage)"
+                "Learned about basic Javascript (data type, array, operator, etc.) and web storage (locaL storage, session storage)"
               }
               link={"https://www.dicoding.com/certificates/53XE04Q09XRN"}
             />

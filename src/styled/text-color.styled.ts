@@ -1,21 +1,17 @@
-import { Box, Theme, styled } from "@mui/material";
-
-interface ColorProps {
-  theme: Theme;
-}
+import { Box } from "@mui/material";
+import styled from "styled-components";
 
 export const WhiteText = styled(Box)`
   color: white;
 `;
 
-export const SecondaryText = styled(Box)<ColorProps>(({ theme }) => ({
-  color: theme.palette.secondary.main,
-}));
+export const SecondaryText = styled(Box)`
+  color: ${props => props.theme.palette.secondary.main};
+`;
 
-export const TertiaryText = styled(Box)<ColorProps>(({ theme }) => ({
-  color: theme.palette.tertiary.main,
-}));
-
+export const TertiaryText = styled(Box)`
+  color: ${props => props.theme.palette.tertiary.main};
+`;
 export const GreyText = styled(Box)`
   color: #7e7f85;
 `;

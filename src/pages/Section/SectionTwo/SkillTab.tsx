@@ -6,7 +6,6 @@ import {
   WhiteText,
   SecondaryText,
 } from "../../../styled/text-color.styled";
-import { theme } from "../../../theme";
 
 interface iSkillContent {
   title: string;
@@ -17,16 +16,11 @@ const SkillContent = ({ title, content }: iSkillContent) => {
   return (
     <>
       <Box>
-        <TertiaryText component={"span"} theme={theme}>
-          {`<div `}
-        </TertiaryText>
+        <TertiaryText component={"span"}>{`<div `}</TertiaryText>
         <WhiteText component={"span"}>{`class`}</WhiteText>
-        <TertiaryText component={"span"} theme={theme}>{`="`}</TertiaryText>
-        <SecondaryText
-          component={"span"}
-          theme={theme}
-        >{`${title}`}</SecondaryText>
-        <TertiaryText component={"span"} theme={theme}>{`">`}</TertiaryText>
+        <TertiaryText component={"span"}>{`="`}</TertiaryText>
+        <SecondaryText component={"span"}>{`${title}`}</SecondaryText>
+        <TertiaryText component={"span"}>{`">`}</TertiaryText>
       </Box>
       <Box
         sx={{
@@ -42,17 +36,17 @@ const SkillContent = ({ title, content }: iSkillContent) => {
         >{`${content}`}</WhiteText>
       </Box>
       <Box>
-        <TertiaryText component={"span"} theme={theme}>{`</div>`}</TertiaryText>
+        <TertiaryText component={"span"}>{`</div>`}</TertiaryText>
       </Box>
     </>
   );
 };
 
-interface iProps{
-    inView:boolean
+interface iProps {
+  inView: boolean;
 }
 
-export default function SkillTab({inView}:iProps) {
+export default function SkillTab({ inView }: iProps) {
   return (
     <>
       <Stack direction={"row"}>
@@ -71,118 +65,115 @@ export default function SkillTab({inView}:iProps) {
           ))}
         </Box>
         {inView && (
-        <Box
-          sx={{
-            overflowX: "auto",
-            overflowY: "hidden",
-            paddingBottom:'1rem',
-            "&::-webkit-scrollbar-track": {
-              WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.3)",
-              borderRadius: "10px",
-              backgroundColor: "transparent",
-              marginRight: "1.5rem",
-            },
-            "&::-webkit-scrollbar": {
-              width: "5px",
-              height: "5px",
-              backgroundColor: "transparent",
-              marginRight: "1.5rem",
-            },
-            "&::-webkit-scrollbar-thumb": {
-              borderRadius: "10px",
-              WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,.3)",
-              backgroundColor: "#555",
-              marginRight: "1.5rem",
-            },
-          }}
-        >
-          <Box>
-            <TertiaryText component={"span"} theme={theme}>
-              <ReactTyped
-                strings={[`&lt;div&nbsp;`]}
-                typeSpeed={40}
-                showCursor={false}
-              />
-            </TertiaryText>
-            <WhiteText component={"span"}>
-              <ReactTyped
-                strings={[`^200class`]}
-                typeSpeed={40}
-                showCursor={false}
-              />
-            </WhiteText>
-            <TertiaryText component={"span"} theme={theme}>
-              <ReactTyped
-                strings={[`^400="`]}
-                typeSpeed={40}
-                showCursor={false}
-              />
-            </TertiaryText>
-            <SecondaryText component={"span"} theme={theme}>
-              <ReactTyped
-                strings={[`^480programming-language`]}
-                typeSpeed={40}
-                showCursor={false}
-              />
-            </SecondaryText>
-            <TertiaryText component={"span"} theme={theme}>
-              <ReactTyped
-                strings={[`^1600">`]}
-                typeSpeed={40}
-                showCursor={false}
-              />
-            </TertiaryText>
-          </Box>
           <Box
             sx={{
-              animation: `${animatedTextFadeUp} 1s forwards`,
-              animationDelay: "1600ms",
-              opacity: 0,
-              visibility: "hidden",
+              overflowX: "auto",
+              overflowY: "hidden",
+              paddingBottom: "1rem",
+              "&::-webkit-scrollbar-track": {
+                WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.3)",
+                borderRadius: "10px",
+                backgroundColor: "transparent",
+                marginRight: "1.5rem",
+              },
+              "&::-webkit-scrollbar": {
+                width: "5px",
+                height: "5px",
+                backgroundColor: "transparent",
+                marginRight: "1.5rem",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                borderRadius: "10px",
+                WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,.3)",
+                backgroundColor: "#555",
+                marginRight: "1.5rem",
+              },
             }}
           >
+            <Box>
+              <TertiaryText component={"span"}>
+                <ReactTyped
+                  strings={[`&lt;div&nbsp;`]}
+                  typeSpeed={40}
+                  showCursor={false}
+                />
+              </TertiaryText>
+              <WhiteText component={"span"}>
+                <ReactTyped
+                  strings={[`^200class`]}
+                  typeSpeed={40}
+                  showCursor={false}
+                />
+              </WhiteText>
+              <TertiaryText component={"span"}>
+                <ReactTyped
+                  strings={[`^400="`]}
+                  typeSpeed={40}
+                  showCursor={false}
+                />
+              </TertiaryText>
+              <SecondaryText component={"span"}>
+                <ReactTyped
+                  strings={[`^480programming-language`]}
+                  typeSpeed={40}
+                  showCursor={false}
+                />
+              </SecondaryText>
+              <TertiaryText component={"span"}>
+                <ReactTyped
+                  strings={[`^1600">`]}
+                  typeSpeed={40}
+                  showCursor={false}
+                />
+              </TertiaryText>
+            </Box>
             <Box
               sx={{
-                paddingLeft: "2rem",
+                animation: `${animatedTextFadeUp} 1s forwards`,
+                animationDelay: "1600ms",
+                opacity: 0,
+                visibility: "hidden",
               }}
             >
-              <WhiteText
+              <Box
                 sx={{
-                  whiteSpace: "nowrap",
+                  paddingLeft: "2rem",
                 }}
-                component={"span"}
-              >{`Java, HTML, CSS, JS, C, MySQL, PHP`}</WhiteText>
+              >
+                <WhiteText
+                  sx={{
+                    whiteSpace: "nowrap",
+                  }}
+                  component={"span"}
+                >{`Java, HTML, CSS, JS, C, MySQL, PHP`}</WhiteText>
+              </Box>
+              <Box>
+                <TertiaryText component={"span"}>{`</div>`}</TertiaryText>
+              </Box>
+              <Box>-</Box> {/** Spacer */}
+              <SkillContent
+                title={"framework/library"}
+                content={
+                  "ReactJS, jQuery, Bootstrap, Firebase, Code Igniter, Ionic React, GSAP, Angular JS"
+                }
+              />
+              <Box>-</Box> {/** Spacer */}
+              <SkillContent
+                title={"software"}
+                content={
+                  "VS Code, Android Studio, IntelliJ, GitHub, Figma, Google Colab"
+                }
+              />
+              <Box>-</Box> {/** Spacer */}
+              <SkillContent
+                title={"language"}
+                content={
+                  "Bahasa Indonesia (Native), English (Limited Working Proficiency)"
+                }
+              />
             </Box>
-            <Box>
-              <TertiaryText
-                component={"span"}
-                theme={theme}
-              >{`</div>`}</TertiaryText>
-            </Box>
-            <Box>-</Box> {/** Spacer */}
-            <SkillContent
-              title={"framework/library"}
-              content={
-                "ReactJS, jQuery, Bootstrap, Firebase, Code Igniter, Ionic React, GSAP, Angular JS"
-              }
-            />
-            <Box>-</Box> {/** Spacer */}
-            <SkillContent
-              title={"software"}
-              content={
-                "VS Code, Android Studio, IntelliJ, GitHub, Figma, Google Colab"
-              }
-            />
-            <Box>-</Box> {/** Spacer */}
-            <SkillContent
-              title={"language"}
-              content={
-                "Bahasa Indonesia (Native), English (Limited Working Proficiency)"
-              }
-            />
           </Box>
-        </Box>
-        )} 
+        )}
       </Stack>
     </>
   );
