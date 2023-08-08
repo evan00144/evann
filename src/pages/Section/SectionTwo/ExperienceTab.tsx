@@ -50,8 +50,10 @@ const ExperienceContent = ({ title, content, comment }: iExperienceContent) => {
     </>
   );
 };
-
-export default function ExperienceTab() {
+interface iProps{
+    inView:boolean
+}
+export default function ExperienceTab({inView}:iProps) {
   return (
     <>
       <Stack direction={"row"}>
@@ -69,10 +71,30 @@ export default function ExperienceTab() {
             <Box key={item}>{item + 1}</Box>
           ))}
         </Box>
+        {inView && (
         <Box
           sx={{
             overflowX: "auto",
             overflowY: "hidden",
+            paddingBottom:'1rem',
+            "&::-webkit-scrollbar-track": {
+              WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.3)",
+              borderRadius: "10px",
+              backgroundColor: "transparent",
+              marginRight: "1.5rem",
+            },
+            "&::-webkit-scrollbar": {
+              width: "5px",
+              height: "5px",
+              backgroundColor: "transparent",
+              marginRight: "1.5rem",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              borderRadius: "10px",
+              WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,.3)",
+              backgroundColor: "#555",
+              marginRight: "1.5rem",
+            },
           }}
         >
           <Box>
@@ -117,6 +139,7 @@ export default function ExperienceTab() {
               animation: `${animatedTextFadeUp} 1s forwards`,
               animationDelay: "1600ms",
               opacity: 0,
+              visibility: "hidden",
             }}
           >
             <Box
@@ -157,6 +180,7 @@ export default function ExperienceTab() {
             />
           </Box>
         </Box>
+        )} 
       </Stack>
     </>
   );

@@ -4,7 +4,6 @@ import {
   ButtonGroup,
   Container,
   Grid,
-  Stack,
   Tab,
   Tabs,
   Typography,
@@ -12,7 +11,6 @@ import {
   styled,
 } from "@mui/material";
 import { useEffect, useState } from "react";
-import ReactTyped from "react-typed";
 import { useInView } from "react-intersection-observer";
 import CaseClockIcon from "../../../icons/CaseClockIcon";
 import CodeIcon from "../../../icons/CodeIcon";
@@ -24,10 +22,6 @@ import SkillTab from "./SkillTab";
 export default function SectionTwoPage() {
   const [ref, inView] = useInView({});
   const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    console.log(inView);
-  }, [inView]);
 
   interface TabPanelProps {
     children?: React.ReactNode;
@@ -114,7 +108,7 @@ export default function SectionTwoPage() {
             justifyContent={"space-between"}
             sx={{ height: "100%", flex: 1, padding: "3rem" }}
           >
-            <Grid item sm={5} className="content-height-box">
+            <Grid item sm={5} ref={ref} className="content-height-box">
               <Typography variant="body1" marginBottom={"3rem"} color={"white"}>
                 <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span>{" "}
                 is a Front-End / Web Developer with almost 2 years of work
@@ -146,7 +140,6 @@ export default function SectionTwoPage() {
                 }}
               >
                 <Button
-                  ref={ref}
                   color={"secondary"}
                   sx={{
                     overflow: "hidden",
@@ -185,14 +178,14 @@ export default function SectionTwoPage() {
                 sx={{
                   borderRadius: ".75rem",
                   overflow: "hidden",
-                  border: "1px solid #707070",
+                  border: ".05px solid rgba(248, 247, 251, 0.25)",
                 }}
               >
                 <Box
                   sx={{
                     background: "#1C1C22",
-                    padding: ".75rem 2.25rem 0 2.25rem",
-                    borderBottom: "1px solid #707070",
+                    padding: ".75rem 1rem 0 1rem",
+                    borderBottom: ".05px solid rgba(248, 247, 251, 0.25)",
                   }}
                 >
                   <Tabs
@@ -209,10 +202,10 @@ export default function SectionTwoPage() {
                         verticalAlign: "middle",
                         boxSizing: "border-box",
                         overflow: "unset",
-
-                        borderTop: "1px solid transparent",
-                        borderLeft: "1px solid transparent",
-                        borderRight: "1px solid transparent",
+                        fontSize: ".625rem !important",
+                        borderTop: ".05px solid transparent",
+                        borderLeft: ".05px solid transparent",
+                        borderRight: ".05px solid transparent",
                       },
                       ".MuiTabs-indicator": {
                         background: "transparent",
@@ -224,7 +217,7 @@ export default function SectionTwoPage() {
                         background: "#05070F",
                         color: "white !important",
                         position: "relative",
-                        borderColor: "#707070",
+                        borderColor: "rgba(248, 247, 251, 0.25)",
                         "&:after": {
                           content: '""',
                           position: "absolute",
@@ -237,8 +230,8 @@ export default function SectionTwoPage() {
                         },
                       },
                       ".MuiButtonBase-root": {
-                        borderTopRightRadius: ".75rem !important",
-                        borderTopLeftRadius: ".75rem !important",
+                        borderTopRightRadius: ".5rem !important",
+                        borderTopLeftRadius: ".5rem !important",
                       },
                     }}
                     value={value}
@@ -254,7 +247,7 @@ export default function SectionTwoPage() {
                     <Tab
                       icon={<CaseClockIcon />}
                       iconPosition="start"
-                      label="Expriences"
+                      label="Experiences"
                       {...a11yProps(1)}
                     />
                     <Tab
@@ -268,9 +261,9 @@ export default function SectionTwoPage() {
                 <Box
                   sx={{
                     background: "#05070F",
-                    // height: "23.6rem",
+                    height: "25rem",
                     overflowY: "auto",
-                    padding: "1.5rem",
+                    padding: "1rem 0 1rem 1.5rem",
                     span: {
                       fontFamily: "'Inconsolata', monospace !important",
                     },
@@ -280,18 +273,20 @@ export default function SectionTwoPage() {
                     },
                   }}
                 >
-                  {/* SKILLS */}
-                  <CustomTabPanel value={value} index={0}>
-                    <SkillTab />
-                  </CustomTabPanel>
-                  {/* EXPERIENCE */}
-                  <CustomTabPanel value={value} index={1}>
-                    <ExperienceTab />
-                  </CustomTabPanel>
-                  {/* CERTIFICATE */}
-                  <CustomTabPanel value={value} index={2}>
-                    <CertificateTab />
-                  </CustomTabPanel>
+                  <>
+                    {/* SKILLS */}
+                    <CustomTabPanel value={value} index={0}>
+                      <SkillTab inView={inView} />
+                    </CustomTabPanel>
+                    {/* EXPERIENCE */}
+                    <CustomTabPanel value={value} index={1}>
+                      <ExperienceTab inView={inView} />
+                    </CustomTabPanel>
+                    {/* CERTIFICATE */}
+                    <CustomTabPanel value={value} index={2}>
+                      <CertificateTab inView={inView} />
+                    </CustomTabPanel>
+                  </>
                 </Box>
               </Box>
             </Grid>
