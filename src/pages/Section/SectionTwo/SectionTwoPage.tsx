@@ -166,6 +166,15 @@ export default function SectionTwoPage() {
     <div>
       <Container maxWidth="xl" sx={{}}>
         <GlassBg id="glass-bg">
+          {/* <GlassBg sx={{
+            position: "absolute",
+            top: "0",
+            left: "0",
+            width: "100%",
+            height: "100%",
+            background:'transparent',
+            zIndex: "-1",
+          }}/> */}
           <Grid
             container
             alignContent={"center"}
@@ -382,11 +391,11 @@ const RadialCircle2 = styled(Box)`
   position: absolute;
   width: 50rem;
   height: 50rem;
-  z-index: -2;
+  z-index: -3;
   top: 0;
   left: 0;
   border-radius: 50%;
-  opacity: 0.5;
+  opacity: 0.25;
   display: none;
   background: radial-gradient(
     50% 50% at 50% 50%,
@@ -394,4 +403,5 @@ const RadialCircle2 = styled(Box)`
     rgba(24, 33, 69, 0) 100%
   );
   transition: all 0.5s;
+
 `;
