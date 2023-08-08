@@ -394,5 +394,5 @@ const RadialCircle2 = styled(Box)`
     #40b084 0%,
     rgba(24, 33, 69, 0) 100%
   );
-  transition: all 0.1s ease-in-out;
+  transition: all 0.5s;
 `;
