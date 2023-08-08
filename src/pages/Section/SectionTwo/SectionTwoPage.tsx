@@ -7,6 +7,7 @@ import {
   Tab,
   Tabs,
   Typography,
+  keyframes,
   styled,
 } from "@mui/material";
 import { useEffect, useState } from "react";
