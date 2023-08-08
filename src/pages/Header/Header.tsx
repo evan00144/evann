@@ -1,6 +1,10 @@
-import { Container, Stack, Typography } from "@mui/material";
+import { Button, Container, Stack, Typography } from "@mui/material";
 
-export default function Header() {
+interface iProps{
+  toggleColorMode: () => void;
+}
+
+export default function Header({ toggleColorMode}:iProps) {
   return (
     <>
       <div style={{ position: "fixed", top: "0", zIndex: "20", width: "100%" }}>
@@ -17,6 +21,9 @@ export default function Header() {
               </Typography>
               <Typography variant="h6">Projects </Typography>
               <Typography variant="h6">Contact</Typography>
+              <Button color="secondary" variant="contained" onClick={toggleColorMode}>
+                Toggle
+              </Button>
             </Stack>
           </Stack>
         </Container>

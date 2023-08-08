@@ -7,7 +7,6 @@ import {
   SecondaryText,
   GreyText,
 } from "../../../styled/text-color.styled";
-import { theme } from "../../../theme";
 
 interface iExperienceContent {
   title: string;
@@ -19,16 +18,11 @@ const ExperienceContent = ({ title, content, comment }: iExperienceContent) => {
   return (
     <>
       <Box>
-        <TertiaryText component={"span"} theme={theme}>
-          {`<div `}
-        </TertiaryText>
+        <TertiaryText component={"span"}>{`<div `}</TertiaryText>
         <WhiteText component={"span"}>{`class`}</WhiteText>
-        <TertiaryText component={"span"} theme={theme}>{`="`}</TertiaryText>
-        <SecondaryText
-          component={"span"}
-          theme={theme}
-        >{`${title}`}</SecondaryText>
-        <TertiaryText component={"span"} theme={theme}>{`">`}</TertiaryText>
+        <TertiaryText component={"span"}>{`="`}</TertiaryText>
+        <SecondaryText component={"span"}>{`${title}`}</SecondaryText>
+        <TertiaryText component={"span"}>{`">`}</TertiaryText>
       </Box>
       <Box
         sx={{
@@ -45,15 +39,15 @@ const ExperienceContent = ({ title, content, comment }: iExperienceContent) => {
         <GreyText component={"span"}>//({`${comment}`})</GreyText>
       </Box>
       <Box>
-        <TertiaryText component={"span"} theme={theme}>{`</div>`}</TertiaryText>
+        <TertiaryText component={"span"}>{`</div>`}</TertiaryText>
       </Box>
     </>
   );
 };
-interface iProps{
-    inView:boolean
+interface iProps {
+  inView: boolean;
 }
-export default function ExperienceTab({inView}:iProps) {
+export default function ExperienceTab({ inView }: iProps) {
   return (
     <>
       <Stack direction={"row"}>
@@ -72,115 +66,112 @@ export default function ExperienceTab({inView}:iProps) {
           ))}
         </Box>
         {inView && (
-        <Box
-          sx={{
-            overflowX: "auto",
-            overflowY: "hidden",
-            paddingBottom:'1rem',
-            "&::-webkit-scrollbar-track": {
-              WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.3)",
-              borderRadius: "10px",
-              backgroundColor: "transparent",
-              marginRight: "1.5rem",
-            },
-            "&::-webkit-scrollbar": {
-              width: "5px",
-              height: "5px",
-              backgroundColor: "transparent",
-              marginRight: "1.5rem",
-            },
-            "&::-webkit-scrollbar-thumb": {
-              borderRadius: "10px",
-              WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,.3)",
-              backgroundColor: "#555",
-              marginRight: "1.5rem",
-            },
-          }}
-        >
-          <Box>
-            <TertiaryText component={"span"} theme={theme}>
-              <ReactTyped
-                strings={[`&lt;div&nbsp;`]}
-                typeSpeed={40}
-                showCursor={false}
-              />
-            </TertiaryText>
-            <WhiteText component={"span"}>
-              <ReactTyped
-                strings={[`^200class`]}
-                typeSpeed={40}
-                showCursor={false}
-              />
-            </WhiteText>
-            <TertiaryText component={"span"} theme={theme}>
-              <ReactTyped
-                strings={[`^400="`]}
-                typeSpeed={40}
-                showCursor={false}
-              />
-            </TertiaryText>
-            <SecondaryText component={"span"} theme={theme}>
-              <ReactTyped
-                strings={[`^480Jan2023-Jun2023`]}
-                typeSpeed={40}
-                showCursor={false}
-              />
-            </SecondaryText>
-            <TertiaryText component={"span"} theme={theme}>
-              <ReactTyped
-                strings={[`^1600">`]}
-                typeSpeed={40}
-                showCursor={false}
-              />
-            </TertiaryText>
-          </Box>
           <Box
             sx={{
-              animation: `${animatedTextFadeUp} 1s forwards`,
-              animationDelay: "1600ms",
-              opacity: 0,
-              visibility: "hidden",
+              overflowX: "auto",
+              overflowY: "hidden",
+              paddingBottom: "1rem",
+              "&::-webkit-scrollbar-track": {
+                WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.3)",
+                borderRadius: "10px",
+                backgroundColor: "transparent",
+                marginRight: "1.5rem",
+              },
+              "&::-webkit-scrollbar": {
+                width: "5px",
+                height: "5px",
+                backgroundColor: "transparent",
+                marginRight: "1.5rem",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                borderRadius: "10px",
+                WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,.3)",
+                backgroundColor: "#555",
+                marginRight: "1.5rem",
+              },
             }}
           >
-            <Box
-              sx={{
-                paddingLeft: "2rem",
-              }}
-            >
-              <WhiteText
-                component={"span"}
-              >{`Frontend Developer - PT Indonesia Indicator`}</WhiteText>
-            </Box>
-            <Box
-              sx={{
-                paddingLeft: "2rem",
-              }}
-            >
-              <GreyText component={"span"}>
-                //({`South Jakarta, Hybrid`})
-              </GreyText>
-            </Box>
             <Box>
-              <TertiaryText
-                component={"span"}
-                theme={theme}
-              >{`</div>`}</TertiaryText>
+              <TertiaryText component={"span"}>
+                <ReactTyped
+                  strings={[`&lt;div&nbsp;`]}
+                  typeSpeed={40}
+                  showCursor={false}
+                />
+              </TertiaryText>
+              <WhiteText component={"span"}>
+                <ReactTyped
+                  strings={[`^200class`]}
+                  typeSpeed={40}
+                  showCursor={false}
+                />
+              </WhiteText>
+              <TertiaryText component={"span"}>
+                <ReactTyped
+                  strings={[`^400="`]}
+                  typeSpeed={40}
+                  showCursor={false}
+                />
+              </TertiaryText>
+              <SecondaryText component={"span"}>
+                <ReactTyped
+                  strings={[`^480Jan2023-Jun2023`]}
+                  typeSpeed={40}
+                  showCursor={false}
+                />
+              </SecondaryText>
+              <TertiaryText component={"span"}>
+                <ReactTyped
+                  strings={[`^1600">`]}
+                  typeSpeed={40}
+                  showCursor={false}
+                />
+              </TertiaryText>
             </Box>
-            <Box>-</Box> {/** Spacer */}
-            <ExperienceContent
-              title={"Aug2022-Dec2022"}
-              content="Frontend Developer Intern - PT Indonesia Indicator"
-              comment="South Jakarta, Hybrid"
-            />
-            <Box>-</Box> {/** Spacer */}
-            <ExperienceContent
-              title={"Feb2022-Jun2022"}
-              content="Frontend Developer Intern - PT Hashmicro Solusi Indonesia"
-              comment="South Jakarta, Hybrid"
-            />
+            <Box
+              sx={{
+                animation: `${animatedTextFadeUp} 1s forwards`,
+                animationDelay: "1600ms",
+                opacity: 0,
+                visibility: "hidden",
+              }}
+            >
+              <Box
+                sx={{
+                  paddingLeft: "2rem",
+                }}
+              >
+                <WhiteText
+                  component={"span"}
+                >{`Frontend Developer - PT Indonesia Indicator`}</WhiteText>
+              </Box>
+              <Box
+                sx={{
+                  paddingLeft: "2rem",
+                }}
+              >
+                <GreyText component={"span"}>
+                  //({`South Jakarta, Hybrid`})
+                </GreyText>
+              </Box>
+              <Box>
+                <TertiaryText component={"span"}>{`</div>`}</TertiaryText>
+              </Box>
+              <Box>-</Box> {/** Spacer */}
+              <ExperienceContent
+                title={"Aug2022-Dec2022"}
+                content="Frontend Developer Intern - PT Indonesia Indicator"
+                comment="South Jakarta, Hybrid"
+              />
+              <Box>-</Box> {/** Spacer */}
+              <ExperienceContent
+                title={"Feb2022-Jun2022"}
+                content="Frontend Developer Intern - PT Hashmicro Solusi Indonesia"
+                comment="South Jakarta, Hybrid"
+              />
+            </Box>
           </Box>
-        </Box>
-        )} 
+        )}
       </Stack>
     </>
   );
