@@ -2,13 +2,19 @@ import { PaletteMode } from "@mui/material";
 
 declare module "@mui/material/styles" {
   interface Palette {
-    tertiary: Palette["primary"];
+    tertiary: Palette["primary"];    light: Palette["primary"];
   }
   interface PaletteOptions {
-    tertiary: PaletteOptions["primary"];
+    tertiary: PaletteOptions["primary"];    light: PaletteOptions["primary"];
   }
 }
 
+// Update the Button's color options to include an ochre option
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides {
+    light: true;
+  }
+}
 
 
 export const getDesignTokens = (mode: PaletteMode) => ({
@@ -30,6 +36,9 @@ export const getDesignTokens = (mode: PaletteMode) => ({
           tertiary: {
             main: "#9D8EFE",
           },
+          light:{
+            main: "#fff",
+          },
           background: {
             default: "#fff",
           },
@@ -48,6 +57,9 @@ export const getDesignTokens = (mode: PaletteMode) => ({
           },
           tertiary: {
             main: "#9D8EFE",
+          },
+          light:{
+            main: "#fff",
           },
           background: {
             default: "#182145",

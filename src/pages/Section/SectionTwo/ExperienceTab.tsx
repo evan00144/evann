@@ -157,13 +157,13 @@ export default function ExperienceTab({ inView }: iProps) {
               <Box>
                 <TertiaryText component={"span"}>{`</div>`}</TertiaryText>
               </Box>
-              <Box>-</Box> {/** Spacer */}
+              <Box sx={{color:'transparent'}}>-</Box> {/** Spacer */}
               <ExperienceContent
                 title={"Aug2022-Dec2022"}
                 content="Frontend Developer Intern - PT Indonesia Indicator"
                 comment="South Jakarta, Hybrid"
               />
-              <Box>-</Box> {/** Spacer */}
+              <Box sx={{color:'transparent'}}>-</Box> {/** Spacer */}
               <ExperienceContent
                 title={"Feb2022-Jun2022"}
                 content="Frontend Developer Intern - PT Hashmicro Solusi Indonesia"

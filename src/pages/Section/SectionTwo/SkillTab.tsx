@@ -150,21 +150,21 @@ export default function SkillTab({ inView }: iProps) {
               <Box>
                 <TertiaryText component={"span"}>{`</div>`}</TertiaryText>
               </Box>
-              <Box>-</Box> {/** Spacer */}
+              <Box sx={{color:'transparent'}}>-</Box> {/** Spacer */}
               <SkillContent
                 title={"framework/library"}
                 content={
                   "ReactJS, jQuery, Bootstrap, Firebase, Code Igniter, Ionic React, GSAP, Angular JS"
                 }
               />
-              <Box>-</Box> {/** Spacer */}
+              <Box sx={{color:'transparent'}}>-</Box> {/** Spacer */}
               <SkillContent
                 title={"software"}
                 content={
                   "VS Code, Android Studio, IntelliJ, GitHub, Figma, Google Colab"
                 }
               />
-              <Box>-</Box> {/** Spacer */}
+              <Box sx={{color:'transparent'}}>-</Box> {/** Spacer */}
               <SkillContent
                 title={"language"}
                 content={

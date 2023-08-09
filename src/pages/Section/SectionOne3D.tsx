@@ -35,7 +35,7 @@ export default function SectionOne3D() {
       }}
     >
       {/* {render && ( */}
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <div style={{ minHeight: "100vh", position: "relative" }}>
           <div
             style={{

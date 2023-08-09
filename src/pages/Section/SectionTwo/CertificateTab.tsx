@@ -211,7 +211,7 @@ export default function CertificateTab({inView}:iProps) {
               
               >{`</div>`}</TertiaryText>
             </Box>
-            <Box>-</Box> {/** Spacer */}
+            <Box sx={{color:'transparent'}}>-</Box> {/** Spacer */}
             <CertificateContent
               title={"Feb2022"}
               content="Jquery Couse by Sololearn"
@@ -220,7 +220,7 @@ export default function CertificateTab({inView}:iProps) {
               }
               link={"https://www.sololearn.com/Certificate/CT-X7ZKJHZM/jpg"}
             />
-            <Box>-</Box> {/** Spacer */}
+              <Box sx={{color:'transparent'}}>-</Box> {/** Spacer */}
             <CertificateContent
               title={"Jun2022"}
               content="Belajar membuat Front-End Web untuk Pemula by Dicoding"
