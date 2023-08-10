@@ -1,16 +1,14 @@
 import {
   Box,
   Button,
-  ButtonGroup,
   Container,
   Grid,
+  Stack,
   Tab,
   Tabs,
   Typography,
-  keyframes,
-  styled,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import CaseClockIcon from "../../../icons/CaseClockIcon";
 import CodeIcon from "../../../icons/CodeIcon";
@@ -18,10 +16,15 @@ import MedalIcon from "../../../icons/MedalIcon";
 import CertificateTab from "./CertificateTab";
 import ExperienceTab from "./ExperienceTab";
 import SkillTab from "./SkillTab";
+// import DownloadIcon from "../../../icons/DownloadIcon";
+import Lottie from "react-lottie";
+import animationData from "./animation.json";
 
 export default function SectionTwoPage() {
   const [ref, inView] = useInView({});
   const [value, setValue] = useState(0);
+
+  const [pause, setPause] = useState(true);
 
   interface TabPanelProps {
     children?: React.ReactNode;
@@ -67,335 +70,307 @@ export default function SectionTwoPage() {
     setValue(newValue);
   };
 
-  const [glassHeight, setGlassHeight] = useState<number>(0);
-
-  const contentHeight = document.querySelector(
-    ".content-height-box"
-  )?.clientHeight;
-
-  useEffect(() => {
-    setGlassHeight(contentHeight as number);
-  }, [contentHeight]);
-
-  const GlassBg = styled(Box)({
-    position: "absolute",
-    width: "100%",
-    height: `calc(${glassHeight}px + 6rem)`,
-    top: "50%",
-    transform: "translateY(-50%)",
-    zIndex: -1,
-    background: "rgba(255, 255, 255, 0.14)",
-    borderRadius: "16px",
-    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-    backdropFilter: "blur(12.3px)",
-  });
+  const tabContent = useMemo(() => {
+    return (
+      <>
+        {/* SKILLS */}
+        <CustomTabPanel value={value} index={0}>
+          <SkillTab inView={inView} />
+        </CustomTabPanel>
+        {/* EXPERIENCE */}
+        <CustomTabPanel value={value} index={1}>
+          <ExperienceTab inView={inView} />
+        </CustomTabPanel>
+        {/* CERTIFICATE */}
+        <CustomTabPanel value={value} index={2}>
+          <CertificateTab inView={inView} />
+        </CustomTabPanel>
+      </>
+    );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ inView, value]);
 
   return (
-    <div>
-      <Container
-        maxWidth="xl"
+    <div
+      style={{
+        position: "relative",
+      }}
+    >
+      <Box
         sx={{
-          minHeight: "100vh",
-          display: "flex",
+          position: "absolute",
+          top: "25vh",
+          left: "0",
+          width: "100%",
+          zIndex: "0",
+          ["@media (max-height: 1200px)"]: {
+            top: "30vh",
+          },
+          ["@media (max-height: 1000px)"]: {
+            top:"27vh"
+          },
+          ["@media (max-height: 840px)"]: {
+            top:"22vh"
+          },
+          ["@media (max-height: 720px)"]: {
+            top:"15vh"
+          },
+          svg: {
+            width: "100%",
+            opacity: "0.8",
+          },
         }}
       >
-        <Box sx={{ flex: "1", position: "relative" }}>
-          <Grid
-            container
-            alignContent={"center"}
-            // spacing={20}
-            columnSpacing={15}
-            justifyContent={"space-between"}
-            sx={{ height: "100%", flex: 1, padding: "3rem" }}
-          >
-            <Grid item sm={5} ref={ref} className="content-height-box">
-              <Typography variant="body1" marginBottom={"3rem"} color={"white"}>
-                <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span>{" "}
-                is a Front-End / Web Developer with almost 2 years of work
-                experience. He is a graduate of Multimedia Nusantara University
-                with a major in Information Technology, and he has gained solid
-                skills in HTML, CSS, JavaScript, and various frontend
-                frameworks, such as React and Angular, through internship,
-                freelance, and college projects to prepare for a developer
-                career. Evan has a strong passion for creating appealing user
-                interfaces. He's able to work on his own initiative and as part
-                of a team. He is dedicated to maintaining high-quality standards
-                and can handle multiple projects simultaneously in a fast-paced
-                and dynamic environment.
-              </Typography>
-              <ButtonGroup
-                className="button"
-                variant="contained"
-                color="secondary"
-                size="large"
+        <svg
+          width="100%"
+          height="64"
+          viewBox="0 0 1920 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1953 54.1152H342.514C338.072 54.1152 334.472 50.5147 334.472 46.0733V26.8063C334.472 17.5534 326.971 10.0524 317.718 10.0524H315.54C306.287 10.0524 298.786 17.5534 298.786 26.8063V51.0995V51.0995C298.786 54.3014 294.467 55.3163 293.041 52.4494L274.116 14.4009C271.165 8.46739 262.706 8.44967 259.73 14.3707L241.704 50.2363C238.786 56.0422 230.543 56.1691 227.448 50.4557L207.748 14.0958C206.342 11.5011 203.628 9.88482 200.677 9.88482H-9.5"
+            stroke="#F8F7FB"
+            strokeWidth="10.0524"
+            strokeLinecap="round"
+          />
+          <path
+            d="M265.277 31.8325H282.701"
+            stroke="#40B084"
+            strokeWidth="10.0524"
+            strokeLinecap="round"
+          />
+          <path
+            d="M205.299 9.71716H231.77"
+            stroke="#40B084"
+            strokeWidth="10.0524"
+            strokeLinecap="round"
+          />
+          <path
+            d="M205.299 31.8325H231.77"
+            stroke="#40B084"
+            strokeWidth="10.0524"
+            strokeLinecap="round"
+          />
+        </svg>
+      </Box>
+      <img
+        src="/img/bg/section2radial.png"
+        style={{
+          position: "absolute",
+          top: "-35vh",
+          width: "90vw",
+          // transform: "translateY(  50%)",
+          zIndex: "-1",
+          right: "0",
+        }}
+        alt=""
+      />
+      <Container maxWidth="lg" sx={{ height: "100vh" }}>
+        <Grid
+          container
+          alignContent={"center"}
+          columnSpacing={5}
+          sx={{ height: "100%" }}
+          justifyContent={"space-between"}
+        >
+          <Grid item sm={5} ref={ref} className="content-height-box">
+            <Typography variant="body1" marginBottom={"1.5rem"} marginTop={'12vh'}>
+              {/* <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span> */}
+              Evan is a Front-End / Web Developer with almost 2 years of work
+              experience. He is a graduate of Multimedia Nusantara University
+              with a major in Information Technology, and he has gained solid
+              skills in HTML, CSS, JavaScript, and various frontend frameworks,
+              such as React and Angular, through internship, freelance, and
+              college projects to prepare for a developer career. Evan has a
+              strong passion for creating appealing user interfaces. He's able
+              to work on his own initiative and as part of a team. He is
+              dedicated to maintaining high-quality standards and can handle
+              multiple projects simultaneously in a fast-paced and dynamic
+              environment.
+            </Typography>
+            <Button
+              size="small"
+              color={"light"}
+              variant="contained"
+              onMouseEnter={() => setPause(false)}
+              onMouseLeave={() => setPause(true)}
+              sx={{
+                padding: "0 ",
+                fontSize: "1.2rem",
+                color: "light",
+                textTransform: "none",
+                borderRadius: "30rem",
+                width: "3rem",
+                height: "3rem",
+                position: "relative",
+                display: "flex",
+                overflow: "visible",
+                alignItems: "center",
+                transition: ".5s",
+                justifyContent: "start",
+                minWidth: "0  ",
+                "&:hover": {
+                  width: "13rem",
+                  transition: ".5s",
+                  span: {
+                    color: "primary.main",
+                    transition: "1s",
+                  },
+                },
+              }}
+            >
+              <Stack
+                direction={"row"}
+                alignItems={"center"}
                 sx={{
-                  button: {
-                    "&:hover": {
-                      background: (theme) => theme.palette.secondary.main,
-                    },
-                    ".MuiTouchRipple-root": {
-                      display: "none",
-                    },
+                  flexWrap: "nowrap",
+                  marginLeft: "-.05rem",
+                  svg: {
+                    flex: "none",
                   },
                 }}
               >
-                <Button
-                  color={"secondary"}
+                {/* <DownloadIcon /> */}
+                <Lottie
+                  isStopped={pause}
+                  options={{
+                    loop: true,
+                    autoplay: true,
+                    animationData: animationData,
+                    rendererSettings: {
+                      preserveAspectRatio: "xMidYMid slice",
+                    },
+                  }}
+                  height={50}
+                  width={50}
+                />
+
+                <Box
+                  component={"span"}
+                  marginLeft={"1rem"}
                   sx={{
-                    overflow: "hidden",
-                    padding: "1rem 2.25rem",
-                    fontSize: "2rem",
+                    transition: "1s",
+                    whiteSpace: "nowrap",
+                    lineHeight: "1",
                   }}
                 >
                   Download CV
-                </Button>
-                <Button
-                  color={"secondary"}
-                  sx={{
-                    padding: "1rem 2rem",
-                  }}
-                >
-                  <svg
-                    width="29"
-                    height="30"
-                    viewBox="0 0 29 30"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      id="svgTest"
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M14.1446 0C15.328 0 16.2874 0.95939 16.2874 2.14286V22.6722L24.6252 14.3078C25.4607 13.4697 26.8175 13.4675 27.6557 14.303C28.4938 15.1385 28.496 16.4953 27.6605 17.3335L15.6622 29.37C15.2602 29.7733 14.7142 30 14.1447 30C13.5753 30 13.0292 29.7734 12.6271 29.3702L0.625438 17.3337C-0.210188 16.4957 -0.208226 15.1389 0.629822 14.3032C1.46787 13.4676 2.82465 13.4696 3.66028 14.3076L12.0017 22.6732V2.14286C12.0017 0.95939 12.9611 0 14.1446 0Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </Button>
-              </ButtonGroup>
-            </Grid>
-            <Grid item sm={6}>
+                </Box>
+              </Stack>
+            </Button>
+          </Grid>
+          <Grid item sm={6}>
+            <Box
+              sx={{
+                borderRadius: " .75rem 0 0 .75rem",
+                position: "absolute",
+                overflow: "hidden",
+                right: "0",
+                width: "44rem",
+                border: ".05px solid rgba(248, 247, 251, 0.25)",
+              }}
+            >
               <Box
                 sx={{
-                  borderRadius: ".75rem",
-                  overflow: "hidden",
-                  border: ".05px solid rgba(248, 247, 251, 0.25)",
+                  background: "#1C1C22",
+                  padding: ".75rem 1rem 0 1rem",
+                  borderBottom: ".05px solid rgba(248, 247, 251, 0.25)",
                 }}
               >
-                <Box
+                <Tabs
                   sx={{
-                    background: "#1C1C22",
-                    padding: ".75rem 1rem 0 1rem",
-                    borderBottom: ".05px solid rgba(248, 247, 251, 0.25)",
-                  }}
-                >
-                  <Tabs
-                    sx={{
+                    overflow: "unset",
+                    alignItems: "end",
+                    ".MuiTab-root": {
+                      background: "#1C1C22",
+                      color: "rgba(248, 247, 251, 0.5)",
+                      gap: ".75rem",
+                      padding: "0 1rem",
+                      minHeight: "2.8rem",
+                      display: "flex",
+                      verticalAlign: "middle",
+                      boxSizing: "border-box",
                       overflow: "unset",
-                      alignItems: "end",
-                      ".MuiTab-root": {
-                        background: "#1C1C22",
-                        color: "rgba(248, 247, 251, 0.5)",
-                        gap: ".75rem",
-                        padding: "0 1rem",
-                        minHeight: "2.8rem",
-                        display: "flex",
-                        verticalAlign: "middle",
-                        boxSizing: "border-box",
-                        overflow: "unset",
-                        fontSize: ".625rem !important",
-                        borderTop: ".05px solid transparent",
-                        borderLeft: ".05px solid transparent",
-                        borderRight: ".05px solid transparent",
-                      },
-                      ".MuiTabs-indicator": {
-                        background: "transparent",
-                      },
-                      ".MuiTabs-scroller": {
-                        overflow: "unset !important ",
-                      },
-                      ".Mui-selected": {
-                        background: "#05070F",
-                        color: "white !important",
-                        position: "relative",
-                        borderColor: "rgba(248, 247, 251, 0.25)",
-                        "&:after": {
-                          content: '""',
-                          position: "absolute",
-                          bottom: "-1px",
-                          left: "0",
-                          right: "0",
-                          height: "1px",
-                          background: "#05070f",
-                          zIndex: "5",
-                        },
-                      },
-                      ".MuiButtonBase-root": {
-                        borderTopRightRadius: ".5rem !important",
-                        borderTopLeftRadius: ".5rem !important",
-                      },
-                    }}
-                    value={value}
-                    onChange={handleChange}
-                    aria-label="basic secondary tabs example"
-                  >
-                    <Tab
-                      icon={<CodeIcon />}
-                      iconPosition="start"
-                      label="Skills"
-                      {...a11yProps(0)}
-                    />
-                    <Tab
-                      icon={<CaseClockIcon />}
-                      iconPosition="start"
-                      label="Experiences"
-                      {...a11yProps(1)}
-                    />
-                    <Tab
-                      icon={<MedalIcon />}
-                      iconPosition="start"
-                      label="Ceritificates"
-                      {...a11yProps(2)}
-                    />
-                  </Tabs>
-                </Box>
-                <Box
-                  sx={{
-                    background: "#05070F",
-                    height: "25rem",
-                    overflowY: "auto",
-                    padding: "1rem 0 1rem 1.5rem",
-                    span: {
-                      fontFamily: "'Inconsolata', monospace !important",
+                      fontSize: ".625rem !important",
+                      borderTop: ".05px solid transparent",
+                      borderLeft: ".05px solid transparent",
+                      borderRight: ".05px solid transparent",
                     },
-                    a: {
-                      fontFamily: "'Inconsolata', monospace !important",
-                      color: (theme) => theme.palette.secondary.main,
+                    ".MuiTabs-indicator": {
+                      background: "transparent",
+                    },
+                    ".MuiTabs-scroller": {
+                      overflow: "unset !important ",
+                    },
+                    ".Mui-selected": {
+                      background: "#05070F",
+                      color: "white !important",
+                      position: "relative",
+                      borderColor: "rgba(248, 247, 251, 0.25)",
+                      "&:after": {
+                        content: '""',
+                        position: "absolute",
+                        bottom: "-1px",
+                        left: "0",
+                        right: "0",
+                        height: "1px",
+                        background: "#05070f",
+                        zIndex: "5",
+                      },
+                    },
+                    ".MuiButtonBase-root": {
+                      borderTopRightRadius: ".5rem !important",
+                      borderTopLeftRadius: ".5rem !important",
                     },
                   }}
+                  value={value}
+                  onChange={handleChange}
+                  aria-label="basic secondary tabs example"
                 >
-                  <>
-                    {/* SKILLS */}
-                    <CustomTabPanel value={value} index={0}>
-                      <SkillTab inView={inView} />
-                    </CustomTabPanel>
-                    {/* EXPERIENCE */}
-                    <CustomTabPanel value={value} index={1}>
-                      <ExperienceTab inView={inView} />
-                    </CustomTabPanel>
-                    {/* CERTIFICATE */}
-                    <CustomTabPanel value={value} index={2}>
-                      <CertificateTab inView={inView} />
-                    </CustomTabPanel>
-                  </>
-                </Box>
+                  <Tab
+                    icon={<CodeIcon />}
+                    iconPosition="start"
+                    label="Skills"
+                    {...a11yProps(0)}
+                  />
+                  <Tab
+                    icon={<CaseClockIcon />}
+                    iconPosition="start"
+                    label="Experiences"
+                    {...a11yProps(1)}
+                  />
+                  <Tab
+                    icon={<MedalIcon />}
+                    iconPosition="start"
+                    label="Ceritificates"
+                    {...a11yProps(2)}
+                  />
+                </Tabs>
               </Box>
-            </Grid>
+              <Box
+                sx={{
+                  background: "#05070F",
+                  height: "26.5rem",
+                  overflowY: "auto",
+                  padding: "1rem 0 1rem 1.5rem",
+                  span: {
+                    fontFamily: "'Inconsolata', monospace !important",
+                  },
+                  a: {
+                    fontFamily: "'Inconsolata', monospace !important",
+                    color: (theme) => theme.palette.secondary.main,
+                  },
+                }}
+              >
+                <>
+                {tabContent}
+                </>
+              </Box>
+            </Box>
           </Grid>
-          <GlassBg />
-          <RadialCircle2 />
-          <RadialCircle />
-        </Box>
+        </Grid>
       </Container>
     </div>
   );
 }
-
-const randomNumber = (max: number) => Math.floor(Math.random() * max);
-const generateXY = (number: number) => {
-  const x = randomNumber(number);
-  const y = randomNumber(number);
-  return `left: ${x}%;  
-    top: ${y}%;
-    transform: translate(-${x}%, -${y}%);
-    `;
-};
-
-const movingCircleKeyframes = keyframes`
-  0% {
-    top:0;
-    left:0;
-  }
-  20% {
-    ${generateXY(100)}
-    scale: 1.2;
-  }
-  40% {
-    ${generateXY(100)}
-    scale: 1.5;
-  }
-  60% {
-    ${generateXY(100)}
-    scale: .7;
-  }
-  80% {
-    ${generateXY(100)}
-    scale: 2;
-  }
-  100% {
-    left: 0;
-    top: 0;  
-    scale: 1;
-  }
-  `;
-const movingCircleKeyframes2 = keyframes`
-  0% {
-    top:100%;
-    left:100%;
-    transform: translate(-100%, -100%);  
-  }
-  20% {
-    ${generateXY(100)}
-    scale: 1.2;
-  }
-  40% {
-    ${generateXY(100)}
-    scale: 1.5;
-  }
-  60% {
-    ${generateXY(100)}
-    scale: .7;
-  }
-  80% {
-    ${generateXY(100)}
-    scale: 2;
-  }
-  100% {
-    top:100%;
-    left:100%;
-    transform: translate(-100%, -100%); 
-       scale: 1;
-  }
-  `;
-const RadialCircle = styled(Box)`
-  position: absolute;
-  width: 15rem;
-  height: 15rem;
-  z-index: -2;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-  background: rgb(157, 142, 254);
-  background: radial-gradient(
-    circle,
-    rgba(157, 142, 254, 1) 0%,
-    rgba(0, 107, 208, 1) 100%
-  );
-  animation: ${movingCircleKeyframes} 12s linear infinite;
-`;
-
-const RadialCircle2 = styled(Box)`
-  position: absolute;
-  width: 20rem;
-  height: 20rem;
-  z-index: -2;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    #40b084 0%,
-    rgba(24, 33, 69, 0) 100%
-  );
-  animation: ${movingCircleKeyframes2} 12s linear infinite;
-`;
