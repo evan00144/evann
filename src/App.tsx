@@ -7,7 +7,7 @@ import SectionOne3D from "./pages/Section/SectionOne3D";
 import SectionFourTestimonial from "./pages/Section/SectionFourTestimonial";
 import SectionTwoPage from "./pages/Section/SectionTwo/SectionTwoPage";
 import { CssBaseline, PaletteMode, StyledEngineProvider, createTheme } from "@mui/material";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { getDesignTokens } from "./theme";
 import { useAppDispatch, useAppSelector } from "./store/hooks";
 import { toggleThemeMode } from "./store/reducer/ui";
