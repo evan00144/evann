@@ -103,6 +103,18 @@ export default function SectionTwoPage() {
           left: "0",
           width: "100%",
           zIndex: "0",
+          ["@media (max-height: 1200px)"]: {
+            top: "30vh",
+          },
+          ["@media (max-height: 1000px)"]: {
+            top:"27vh"
+          },
+          ["@media (max-height: 840px)"]: {
+            top:"22vh"
+          },
+          ["@media (max-height: 720px)"]: {
+            top:"15vh"
+          },
           svg: {
             width: "100%",
             opacity: "0.8",
@@ -163,7 +175,7 @@ export default function SectionTwoPage() {
           justifyContent={"space-between"}
         >
           <Grid item sm={5} ref={ref} className="content-height-box">
-            <Typography variant="body1" marginBottom={"1.5rem"} marginTop={'12vh'} color={"white"}>
+            <Typography variant="body1" marginBottom={"1.5rem"} marginTop={'12vh'}>
               {/* <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span> */}
               Evan is a Front-End / Web Developer with almost 2 years of work
               experience. He is a graduate of Multimedia Nusantara University
@@ -184,20 +196,22 @@ export default function SectionTwoPage() {
               onMouseEnter={() => setPause(false)}
               onMouseLeave={() => setPause(true)}
               sx={{
-                padding: "0 .1rem",
+                padding: "0 ",
                 fontSize: "1.2rem",
                 color: "light",
                 textTransform: "none",
                 borderRadius: "30rem",
-                width: "4.7rem",
+                width: "3rem",
+                height: "3rem",
                 position: "relative",
                 display: "flex",
                 overflow: "visible",
                 alignItems: "center",
                 transition: ".5s",
                 justifyContent: "start",
+                minWidth: "0  ",
                 "&:hover": {
-                  width: "15rem",
+                  width: "13rem",
                   transition: ".5s",
                   span: {
                     color: "primary.main",
@@ -211,6 +225,7 @@ export default function SectionTwoPage() {
                 alignItems={"center"}
                 sx={{
                   flexWrap: "nowrap",
+                  marginLeft: "-.05rem",
                   svg: {
                     flex: "none",
                   },
@@ -227,8 +242,8 @@ export default function SectionTwoPage() {
                       preserveAspectRatio: "xMidYMid slice",
                     },
                   }}
-                  height={72}
-                  width={72}
+                  height={50}
+                  width={50}
                 />
 
                 <Box
