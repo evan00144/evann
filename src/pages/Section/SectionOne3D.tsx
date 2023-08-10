@@ -1,12 +1,13 @@
 import { Container, Grid, Typography } from "@mui/material";
 import ReactTyped from "react-typed";
 import { useAppSelector } from "../../store/hooks";
-// import Spline from "@splinetool/react-spline";
-// import { useState } from "react";
+import { useState } from "react";
+import Spline from "@splinetool/react-spline";
 
 export default function SectionOne3D() {
-  // const [render, setRender] = useState(false);
-  const { themeMode} = useAppSelector(state => state.ui)
+  const [render, setRender] = useState(false);
+  const [firstStringFinished, setFirstStringFinished] = useState(false);
+  const { themeMode } = useAppSelector((state) => state.ui);
   const canvas: HTMLCanvasElement | null = document.getElementById(
     "responsive-canvas"
   ) as HTMLCanvasElement | null;
@@ -18,11 +19,13 @@ export default function SectionOne3D() {
     console.error("Canvas element with ID 'responsive-canvas' not found.");
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onCompleteTyping = (self:any) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    self.cursor.remove();
+  const onLoadSpline = () => {
+    setRender(true);
+  }
 
+  const onCompleteTyping = (self: any) => {
+    self.cursor.remove();
+    setFirstStringFinished(true);
   };
 
   return (
@@ -30,13 +33,13 @@ export default function SectionOne3D() {
       style={{
         minHeight: "100vh",
         position: "relative",
-        background: `url('img/bg/jumbotron-${themeMode}.png') 50% 100% / cover no-repeat`,
-        backgroundSize: "cover",
+        background: `url('img/bg/jumbotron-${themeMode}.png') 50% 100%  no-repeat`,
+        // backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "50% 100%",
       }}
     >
-      {/* {render && ( */}
+      {render && (
       <Container maxWidth="lg">
         <div style={{ minHeight: "100vh", position: "relative" }}>
           <div
@@ -64,11 +67,13 @@ export default function SectionOne3D() {
                     typeSpeed={40}
                   />
                   <br />
-                  <ReactTyped
-                    strings={["^1120 I'll make it for you"]}
-                    onComplete={onCompleteTyping}
-                    typeSpeed={40}
-                  />
+                  {firstStringFinished && (
+                    <ReactTyped
+                      strings={["I'll make it for you"]}
+                      // onComplete={onCompleteTyping}
+                      typeSpeed={40}
+                    />
+                  )}
                 </Typography>
               </Grid>
               <Grid item sm={3}></Grid>
@@ -93,8 +98,8 @@ export default function SectionOne3D() {
           </div>
         </div>
       </Container>
-      {/* )} */}
-      {/* <Spline
+      )}
+      <Spline
         id="responsive-canvas"
         onLoad={onLoadSpline}
         style={{
@@ -107,7 +112,7 @@ export default function SectionOne3D() {
           cursor: "grab",
         }}
         scene="https://prod.spline.design/vjmmer6SDlaR5P5n/scene.splinecode"
-      /> */}
+      />
     </div>
   );
 }

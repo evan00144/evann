@@ -113,8 +113,9 @@ export default function CertificateTab({inView}:iProps) {
               marginRight: "1.5rem",
             },
             "&::-webkit-scrollbar": {
-              width: "1px",
-              height: "5px",
+              
+              width: "7px",
+              height: "7px",
               backgroundColor: "transparent",
               marginRight: "1.5rem",
             },
