@@ -1,31 +1,31 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { createSlice } from '@reduxjs/toolkit'
-import { RootState } from '../store'
+// import { RootState } from '../store'
 
 // Define a type for the slice state
 interface CounterState {
-  theme: string
+  themeMode: string
 }
 
 // Define the initial state using that type
 const initialState: CounterState = {
-  theme: 'dark',
+  themeMode: 'dark',
 }
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const uiSlice = createSlice({
+  name: 'ui',
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    toggleTheme: (state) => {
-      state.theme === 'dark' ? 'light' : 'dark'
+    toggleThemeMode: (state) => {
+      state.themeMode=state.themeMode === 'dark' ? 'light' : 'dark'
     },
   },
 })
 
-export const { toggleTheme } = counterSlice.actions
+export const { toggleThemeMode } = uiSlice.actions
 
-// Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.counter.value
+// // Other code such as selectors can use the imported `RootState` type
+// export const selectCount = (state: RootState) => state.counter.value
 
-export default counterSlice.reducer
+export default uiSlice.reducer

@@ -1,10 +1,12 @@
 import { Container, Grid, Typography } from "@mui/material";
 import ReactTyped from "react-typed";
+import { useAppSelector } from "../../store/hooks";
 // import Spline from "@splinetool/react-spline";
 // import { useState } from "react";
 
 export default function SectionOne3D() {
   // const [render, setRender] = useState(false);
+  const { themeMode} = useAppSelector(state => state.ui)
   const canvas: HTMLCanvasElement | null = document.getElementById(
     "responsive-canvas"
   ) as HTMLCanvasElement | null;
@@ -28,8 +30,8 @@ export default function SectionOne3D() {
       style={{
         minHeight: "100vh",
         position: "relative",
-        background: "url('img/bg/jumbotron.png')",
-        // backgroundSize: "cover",
+        background: `url('img/bg/jumbotron-${themeMode}.png') 50% 100% / cover no-repeat`,
+        backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "50% 100%",
       }}
@@ -51,7 +53,7 @@ export default function SectionOne3D() {
             <Grid
               container
               alignContent={"center"}
-              sx={{ height: "100%", color: "white", pb: "7vh" }}
+              sx={{ height: "100%", pb: "7vh" }}
             >
               <Grid item sm={6}></Grid>
               <Grid item sm={3}>

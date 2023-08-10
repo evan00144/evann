@@ -6,17 +6,21 @@ import Header from "./pages/Header/Header";
 import SectionOne3D from "./pages/Section/SectionOne3D";
 import SectionFourTestimonial from "./pages/Section/SectionFourTestimonial";
 import SectionTwoPage from "./pages/Section/SectionTwo/SectionTwoPage";
-import { CssBaseline, StyledEngineProvider, createTheme } from "@mui/material";
+import { CssBaseline, PaletteMode, StyledEngineProvider, createTheme } from "@mui/material";
 import { useMemo, useState } from "react";
 import { getDesignTokens } from "./theme";
+import { useAppDispatch, useAppSelector } from "./store/hooks";
+import { toggleThemeMode } from "./store/reducer/ui";
 
 function App() {
-  const [mode, setMode] = useState<"light" | "dark">("dark");
+  // const [mode, setMode] = useState<"light" | "dark">("dark");
+  const {themeMode}  = useAppSelector(state => state.ui)
+  const dispatch = useAppDispatch()
   const toggleColorMode = () => {
-    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+    dispatch(toggleThemeMode())
   };
 
-  const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+  const theme = useMemo(() => createTheme(getDesignTokens(themeMode as PaletteMode)), [themeMode]);
 
   return (
     <StyledEngineProvider injectFirst>

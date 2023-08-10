@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { uiSlice } from './reducer/ui'
 // ...
 
 export const store = configureStore({
   reducer: {
-    // posts: postsReducer,
+    ui:uiSlice.reducer,
   },
 })
 

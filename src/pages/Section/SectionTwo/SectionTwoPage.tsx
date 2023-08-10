@@ -99,7 +99,7 @@ export default function SectionTwoPage() {
       <Box
         sx={{
           position: "absolute",
-          top: "10%",
+          top: "25vh",
           left: "0",
           width: "100%",
           zIndex: "0",
@@ -146,9 +146,10 @@ export default function SectionTwoPage() {
         src="/img/bg/section2radial.png"
         style={{
           position: "absolute",
-          top: "-18vh",
+          top: "-35vh",
           width: "90vw",
           // transform: "translateY(  50%)",
+          zIndex: "-1",
           right: "0",
         }}
         alt=""
@@ -162,9 +163,9 @@ export default function SectionTwoPage() {
           justifyContent={"space-between"}
         >
           <Grid item sm={5} ref={ref} className="content-height-box">
-            <Typography variant="body1" marginBottom={"1.5rem"} color={"white"}>
-              <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span> is
-              a Front-End / Web Developer with almost 2 years of work
+            <Typography variant="body1" marginBottom={"1.5rem"} marginTop={'12vh'} color={"white"}>
+              {/* <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span> */}
+              Evan is a Front-End / Web Developer with almost 2 years of work
               experience. He is a graduate of Multimedia Nusantara University
               with a major in Information Technology, and he has gained solid
               skills in HTML, CSS, JavaScript, and various frontend frameworks,
