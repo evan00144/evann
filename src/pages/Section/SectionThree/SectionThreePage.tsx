@@ -1,11 +1,7 @@
-import {
-  Container,
-  Grid,
-} from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import CardItem from "./CardItem";
 
 export default function SectionThreePage() {
- 
   return (
     <Container
       maxWidth="lg"
@@ -14,16 +10,14 @@ export default function SectionThreePage() {
       }}
     >
       <Grid container spacing={4.5}>
-        {/* {Array(6)
+        {Array(6)
           .fill(0)
-          .map((_, i) => ( */}
-            <Grid item 
-            // key={i}
-             sm={4}>
+          .map((_, i) => (
+            <Grid item key={i} sm={4}>
               <CardItem
                 title="Job Portal"
                 bg={` ${
-                  1 % 2 === 0
+                  i % 2 !== 0
                     ? "linear-gradient(180deg, rgba(5,7,15,.2) 20%, rgba(157,142,254,.2) 100%"
                     : "linear-gradient(180deg, rgba(5,7,15,.2) 20%, rgba(64,176,132,.2) 100%"
                 });
@@ -33,7 +27,7 @@ export default function SectionThreePage() {
                 img="/img/jobportal/thumbnail.png"
               />
             </Grid>
-          {/* ))} */}
+          ))}
       </Grid>
     </Container>
   );

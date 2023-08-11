@@ -38,8 +38,7 @@ export default function SectionOne3D() {
         position: "relative",
         background: `url('img/bg/jumbotron-${themeMode}.png') 50% 100%  no-repeat`,
         // backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "50% 100%",
+        // backgroundPosition: "50% 100%",
       }}
     >
       {render && (
@@ -122,7 +121,9 @@ export default function SectionOne3D() {
           </Box>
         </Container>
       )}
-      <Spline
+      {themeMode == "dark" ? (
+
+        <Spline
         id="responsive-canvas"
         onLoad={onLoadSpline}
         style={{
@@ -134,8 +135,25 @@ export default function SectionOne3D() {
           pointerEvents: "auto",
           cursor: "grab",
         }}
-        scene={`${themeMode === 'dark' ? "https://prod.spline.design/vjmmer6SDlaR5P5n/scene.splinecode" : "https://prod.spline.design/Avu63nidCXKxoRoF/scene.splinecode"}`}
-      />
+        scene={`${"https://prod.spline.design/vjmmer6SDlaR5P5n/scene.splinecode"}`}
+        />
+        ):(
+          
+        <Spline
+        id="responsive-canvas"
+        onLoad={onLoadSpline}
+        style={{
+          position: "absolute",
+          height: "fit-content",
+          width: "fit-content",
+          top: "-20rem",
+          left: "-20rem",
+          pointerEvents: "auto",
+          cursor: "grab",
+        }}
+        scene={`${"https://prod.spline.design/Avu63nidCXKxoRoF/scene.splinecode"}`}
+        />
+        )}
     </div>
   );
 }
