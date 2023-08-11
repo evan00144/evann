@@ -1,7 +1,10 @@
-import { Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import ReactTyped from "react-typed";
 import { useAppSelector } from "../../store/hooks";
 import { useState } from "react";
+import animationMouse from "../../animatedSVG/animationMouse.json";
+import Lottie from "react-lottie";
+
 import Spline from "@splinetool/react-spline";
 
 export default function SectionOne3D() {
@@ -21,7 +24,7 @@ export default function SectionOne3D() {
 
   const onLoadSpline = () => {
     setRender(true);
-  }
+  };
 
   const onCompleteTyping = (self: any) => {
     self.cursor.remove();
@@ -35,71 +38,92 @@ export default function SectionOne3D() {
         position: "relative",
         background: `url('img/bg/jumbotron-${themeMode}.png') 50% 100%  no-repeat`,
         // backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "50% 100%",
+        // backgroundPosition: "50% 100%",
       }}
     >
       {render && (
-      <Container maxWidth="lg">
-        <div style={{ minHeight: "100vh", position: "relative" }}>
-          <div
-            style={{
-              position: "absolute",
-              height: "100%",
-              width: "100%",
-              top: "0",
-              left: "0",
-              zIndex: 1,
-              pointerEvents: "none",
-            }}
-          >
-            <Grid
-              container
-              alignContent={"center"}
-              sx={{ height: "100%", pb: "7vh" }}
+        <Container maxWidth="lg">
+          <div style={{ minHeight: "100vh", position: "relative" }}>
+            <div
+              style={{
+                position: "absolute",
+                height: "100%",
+                width: "100%",
+                top: "0",
+                left: "0",
+                zIndex: 1,
+                pointerEvents: "none",
+              }}
             >
-              <Grid item sm={6}></Grid>
-              <Grid item sm={3}>
-                <Typography variant="h6">
-                  <ReactTyped
-                    strings={["Need a website?"]}
-                    onComplete={onCompleteTyping}
-                    typeSpeed={40}
-                  />
-                  <br />
-                  {firstStringFinished && (
+              <Grid
+                container
+                alignContent={"center"}
+                sx={{ height: "100%", pb: "7vh" }}
+              >
+                <Grid item sm={6}></Grid>
+                <Grid item sm={3}>
+                  <Typography variant="h6">
                     <ReactTyped
-                      strings={["I'll make it for you"]}
-                      // onComplete={onCompleteTyping}
+                      strings={["Need a website?"]}
+                      onComplete={onCompleteTyping}
                       typeSpeed={40}
                     />
-                  )}
-                </Typography>
+                    <br />
+                    {firstStringFinished && (
+                      <ReactTyped
+                        strings={["I'll make it for you"]}
+                        // onComplete={onCompleteTyping}
+                        typeSpeed={40}
+                      />
+                    )}
+                  </Typography>
+                </Grid>
+                <Grid item sm={3}></Grid>
+                <Grid item sm={12}>
+                  <Typography
+                    variant="h1"
+                    fontWeight={"bold"}
+                    textAlign={"center"}
+                    fontSize={"15rem"}
+                  >
+                    Evan
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    fontWeight={"light"}
+                    textAlign={"center"}
+                  >
+                    Front-End / Web Developer
+                  </Typography>
+                </Grid>
               </Grid>
-              <Grid item sm={3}></Grid>
-              <Grid item sm={12}>
-                <Typography
-                  variant="h1"
-                  fontWeight={"bold"}
-                  textAlign={"center"}
-                  fontSize={"15rem"}
-                >
-                  Evan
-                </Typography>
-                <Typography
-                  variant="h5"
-                  fontWeight={"light"}
-                  textAlign={"center"}
-                >
-                  Front-End / Web Developer
-                </Typography>
-              </Grid>
-            </Grid>
+            </div>
           </div>
-        </div>
-      </Container>
+          <Box sx={{
+            position: "absolute",
+            bottom: "5vh",
+            left: "50%",
+            transform: "translateX(-50%)",
+          }}>
+            <Lottie
+              // isStopped={pause}
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: animationMouse,
+                rendererSettings: {
+                  preserveAspectRatio: "xMidYMid slice",
+                },
+              }}
+              height={84}
+              width={84}
+            />
+          </Box>
+        </Container>
       )}
-      <Spline
+      {themeMode == "dark" ? (
+
+        <Spline
         id="responsive-canvas"
         onLoad={onLoadSpline}
         style={{
@@ -111,8 +135,25 @@ export default function SectionOne3D() {
           pointerEvents: "auto",
           cursor: "grab",
         }}
-        scene="https://prod.spline.design/vjmmer6SDlaR5P5n/scene.splinecode"
-      />
+        scene={`${"https://prod.spline.design/vjmmer6SDlaR5P5n/scene.splinecode"}`}
+        />
+        ):(
+          
+        <Spline
+        id="responsive-canvas"
+        onLoad={onLoadSpline}
+        style={{
+          position: "absolute",
+          height: "fit-content",
+          width: "fit-content",
+          top: "-20rem",
+          left: "-20rem",
+          pointerEvents: "auto",
+          cursor: "grab",
+        }}
+        scene={`${"https://prod.spline.design/Avu63nidCXKxoRoF/scene.splinecode"}`}
+        />
+        )}
     </div>
   );
 }

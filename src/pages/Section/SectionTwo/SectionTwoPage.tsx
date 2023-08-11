@@ -18,7 +18,7 @@ import ExperienceTab from "./ExperienceTab";
 import SkillTab from "./SkillTab";
 // import DownloadIcon from "../../../icons/DownloadIcon";
 import Lottie from "react-lottie";
-import animationData from "./animation.json";
+import animationDownload from "../../../animatedSVG/animationDownload.json";
 
 export default function SectionTwoPage() {
   const [ref, inView] = useInView({});
@@ -195,6 +195,12 @@ export default function SectionTwoPage() {
               variant="contained"
               onMouseEnter={() => setPause(false)}
               onMouseLeave={() => setPause(true)}
+              // onClick={() =>{
+              //   window.open('/pdf/CV_Evan.pdf', '_blank');
+              // }}
+              component="a"
+              href="/pdf/CV_Evan.pdf"
+              download={true}
               sx={{
                 padding: "0 ",
                 fontSize: "1.2rem",
@@ -211,7 +217,7 @@ export default function SectionTwoPage() {
                 justifyContent: "start",
                 minWidth: "0  ",
                 "&:hover": {
-                  width: "13rem",
+                  width: "13.5rem",
                   transition: ".5s",
                   span: {
                     color: "primary.main",
@@ -237,7 +243,7 @@ export default function SectionTwoPage() {
                   options={{
                     loop: true,
                     autoplay: true,
-                    animationData: animationData,
+                    animationData: animationDownload,
                     rendererSettings: {
                       preserveAspectRatio: "xMidYMid slice",
                     },
@@ -246,9 +252,11 @@ export default function SectionTwoPage() {
                   width={50}
                 />
 
-                <Box
+                <Typography
                   component={"span"}
                   marginLeft={"1rem"}
+                  variant="h6"
+                  fontWeight={700}
                   sx={{
                     transition: "1s",
                     whiteSpace: "nowrap",
@@ -256,7 +264,7 @@ export default function SectionTwoPage() {
                   }}
                 >
                   Download CV
-                </Box>
+                </Typography>
               </Stack>
             </Button>
           </Grid>
