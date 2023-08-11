@@ -19,7 +19,7 @@ export default function Header({ toggleColorMode }: iProps) {
       const currentScrollY = window.scrollY;
       setIsScrollingUp(currentScrollY < prevScrollY);
       setPrevScrollY(currentScrollY);
-      setIsAtTop(window.scrollY === 0); 
+      setIsAtTop(window.scrollY === 0);
     });
   }, [prevScrollY]);
 
@@ -36,17 +36,6 @@ export default function Header({ toggleColorMode }: iProps) {
         fixedElement.style.pointerEvents = "none";
       }
     }
-    if(isAtTop) {
-      if (fixedElement) {
-        fixedElement.style.background = "transparent";
-      }
-    }
-    else{
-      if (fixedElement) {
-        fixedElement.style.background = 'inherit';
-      }
-    }
-    console.log(isScrollingUp);
   }, [isScrollingUp]);
 
   return (
@@ -59,7 +48,9 @@ export default function Header({ toggleColorMode }: iProps) {
           zIndex: "20",
           transition: ".2s",
           width: "100%",
-          background: (theme) => theme.palette.background.default,
+          background: isAtTop
+            ? "transparent"
+            : (theme) => theme.palette.background.default,
         }}
       >
         <Container maxWidth="lg">
@@ -97,6 +88,12 @@ export default function Header({ toggleColorMode }: iProps) {
                   theme.palette.mode === "light"
                     ? "white"
                     : `${theme.palette.primary.main} !important`,
+                ".dark": {
+                  opacity: themeMode === "dark" ? 0 : 1,
+                },
+                ".light": {
+                  opacity: themeMode === "light" ? 0 : 1,
+                },
               }}
             >
               <Stack direction={"row"} position={"relative"} columnGap={"1rem"}>

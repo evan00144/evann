@@ -1,29 +1,44 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import LinkedInIcon from "../../icons/LinkedInIcon";
 import GitHubIcon from "../../icons/GitHubIcon";
 import GmailIcon from "../../icons/GmailIcon";
 import QuoteIcon from "../../icons/QuoteIcon";
+import { useAppSelector } from "../../store/hooks";
 
 export default function SectionFourTestimonial() {
+  const { themeMode } = useAppSelector((state) => state.ui);
   return (
     <Stack
       justifyContent={"end"}
       direction={"row"}
       sx={{
-        height: "100vh",
+        minHeight: "100vh",
         position: "relative",
       }}
     >
-      <Grid
+      {/* <Grid
         container
         alignItems={"center"}
         sx={{
-          position: "absolute",
+          // position: "absolute",
           height: "100%",
           paddingLeft: "5rem",
         }}
       >
-        <Grid item sm={5}>
+        <Grid
+          item
+          sm={5}
+          sx={{
+            height: "100%",
+          }}
+        > */}
+      <Container
+        maxWidth={"lg"}
+        sx={{
+          width: "50%",
+        }}
+      >
+        <Stack height={"100%"} padding={"5rem 7rem"}>
           <Typography variant="h3" fontWeight={600} marginBottom={"2.6rem"}>
             Lorem ipsum dolor sit amet
           </Typography>
@@ -32,44 +47,68 @@ export default function SectionFourTestimonial() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua
           </Typography>
 
-          <Stack direction={"row"} spacing={3} alignItems={"center"}>
+          <Stack
+            direction={"row"}
+            spacing={3}
+            marginBottom={"1.5rem"}
+            alignItems={"center"}
+          >
             <Box
-              sx={{ width: "60px", height: "60px" }}
+              sx={{ width: "48px", height: "48px" }}
               display={"flex"}
               alignItems={"center"}
               justifyContent={"center"}
             >
               <LinkedInIcon />
             </Box>
-            <Typography variant="body1">linkedin.com/in/evan0014/</Typography>
+            <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
           </Stack>
-          <Stack direction={"row"} spacing={3} alignItems={"center"}>
+          <Stack
+            direction={"row"}
+            spacing={3}
+            marginBottom={"1.5rem"}
+            alignItems={"center"}
+          >
             <Box
-              sx={{ width: "60px", height: "60px" }}
+              sx={{ width: "48px", height: "48px" }}
               display={"flex"}
               alignItems={"center"}
               justifyContent={"center"}
             >
               <GitHubIcon />
             </Box>
-            <Typography variant="body1">linkedin.com/in/evan0014/</Typography>
+            <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
           </Stack>
           <Stack direction={"row"} spacing={3} alignItems={"center"}>
             <Box
-              sx={{ width: "60px", height: "60px" }}
+              sx={{ width: "48px", height: "48px" }}
               display={"flex"}
               alignItems={"center"}
               justifyContent={"center"}
             >
               <GmailIcon />
             </Box>
-            <Typography variant="body1">linkedin.com/in/evan0014/</Typography>
+            <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
           </Stack>
-        </Grid>
-      </Grid>
+          <img
+            src={`/logo-${themeMode === "light" ? "dark" : "light"}.svg`}
+            style={{
+              transition: "0.1s",
+              marginTop: "auto",
+            }}
+            alt=""
+            width={96}
+          />
+        </Stack>
+      </Container>
+      {/* </Grid> */}
+      {/* </Grid> */}
 
       <Box
         sx={{
+          position: "relative",
+          right: 0,
+          top: 0,
           width: "50%",
           height: "100%",
         }}
@@ -77,7 +116,8 @@ export default function SectionFourTestimonial() {
         <Grid
           container
           sx={{
-            height: "100%",
+          minHeight: "100vh",
+
           }}
         >
           <Grid item sm={6}>
@@ -109,13 +149,17 @@ export default function SectionFourTestimonial() {
                   cupidatat non proident, sunt in culpa qui officia deserunt
                   mollit anim id est laborum.
                 </Typography>
-                <Typography variant="h4" fontWeight={600} color={"primary"}>
+                <Typography variant="h4" fontWeight={700} color={"primary"}>
                   John Doe
                 </Typography>
-                <Typography variant="h6" color={"white"}>
+                <Typography variant="h6" fontWeight={700} color={"white"}>
                   Kuli Bangunan Tetangga
                 </Typography>
-                <Typography variant="body2" color={"primary.50"}>
+                <Typography
+                  variant="body2"
+                  fontWeight={700}
+                  color={"primary.50"}
+                >
                   Kuli Bangunan Tetangga
                 </Typography>
               </Box>
@@ -155,15 +199,23 @@ export default function SectionFourTestimonial() {
                     </Typography>
                     <Typography
                       variant="h4"
-                      fontWeight={600}
+                      fontWeight={700}
                       color={"secondary"}
                     >
                       John Doe
                     </Typography>
-                    <Typography variant="h6" color={"tertiary.main"}>
+                    <Typography
+                      variant="h6"
+                      fontWeight={700}
+                      color={"tertiary.main"}
+                    >
                       Kuli Bangunan Tetangga
                     </Typography>
-                    <Typography variant="body2" color={"primary.50"}>
+                    <Typography
+                      variant="body2"
+                      fontWeight={700}
+                      color={"primary.50"}
+                    >
                       Kuli Bangunan Tetangga
                     </Typography>
                   </Box>
@@ -200,13 +252,17 @@ export default function SectionFourTestimonial() {
                       sint occaecat cupidatat non proident, sunt in culpa qui
                       officia deserunt mollit anim id est laborum.
                     </Typography>
-                    <Typography variant="h4" fontWeight={600} color={"primary"}>
+                    <Typography variant="h4" fontWeight={700} color={"primary"}>
                       John Doe
                     </Typography>
-                    <Typography variant="h6" color={"white"}>
+                    <Typography variant="h6" fontWeight={700} color={"white"}>
                       Kuli Bangunan Tetangga
                     </Typography>
-                    <Typography variant="body2" color={"primary.50"}>
+                    <Typography
+                      variant="body2"
+                      fontWeight={700}
+                      color={"primary.50"}
+                    >
                       Kuli Bangunan Tetangga
                     </Typography>
                   </Box>
@@ -216,6 +272,7 @@ export default function SectionFourTestimonial() {
           </Grid>
         </Grid>
       </Box>
+      {/* <Box width={"50%"}></Box> */}
     </Stack>
   );
 }

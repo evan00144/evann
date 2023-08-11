@@ -11,6 +11,7 @@ import { useMemo } from "react";
 import { getDesignTokens } from "./theme";
 import { useAppDispatch, useAppSelector } from "./store/hooks";
 import { toggleThemeMode } from "./store/reducer/ui";
+import SectionThreePage from "./pages/Section/SectionThree/SectionThreePage";
 
 function App() {
   // const [mode, setMode] = useState<"light" | "dark">("dark");
@@ -30,6 +31,7 @@ function App() {
           <Header toggleColorMode={toggleColorMode} />
           <SectionOne3D />
           <SectionTwoPage />
+          <SectionThreePage/>
           <SectionFourTestimonial />
         </StyledProvider>
       </ThemeProvider>
