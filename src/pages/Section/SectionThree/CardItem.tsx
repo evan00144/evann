@@ -59,12 +59,18 @@ export default function CardItem({
     //-----------------------------------------
 
     const onMouseEnterHandler = (event: MouseEvent) => {
-      console.log("enter");
       update(event);
+      setTimeout(() => {
+        console.log('s')
+        inner.style.transition = "0s";
+        container.style.transition = "0s";
+      }, 500);
     };
 
     const onMouseLeaveHandler = () => {
       inner.style.transform = "";
+      inner.style.transition = ".5s";
+      container.style.transition = ".5s";
     };
 
     const onMouseMoveHandler = (event: MouseEvent) => {
@@ -122,6 +128,7 @@ export default function CardItem({
     <Box
       id={`container-${index}`}
       sx={{
+        transition: ".5s",
       }}
     >
       <Card
@@ -130,7 +137,8 @@ export default function CardItem({
           padding: "1.5rem 1.5rem 0 1.5rem",
           borderRadius: "1rem",
           position: "relative",
-          background: bg,
+        transition: ".5s",
+        background: bg, 
         }}
       >
         <Box
