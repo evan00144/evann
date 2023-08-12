@@ -3,10 +3,9 @@ import LinkedInIcon from "../../icons/LinkedInIcon";
 import GitHubIcon from "../../icons/GitHubIcon";
 import GmailIcon from "../../icons/GmailIcon";
 import QuoteIcon from "../../icons/QuoteIcon";
-import { useAppSelector } from "../../store/hooks";
+import Logo from "../../components/Logo";
 
 export default function SectionFourTestimonial() {
-  const { themeMode } = useAppSelector((state) => state.ui);
   return (
     <Stack
       justifyContent={"end"}
@@ -90,15 +89,9 @@ export default function SectionFourTestimonial() {
             </Box>
             <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
           </Stack>
-          <img
-            src={`/logo-${themeMode === "light" ? "dark" : "light"}.svg`}
-            style={{
-              transition: "0.1s",
-              marginTop: "auto",
-            }}
-            alt=""
-            width={96}
-          />
+          <Box marginTop={'auto'}>
+            <Logo />
+          </Box>
         </Stack>
       </Container>
       {/* </Grid> */}
@@ -116,8 +109,7 @@ export default function SectionFourTestimonial() {
         <Grid
           container
           sx={{
-          minHeight: "100vh",
-
+            minHeight: "100vh",
           }}
         >
           <Grid item sm={6}>

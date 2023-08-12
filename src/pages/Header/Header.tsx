@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import { useAppSelector } from "../../store/hooks";
+import Logo from "../../components/Logo";
 interface iProps {
   toggleColorMode: () => void;
 }
@@ -55,31 +56,28 @@ export default function Header({ toggleColorMode }: iProps) {
       >
         <Container maxWidth="lg">
           <Stack
-            padding={"1.5rem 0"}
+            padding={"1rem 0"}
             direction={"row"}
+            alignItems={"center"}
             justifyContent={"space-between"}
           >
-            <img
-              src={`/logo-${themeMode === "light" ? "dark" : "light"}.svg`}
-              style={{
-                transition: "0.1s",
-              }}
-              alt=""
-              width={96}
-            />
-            <Stack direction={"row"} spacing={5}>
-              <Typography variant="h6" marginLeft={"auto"}>
+            <Logo size={72} />
+            <Stack direction={"row"} alignItems={"center"} spacing={5}>
+              <Typography variant="body1" fontWeight={700} marginLeft={"auto"}>
                 About
               </Typography>
-              <Typography variant="h6">Projects </Typography>
-              <Typography variant="h6">Contact</Typography>
+              <Typography variant="body1" fontWeight={700}>Projects </Typography>
+              <Typography variant="body1" fontWeight={700}>Contact</Typography>
             </Stack>
             <Button
               color="secondary"
               variant="contained"
+              size="small"
               onClick={toggleColorMode}
               sx={{
+                minHeight: "0px",
                 borderRadius: "30rem",
+                height:'fit-content',
                 background: (theme) =>
                   theme.palette.mode === "dark"
                     ? "white !important"
@@ -96,14 +94,22 @@ export default function Header({ toggleColorMode }: iProps) {
                 },
               }}
             >
-              <Stack direction={"row"} position={"relative"} columnGap={"1rem"}>
-                <DarkModeIcon className="dark" />
-                <WbSunnyIcon className="light" />
+              <Stack direction={"row"} sx={{
+                "svg":{
+                  width:'100%'
+                }
+              }} position={"relative"} alignItems={'center'} justifyContent={'center'} columnGap={".55rem"}>
+                <Box width={"20px"} height={'20px'}>
+                  <DarkModeIcon fontSize="small" className="dark" />
+                </Box>
+                <Box width={"20px"} height={'20px'}>
+                  <WbSunnyIcon fontSize="small" className="light" />
+                </Box>
                 <Box
                   sx={{
                     position: "absolute",
                     height: "100%",
-                    width: "24px",
+                    width: "20px",
                     top: 0,
                     left: themeMode === "dark" ? 0 : "100%",
                     transform: themeMode === "dark" ? "" : "translateX(-100%)",

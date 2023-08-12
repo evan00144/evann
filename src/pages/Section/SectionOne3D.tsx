@@ -115,13 +115,13 @@ export default function SectionOne3D() {
                   preserveAspectRatio: "xMidYMid slice",
                 },
               }}
-              height={84}
-              width={84}
+              height={64}
+              width={64}
             />
           </Box>
         </Container>
       )}
-      {themeMode == "dark" ? (
+      {/* {themeMode == "dark" ? (
 
         <Spline
         id="responsive-canvas"
@@ -153,7 +153,7 @@ export default function SectionOne3D() {
         }}
         scene={`${"https://prod.spline.design/Avu63nidCXKxoRoF/scene.splinecode"}`}
         />
-        )}
+        )} */}
     </div>
   );
 }
