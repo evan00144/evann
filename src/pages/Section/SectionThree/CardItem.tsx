@@ -61,7 +61,7 @@ export default function CardItem({
     const onMouseEnterHandler = (event: MouseEvent) => {
       update(event);
       setTimeout(() => {
-        console.log('s')
+        console.log("s");
         inner.style.transition = "0s";
         container.style.transition = "0s";
       }, 500);
@@ -90,8 +90,8 @@ export default function CardItem({
     };
 
     const updateTransformStyle = (x: string, y: string) => {
-      const style = `perspective(100px) rotateX(${Number(x)/2 }deg) rotateY(${
-        Number(y) /2
+      const style = `perspective(100px) rotateX(${Number(x) / 2}deg) rotateY(${
+        Number(y) / 2
       }deg)`;
       inner.style.transform = style;
       // circle follow cursor
@@ -117,8 +117,8 @@ export default function CardItem({
               preserveAspectRatio: "xMidYMid slice",
             },
           }}
-          height={64}
-          width={64}
+          height={48}
+          width={48}
         />
       </>
     );
@@ -129,16 +129,20 @@ export default function CardItem({
       id={`container-${index}`}
       sx={{
         transition: ".5s",
+        height: "100%",
       }}
+      onMouseEnter={() => setPauseItem(false)}
+      onMouseLeave={() => setPauseItem(true)}
     >
       <Card
         id={`inner-${index}`}
         sx={{
           padding: "1.5rem 1.5rem 0 1.5rem",
           borderRadius: "1rem",
+          height: "100%",
           position: "relative",
-        transition: ".5s",
-        background: bg, 
+          transition: ".5s",
+          background: bg,
         }}
       >
         <Box
@@ -163,8 +167,6 @@ export default function CardItem({
               {title}
             </Typography>
             <Box
-              onMouseEnter={() => setPauseItem(false)}
-              onMouseLeave={() => setPauseItem(true)}
               sx={{
                 marginLeft: "auto",
                 transform: "rotate(-45deg)",
@@ -183,22 +185,37 @@ export default function CardItem({
           <Typography
             marginBottom={"1.5rem"}
             variant={"body1"}
-            fontWeight={600}
+            fontWeight={500}
           >
             {content}
           </Typography>
         </CardContent>
         <img
           style={{
-            position: "relative",
-            bottom: "-.5rem",
-            borderTopLeftRadius: "1rem",
-            borderTopRightRadius: "1rem",
+            opacity: "0",
           }}
           width={"100%"}
           src={img}
-          alt=""
         />
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: "-.5rem",
+            left: "0",
+            padding: "0 1.5rem",
+            height: "fit-content",
+          }}
+        >
+          <img
+            style={{
+              borderTopLeftRadius: "1rem",
+              borderTopRightRadius: "1rem",
+            }}
+            width={"100%"}
+            src={img}
+            alt=""
+          />
+        </Box>
       </Card>
     </Box>
   );
