@@ -15,85 +15,83 @@ export default function SectionFourTestimonial() {
         position: "relative",
       }}
     >
-      {/* <Grid
-        container
-        alignItems={"center"}
+      <Stack
         sx={{
-          // position: "absolute",
-          height: "100%",
-          paddingLeft: "5rem",
+          position: "absolute",
+          left: 0,
+          top: 0,
+          width: "100%",
+          minHeight: "100vh",
+          paddingTop: "5rem",
         }}
       >
-        <Grid
-          item
-          sm={5}
-          sx={{
-            height: "100%",
-          }}
-        > */}
-      <Container
-        maxWidth={"lg"}
-        sx={{
-          width: "50%",
-        }}
-      >
-        <Stack height={"100%"} padding={"5rem 7rem"}>
-          <Typography variant="h3" fontWeight={600} marginBottom={"2.6rem"}>
-            Lorem ipsum dolor sit amet
-          </Typography>
-          <Typography variant="h5" marginBottom={"5rem"}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua
-          </Typography>
+        <Container
+          maxWidth={"lg"}
+          sx={
+            {
+              // width: "50%",
+            }
+          }
+        >
+          <Stack height={"100%"} width={'50%'} paddingRight={'3rem'}>
+            <Typography variant="h4" fontWeight={600} marginBottom={"2.6rem"}>
+              Lorem ipsum dolor sit amet
+            </Typography>
+            <Typography variant="h6" marginBottom={"5rem"}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua
+            </Typography>
 
-          <Stack
-            direction={"row"}
-            spacing={3}
-            marginBottom={"1.5rem"}
-            alignItems={"center"}
-          >
-            <Box
-              sx={{ width: "48px", height: "48px" }}
-              display={"flex"}
+            <Stack
+              direction={"row"}
+              spacing={3}
+              marginBottom={"1.5rem"}
               alignItems={"center"}
-              justifyContent={"center"}
             >
-              <LinkedInIcon />
-            </Box>
-            <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
-          </Stack>
-          <Stack
-            direction={"row"}
-            spacing={3}
-            marginBottom={"1.5rem"}
-            alignItems={"center"}
-          >
-            <Box
-              sx={{ width: "48px", height: "48px" }}
-              display={"flex"}
+              <Box
+                sx={{ width: "36px", height: "36px" }}
+                display={"flex"}
+                alignItems={"center"}
+                justifyContent={"center"}
+              >
+                <LinkedInIcon />
+              </Box>
+              <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
+            </Stack>
+            <Stack
+              direction={"row"}
+              spacing={3}
+              marginBottom={"1.5rem"}
               alignItems={"center"}
-              justifyContent={"center"}
             >
-              <GitHubIcon />
+              <Box
+                sx={{ width: "36px", height: "36px" }}
+                display={"flex"}
+                alignItems={"center"}
+                justifyContent={"center"}
+              >
+                <GitHubIcon />
+              </Box>
+              <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
+            </Stack>
+            <Stack direction={"row"} spacing={3} alignItems={"center"}>
+              <Box
+                sx={{ width: "36px", height: "36px" }}
+                display={"flex"}
+                alignItems={"center"}
+                justifyContent={"center"}
+              >
+                <GmailIcon />
+              </Box>
+              <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
+            </Stack>
+            <Box position={'absolute'} bottom={'2rem'}>
+              <Logo />
             </Box>
-            <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
           </Stack>
-          <Stack direction={"row"} spacing={3} alignItems={"center"}>
-            <Box
-              sx={{ width: "48px", height: "48px" }}
-              display={"flex"}
-              alignItems={"center"}
-              justifyContent={"center"}
-            >
-              <GmailIcon />
-            </Box>
-            <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
-          </Stack>
-          <Box marginTop={'auto'}>
-            <Logo />
-          </Box>
-        </Stack>
-      </Container>
+        </Container>
+      </Stack>
+
       {/* </Grid> */}
       {/* </Grid> */}
 
@@ -144,7 +142,7 @@ export default function SectionFourTestimonial() {
                 <Typography variant="h4" fontWeight={700} color={"primary"}>
                   John Doe
                 </Typography>
-                <Typography variant="h6" fontWeight={700} color={"primary.light"}>
+                <Typography variant="h6" fontWeight={700}>
                   Kuli Bangunan Tetangga
                 </Typography>
                 <Typography
@@ -233,7 +231,6 @@ export default function SectionFourTestimonial() {
                       fontWeight={300}
                       variant="body1"
                       marginBottom={"1rem"}
-                      color={"white"}
                     >
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -247,7 +244,7 @@ export default function SectionFourTestimonial() {
                     <Typography variant="h4" fontWeight={700} color={"primary"}>
                       John Doe
                     </Typography>
-                    <Typography variant="h6" fontWeight={700} color={"white"}>
+                    <Typography variant="h6" fontWeight={700}>
                       Kuli Bangunan Tetangga
                     </Typography>
                     <Typography

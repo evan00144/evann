@@ -6,10 +6,10 @@ import animationMouseLight from "../../animatedSVG/animationMouse-dark.json";
 import animationMouseDark from "../../animatedSVG/animationMouse-light.json";
 import Lottie from "react-lottie";
 
-import Spline from "@splinetool/react-spline";
+// import Spline from "@splinetool/react-spline";
 
 export default function SectionOne3D() {
-  const [render, setRender] = useState(false);
+  // const [render, setRender] = useState(false);
   const [firstStringFinished, setFirstStringFinished] = useState(false);
   const { themeMode } = useAppSelector((state) => state.ui);
   const canvas: HTMLCanvasElement | null = document.getElementById(
@@ -23,9 +23,9 @@ export default function SectionOne3D() {
     console.error("Canvas element with ID 'responsive-canvas' not found.");
   }
 
-  const onLoadSpline = () => {
-    setRender(true);
-  };
+  // const onLoadSpline = () => {
+  //   setRender(true);
+  // };
 
   const onCompleteTyping = (self: any) => {
     self.cursor.remove();
@@ -42,7 +42,7 @@ export default function SectionOne3D() {
         // backgroundPosition: "50% 100%",
       }}
     >
-      {render && (
+      {/* {render && ( */}
         <Container maxWidth="lg">
           <div style={{ minHeight: "100vh", position: "relative" }}>
             <div
@@ -121,8 +121,8 @@ export default function SectionOne3D() {
             />
           </Box>
         </Container>
-      )}
-      {themeMode == "dark" ? (
+      {/* )} */}
+      {/* {themeMode == "dark" ? (
         <Spline
         id="responsive-canvas"
         onLoad={onLoadSpline}
@@ -153,7 +153,7 @@ export default function SectionOne3D() {
         }}
         scene={`${"https://prod.spline.design/Avu63nidCXKxoRoF/scene.splinecode"}`}
         />
-        )}
+        )} */}
     </div>
   );
 }
