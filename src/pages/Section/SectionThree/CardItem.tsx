@@ -90,8 +90,8 @@ export default function CardItem({
     };
 
     const updateTransformStyle = (x: string, y: string) => {
-      const style = `perspective(100px) rotateX(${Number(x)}deg) rotateY(${
-        Number(y) * 2
+      const style = `perspective(100px) rotateX(${Number(x)/2 }deg) rotateY(${
+        Number(y) /2
       }deg)`;
       inner.style.transform = style;
       // circle follow cursor
