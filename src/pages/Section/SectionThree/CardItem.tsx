@@ -51,7 +51,7 @@ export default function CardItem({
     //-----------------------------------------
 
     let counter = 0;
-    const updateRate = 10;
+    const updateRate = 1;
     const isTimeToUpdate = () => {
       return counter++ % updateRate === 0;
     };
