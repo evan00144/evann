@@ -2,7 +2,8 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import ReactTyped from "react-typed";
 import { useAppSelector } from "../../store/hooks";
 import { useState } from "react";
-import animationMouse from "../../animatedSVG/animationMouse.json";
+import animationMouseLight from "../../animatedSVG/animationMouse-dark.json";
+import animationMouseDark from "../../animatedSVG/animationMouse-light.json";
 import Lottie from "react-lottie";
 
 import Spline from "@splinetool/react-spline";
@@ -110,7 +111,7 @@ export default function SectionOne3D() {
               options={{
                 loop: true,
                 autoplay: true,
-                animationData: animationMouse,
+                animationData: themeMode==='light' ? animationMouseLight : animationMouseDark,
                 rendererSettings: {
                   preserveAspectRatio: "xMidYMid slice",
                 },
@@ -121,8 +122,7 @@ export default function SectionOne3D() {
           </Box>
         </Container>
       )}
-      {/* {themeMode == "dark" ? (
-
+      {themeMode == "dark" ? (
         <Spline
         id="responsive-canvas"
         onLoad={onLoadSpline}
@@ -153,7 +153,7 @@ export default function SectionOne3D() {
         }}
         scene={`${"https://prod.spline.design/Avu63nidCXKxoRoF/scene.splinecode"}`}
         />
-        )} */}
+        )}
     </div>
   );
 }

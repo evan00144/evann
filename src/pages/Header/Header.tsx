@@ -80,7 +80,7 @@ export default function Header({ toggleColorMode }: iProps) {
                 height:'fit-content',
                 background: (theme) =>
                   theme.palette.mode === "dark"
-                    ? "white !important"
+                    ? `${theme.palette.secondary.light} !important`
                     : `${theme.palette.secondary.main} !important`,
                 color: (theme) =>
                   theme.palette.mode === "light"

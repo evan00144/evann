@@ -144,7 +144,7 @@ export default function SectionFourTestimonial() {
                 <Typography variant="h4" fontWeight={700} color={"primary"}>
                   John Doe
                 </Typography>
-                <Typography variant="h6" fontWeight={700} color={"white"}>
+                <Typography variant="h6" fontWeight={700} color={"primary.light"}>
                   Kuli Bangunan Tetangga
                 </Typography>
                 <Typography
@@ -162,7 +162,7 @@ export default function SectionFourTestimonial() {
               <Grid item sm={12}>
                 <Box
                   sx={{
-                    backgroundColor: "white",
+                    backgroundColor: (theme) => theme.palette.secondary.light,
                     height: "100%",
                   }}
                 >
