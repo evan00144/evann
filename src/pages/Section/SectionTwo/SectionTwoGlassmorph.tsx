@@ -67,26 +67,6 @@ export default function SectionTwoGlassmorph() {
   };
 
   useEffect(() => {
-    // let mouseX = 0,
-    //   mouseY = 0;
-    // let xp = 0,
-    //   yp = 0;
-
-    // document.getElementById("glass-bg")?.addEventListener("mousemove", (e) => {
-    //   mouseX = e.offsetX - 250;
-    //   mouseY = e.offsetY - 130;
-    //   updateCircle();
-    // });
-    // const updateCircle = () => {
-    //   xp += (mouseX - xp) / 2;
-    //   yp += (mouseY - yp) / 2;
-    //   const circle = document.getElementById("circle");
-    //   if (circle) {
-    //     circle.style.transform = `translate(${xp}px, ${yp}px)`;
-    //   }
-    // };
-
-    const circle = document.getElementById("circle") as HTMLElement;
     const inner = document.getElementById("glass-bg") as HTMLElement;
 
     // Mouse
@@ -150,9 +130,6 @@ export default function SectionTwoGlassmorph() {
       const style = `perspective(500px) rotateX(${x}deg) rotateY(${y}deg)`;
       inner.style.transform = style;
       // circle follow cursor
-      circle.style.transform = `translate(${
-        mouse.x +circle.offsetWidth / 2 -100
-      }px, ${-mouse.y +circle.offsetHeight -150 }px)`;
     };
 
     //-----------------------------------------

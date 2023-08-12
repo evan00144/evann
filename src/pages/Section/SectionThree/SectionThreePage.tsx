@@ -25,6 +25,7 @@ export default function SectionThreePage() {
                 content=" lorem ipsum dolor sit amet consectetur. Risus tincidunt gravida habitant nunc enim nunc ultrices volutpat. Volutpat eget convallis tincidunt in viverra. Turpis magna vestibulum tempus tellus. Diam laoreet tellus orci mattis eget odio aliquam."
                 // img="/logo-dark.svg"
                 img="/img/jobportal/thumbnail.png"
+                index={i}
               />
             </Grid>
           ))}
