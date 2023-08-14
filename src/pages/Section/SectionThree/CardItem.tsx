@@ -132,6 +132,7 @@ export default function CardItem({
       sx={{
         transition: ".5s",
         height: "100%",
+        cursor: "pointer",
       }}
       onMouseEnter={() => setPauseItem(false)}
       onMouseLeave={() => setPauseItem(true)}
