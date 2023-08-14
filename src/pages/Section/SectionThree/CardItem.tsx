@@ -9,6 +9,7 @@ interface iCardItem {
   img: string;
   bg: string;
   index: number;
+  handleClick: () => void;
 }
 export default function CardItem({
   title,
@@ -16,6 +17,7 @@ export default function CardItem({
   img,
   bg,
   index,
+  handleClick
 }: iCardItem) {
   const [pauseItem, setPauseItem] = useState(false);
   useEffect(() => {
@@ -90,8 +92,8 @@ export default function CardItem({
     };
 
     const updateTransformStyle = (x: string, y: string) => {
-      const style = `perspective(100px) rotateX(${Number(x) / 2}deg) rotateY(${
-        Number(y) / 2
+      const style = `perspective(100px) rotateX(${Number(x) / 3}deg) rotateY(${
+        Number(y) / 1.5
       }deg)`;
       inner.style.transform = style;
       // circle follow cursor
@@ -133,6 +135,7 @@ export default function CardItem({
       }}
       onMouseEnter={() => setPauseItem(false)}
       onMouseLeave={() => setPauseItem(true)}
+      onClick={handleClick}
     >
       <Card
         id={`inner-${index}`}
@@ -163,7 +166,7 @@ export default function CardItem({
           }}
         >
           <Stack direction={"row"} alignItems={"center"}>
-            <Typography variant={"h4"} fontWeight={700}>
+            <Typography variant={"h4"} fontWeight={700} paddingRight={'1rem'}>
               {title}
             </Typography>
             <Box
