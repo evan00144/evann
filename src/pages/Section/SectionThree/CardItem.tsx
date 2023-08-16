@@ -17,7 +17,7 @@ export default function CardItem({
   img,
   bg,
   index,
-  handleClick
+  handleClick,
 }: iCardItem) {
   const [pauseItem, setPauseItem] = useState(false);
   useEffect(() => {
@@ -86,15 +86,15 @@ export default function CardItem({
     const update = (event: MouseEvent) => {
       mouse.updatePosition(event);
       updateTransformStyle(
-        (mouse.y / inner.offsetHeight / 2 - 2).toFixed(2),
+        (mouse.y / inner.offsetHeight / 2).toFixed(2),
         (mouse.x / inner.offsetWidth / 2).toFixed(2)
       );
     };
 
     const updateTransformStyle = (x: string, y: string) => {
-      const style = `perspective(100px) rotateX(${Number(x) / 3}deg) rotateY(${
-        Number(y) / 1.5
-      }deg)`;
+      const style = `perspective(100px) rotateX(${
+        Number(x) * 0.75
+      }deg) rotateY(${Number(y) / 1.5}deg)`;
       inner.style.transform = style;
       // circle follow cursor
     };
@@ -141,7 +141,7 @@ export default function CardItem({
       <Card
         id={`inner-${index}`}
         sx={{
-          padding: "1.5rem 1.5rem 0 1.5rem",
+          padding: "1.3rem 1.3rem 0 1.3rem",
           borderRadius: "1rem",
           height: "100%",
           position: "relative",
@@ -167,7 +167,7 @@ export default function CardItem({
           }}
         >
           <Stack direction={"row"} alignItems={"center"}>
-            <Typography variant={"h4"} fontWeight={700} paddingRight={'1rem'}>
+            <Typography variant={"h4"} fontWeight={700} paddingRight={"1rem"}>
               {title}
             </Typography>
             <Box
@@ -190,6 +190,13 @@ export default function CardItem({
             marginBottom={"1.5rem"}
             variant={"body1"}
             fontWeight={500}
+            sx={{
+              display: "-webkit-box",
+              "-webkit-line-clamp": '8',
+              "-webkit-box-orient": "vertical",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
           >
             {content}
           </Typography>
@@ -206,7 +213,7 @@ export default function CardItem({
             position: "absolute",
             bottom: "-.5rem",
             left: "0",
-            padding: "0 1.5rem",
+            padding: "0 1.3rem",
             height: "fit-content",
           }}
         >

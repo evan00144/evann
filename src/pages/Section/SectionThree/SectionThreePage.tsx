@@ -74,11 +74,11 @@ export default function SectionThreePage() {
             backgroundColor: "#555",
             marginRight: "1.5rem",
           },
+          overflowY: "scroll",
         }}
         left={0}
         width={openSidebar ? "70%" : "100%"}
         height={"100%"}
-        overflow={"scroll"}
         padding={"5rem 0 2rem 0"}
       >
         <Container maxWidth="lg" sx={{}}>

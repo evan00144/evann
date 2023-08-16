@@ -1,4 +1,4 @@
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Link, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
@@ -12,12 +12,36 @@ export default function Header({ toggleColorMode }: iProps) {
   const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [isAtTop, setIsAtTop] = useState(true);
+  const [sectionThreeInview, setSectionThreeInview] = useState(false);
 
   const { themeMode } = useAppSelector((state) => state.ui);
 
   useEffect(() => {
+    const sectionThree = document.querySelector(
+      "#section-three"
+    ) as HTMLElement;
+    if (sectionThree) {
+      const boundingClient = sectionThree.getBoundingClientRect();
+      console.log(boundingClient);
+      if (
+        (boundingClient.top < 0 && boundingClient.bottom > 0) ||
+        (boundingClient.top < boundingClient.height / 4 &&
+          boundingClient.bottom > 0)
+      ) {
+        setSectionThreeInview(true);
+      } else {
+        setSectionThreeInview(false);
+      }
+    }
     window.addEventListener("scroll", () => {
       const currentScrollY = window.scrollY;
+      const logo = document.querySelector("#logo") as HTMLElement;
+
+      if (window.scrollY > 80) {
+        logo.style.opacity = "0";
+      } else {
+        logo.style.opacity = "1";
+      }
       setIsScrollingUp(currentScrollY < prevScrollY);
       setPrevScrollY(currentScrollY);
       setIsAtTop(window.scrollY === 0);
@@ -25,19 +49,30 @@ export default function Header({ toggleColorMode }: iProps) {
   }, [prevScrollY]);
 
   useEffect(() => {
-    const fixedElement = document.querySelector(".header") as HTMLElement;
+    console.log(sectionThreeInview);
+    const headerElement = document.querySelector(".header") as HTMLElement;
     if (isScrollingUp) {
-      if (fixedElement) {
-        fixedElement.style.opacity = "1";
-        fixedElement.style.pointerEvents = "auto";
+      if (sectionThreeInview) {
+        if (headerElement) {
+          headerElement.style.opacity = "0";
+          headerElement.style.pointerEvents = "none";
+          headerElement.style.transform = "translateY(-100%)";
+        }
+      } else {
+        if (headerElement) {
+          headerElement.style.opacity = "1";
+          headerElement.style.transform = "translateY(0)";
+          headerElement.style.pointerEvents = "auto";
+        }
       }
     } else {
-      if (fixedElement) {
-        fixedElement.style.opacity = "0";
-        fixedElement.style.pointerEvents = "none";
+      if (headerElement) {
+        headerElement.style.opacity = "0";
+        headerElement.style.pointerEvents = "none";
+        headerElement.style.transform = "translateY(-100%)";
       }
     }
-  }, [isScrollingUp]);
+  }, [isScrollingUp, sectionThreeInview]);
 
   return (
     <>
@@ -45,6 +80,7 @@ export default function Header({ toggleColorMode }: iProps) {
         className="header"
         sx={{
           position: "fixed",
+
           top: "0",
           zIndex: "20",
           transition: ".2s",
@@ -64,10 +100,20 @@ export default function Header({ toggleColorMode }: iProps) {
             <Logo size={72} />
             <Stack direction={"row"} alignItems={"center"} spacing={5}>
               <Typography variant="body1" fontWeight={700} marginLeft={"auto"}>
-                About
+                <Link href="#section-two" color={"textPrimary"}>
+                  About
+                </Link>
               </Typography>
-              <Typography variant="body1" fontWeight={700}>Projects </Typography>
-              <Typography variant="body1" fontWeight={700}>Contact</Typography>
+              <Typography variant="body1" fontWeight={700}>
+                <Link href="#section-three" color={"textPrimary"}>
+                  Project
+                </Link>
+              </Typography>
+              <Typography variant="body1" fontWeight={700}>
+                <Link href="#section-four" color={"textPrimary"}>
+                  Contact
+                </Link>
+              </Typography>
             </Stack>
             <Button
               color="secondary"
@@ -77,7 +123,7 @@ export default function Header({ toggleColorMode }: iProps) {
               sx={{
                 minHeight: "0px",
                 borderRadius: "30rem",
-                height:'fit-content',
+                height: "fit-content",
                 background: (theme) =>
                   theme.palette.mode === "dark"
                     ? `${theme.palette.secondary.light} !important`
@@ -94,15 +140,22 @@ export default function Header({ toggleColorMode }: iProps) {
                 },
               }}
             >
-              <Stack direction={"row"} sx={{
-                "svg":{
-                  width:'100%'
-                }
-              }} position={"relative"} alignItems={'center'} justifyContent={'center'} columnGap={".55rem"}>
-                <Box width={"20px"} height={'20px'}>
+              <Stack
+                direction={"row"}
+                sx={{
+                  svg: {
+                    width: "100%",
+                  },
+                }}
+                position={"relative"}
+                alignItems={"center"}
+                justifyContent={"center"}
+                columnGap={".55rem"}
+              >
+                <Box width={"20px"} height={"20px"}>
                   <DarkModeIcon fontSize="small" className="dark" />
                 </Box>
-                <Box width={"20px"} height={'20px'}>
+                <Box width={"20px"} height={"20px"}>
                   <WbSunnyIcon fontSize="small" className="light" />
                 </Box>
                 <Box

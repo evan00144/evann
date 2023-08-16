@@ -92,6 +92,7 @@ export default function SectionTwoPage() {
 
   return (
     <div
+    id='section-two'
       style={{
         position: "relative",
       }}

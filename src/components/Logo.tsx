@@ -5,6 +5,7 @@ export default function Logo({size = 96}) {
 
   return (
     <img
+    id="logo"
       src={`/logo-${themeMode === "light" ? "dark" : "light"}.svg`}
       style={{
         transition: "0.1s",
