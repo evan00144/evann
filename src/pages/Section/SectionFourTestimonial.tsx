@@ -60,6 +60,7 @@ export default function SectionFourTestimonial() {
               </Box>
               <Typography variant="h6">
                 <Link
+                  color={"textPrimary"}
                   sx={{
                     textDecoration: "none",
                   }}
@@ -85,6 +86,7 @@ export default function SectionFourTestimonial() {
               </Box>
               <Typography variant="h6">
                 <Link
+                  color={"textPrimary"}
                   sx={{
                     textDecoration: "none",
                   }}
@@ -198,35 +200,38 @@ export default function SectionFourTestimonial() {
                       marginBottom={"1rem"}
                       color={"primary"}
                     >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                      Duis aute irure dolor in reprehenderit in voluptate velit
-                      esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                      sint occaecat cupidatat non proident, sunt in culpa qui
-                      officia deserunt mollit anim id est laborum.
+                      I'm excited to share my perspective on Evan's internship.
+                      From the outset, Evan's can-do attitude was evident,
+                      setting a positive tone for the team. His rapid learning
+                      capabilities were impressive, allowing him to contribute
+                      effectively to projects. Notably, Evan excelled in
+                      articulating and addressing technical issues, making
+                      collaboration seamless. Overall, Evan's internship was
+                      defined by his proactive attitude, quick learning, and
+                      strong communication skills in the realm of technical
+                      problem-solving. These attributes undoubtedly pave the way
+                      for his future success.
                     </Typography>
                     <Typography
                       variant="h4"
                       fontWeight={700}
                       color={"secondary"}
                     >
-                      John Doe
+                      Maykhel David
                     </Typography>
                     <Typography
                       variant="h6"
                       fontWeight={700}
                       color={"tertiary.main"}
                     >
-                      Kuli Bangunan Tetangga
+                      Frontend Developer Mentor
                     </Typography>
                     <Typography
                       variant="body2"
                       fontWeight={700}
                       color={"primary.50"}
                     >
-                      Kuli Bangunan Tetangga
+                      PT Hashmicro Solusi Indonesia
                     </Typography>
                   </Box>
                 </Box>
