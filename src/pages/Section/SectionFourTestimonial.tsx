@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Stack, Typography } from "@mui/material";
+import { Box, Container, Grid, Link, Stack, Typography } from "@mui/material";
 import LinkedInIcon from "../../icons/LinkedInIcon";
 import GitHubIcon from "../../icons/GitHubIcon";
 import GmailIcon from "../../icons/GmailIcon";
@@ -8,10 +8,10 @@ import Logo from "../../components/Logo";
 export default function SectionFourTestimonial() {
   return (
     <Stack
-    id='section-four'
+      id="section-four"
       justifyContent={"end"}
       direction={"row"}
-      paddingTop={'5rem'}
+      paddingTop={"5rem"}
       sx={{
         minHeight: "100vh",
         position: "relative",
@@ -35,7 +35,7 @@ export default function SectionFourTestimonial() {
             }
           }
         >
-          <Stack height={"100%"} width={'50%'} paddingRight={'3rem'}>
+          <Stack height={"100%"} width={"50%"} paddingRight={"3rem"}>
             <Typography variant="h4" fontWeight={600} marginBottom={"2.6rem"}>
               Lorem ipsum dolor sit amet
             </Typography>
@@ -58,7 +58,16 @@ export default function SectionFourTestimonial() {
               >
                 <LinkedInIcon />
               </Box>
-              <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
+              <Typography variant="h6">
+                <Link
+                  sx={{
+                    textDecoration: "none",
+                  }}
+                  href="https://www.linkedin.com/in/evan0014/"
+                >
+                  linkedin.com/in/evan0014/
+                </Link>
+              </Typography>
             </Stack>
             <Stack
               direction={"row"}
@@ -74,7 +83,16 @@ export default function SectionFourTestimonial() {
               >
                 <GitHubIcon />
               </Box>
-              <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
+              <Typography variant="h6">
+                <Link
+                  sx={{
+                    textDecoration: "none",
+                  }}
+                  href="https://github.com/evan00144"
+                >
+                  github.com/evan00144
+                </Link>
+              </Typography>
             </Stack>
             <Stack direction={"row"} spacing={3} alignItems={"center"}>
               <Box
@@ -85,9 +103,9 @@ export default function SectionFourTestimonial() {
               >
                 <GmailIcon />
               </Box>
-              <Typography variant="h6">linkedin.com/in/evan0014/</Typography>
+              <Typography variant="h6">evan.epifanius@gmail.com</Typography>
             </Stack>
-            <Box position={'absolute'} bottom={'2rem'}>
+            <Box position={"absolute"} bottom={"2rem"}>
               <Logo />
             </Box>
           </Stack>

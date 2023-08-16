@@ -100,17 +100,23 @@ export default function Header({ toggleColorMode }: iProps) {
             <Logo size={72} />
             <Stack direction={"row"} alignItems={"center"} spacing={5}>
               <Typography variant="body1" fontWeight={700} marginLeft={"auto"}>
-                <Link href="#section-two" color={"textPrimary"}>
+                <Link sx={{
+                  textDecoration:'none'
+                }} href="#section-two" color={"textPrimary"}>
                   About
                 </Link>
               </Typography>
               <Typography variant="body1" fontWeight={700}>
-                <Link href="#section-three" color={"textPrimary"}>
+                <Link sx={{
+                  textDecoration:'none'
+                }} href="#section-three" color={"textPrimary"}>
                   Project
                 </Link>
               </Typography>
               <Typography variant="body1" fontWeight={700}>
-                <Link href="#section-four" color={"textPrimary"}>
+                <Link sx={{
+                  textDecoration:'none'
+                }} href="#section-four" color={"textPrimary"}>
                   Contact
                 </Link>
               </Typography>

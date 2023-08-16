@@ -102,6 +102,7 @@ export default function SectionTwoPage() {
           position: "absolute",
           top: "25vh",
           left: "0",
+          color: (theme) => theme.palette.text.primary,
           width: "100%",
           zIndex: "0",
           ["@media (max-height: 1200px)"]: {
@@ -118,7 +119,6 @@ export default function SectionTwoPage() {
           },
           svg: {
             width: "100%",
-            opacity: "0.8",
           },
         }}
       >
@@ -131,7 +131,7 @@ export default function SectionTwoPage() {
         >
           <path
             d="M1953 54.1152H342.514C338.072 54.1152 334.472 50.5147 334.472 46.0733V26.8063C334.472 17.5534 326.971 10.0524 317.718 10.0524H315.54C306.287 10.0524 298.786 17.5534 298.786 26.8063V51.0995V51.0995C298.786 54.3014 294.467 55.3163 293.041 52.4494L274.116 14.4009C271.165 8.46739 262.706 8.44967 259.73 14.3707L241.704 50.2363C238.786 56.0422 230.543 56.1691 227.448 50.4557L207.748 14.0958C206.342 11.5011 203.628 9.88482 200.677 9.88482H-9.5"
-            stroke="#F8F7FB"
+            stroke="currentColor"
             strokeWidth="10.0524"
             strokeLinecap="round"
           />
