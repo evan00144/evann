@@ -32,7 +32,7 @@ export default function SectionThreePageTwo() {
     {
       title: "Job Portal",
       content:
-        "Job portal is a website project that provides a platform for submitting job applications to companies. This website is created to enhance the experience of applying for jobs at companies, making it clearer and more engaging. It also facilitates applicants in uploading their resumes. The design of the website is modern and responsive.",
+        "A career portal website using Vanilla JS and GSAP for PT Hashmicro Solusi Indonesia",
       thumbnail: "/img/jobportal/thumbnail.png",
       about:
         "Job portal is a website project that provides a platform for submitting job applications to companies. This website is created to enhance the experience of applying for jobs at companies, making it clearer and more engaging. It also facilitates applicants in uploading their resumes. The design of the website is modern and responsive.",
@@ -49,7 +49,7 @@ export default function SectionThreePageTwo() {
     {
       title: "Sidesa Workspace",
       content:
-        "Sidesa Workspace goal is to develop an efficient workspace management website, facilitating Create, Read, Update, and Delete (CRUD) operations for workspaces. Users can seamlessly generate, view, modify, and remove workspaces as needed. Each workspace will feature a dynamic menu system, empowering users to allocate precise access to distinct menus within their workspace. This functionality ensures customized configuration and management of features and pages unique to each workspace. Additionally, the inclusion of role management allows users to assign roles with specific menu access within a workspace, providing granular control over permissions and enhancing user engagement with menus tailored to their designated workspace.",
+        "A workspace management website using React JS for PT Indonesia Indicator",
       thumbnail: "/img/sidesaws/thumbnail.png",
       about: `The project aims to develop a website designed for efficient workspace management. The website will facilitate CRUD operations (Create, Read, Update, Delete) for workspaces, enabling users to generate, view, modify, and remove workspaces based on their requirements.
 
@@ -73,7 +73,7 @@ export default function SectionThreePageTwo() {
     {
       title: "AMS",
       content:
-        "AMS is a comprehensive website platform dedicated to asset management. Users gain the capability to execute CRUD operations on diverse asset types, spanning images, profiles, accounts, locations, servers, databases, and more. These features empower users to seamlessly add, view, edit, and delete asset data according to business requirements, thus granting full control over asset management encompassing visual elements and account information. Complementing the CRUD functionalities, the platform integrates a robust log history mechanism that diligently documents user-initiated CRUD actions—whether adding, editing, or deleting data. This historical record functions as an audit trail, fostering transparency and security by meticulously tracking user activities. In essence, the platform streamlines asset management, harnessing the flexibility of CRUD operations for effective handling, coupled with the transparency and security upheld by the log history. This synergy enhances the efficiency and efficacy of asset management processes, facilitating seamless monitoring and tracking of all activities transpiring within the platform.",
+        "An asset management website using React JS for PT Indonesia Indicator",
       thumbnail: "/img/ams/thumbnail.png",
       about: `The project involves creating a website platform focused on managing a wide range of assets. Users can perform CRUD operations on various types of asset data, including images, profiles, accounts, locations, servers, databases, and more.
 
@@ -106,7 +106,7 @@ export default function SectionThreePageTwo() {
     {
       title: "Eb Chat",
       content:
-        "The project entails the creation of a specialized chat platform tailored for in-depth discussions and explorations of economic, political, governmental, and related subjects. Within this platform, users engage in interactive chat sessions to receive comprehensive responses and insights regarding their inquiries and topics of interest. The integrated chat system enriches the user experience by offering an array of response formats, encompassing visual elements like charts to illustrate data trends, images for contextual references, and videos for detailed explanations. Moreover, the system adeptly generates responses with diverse formatting, including paragraph separation, bold or italic text emphasis, and structured information lists. Notably, the platform introduces innovative features such as concept mapping to visually depict relationships between economic and political concepts, augmenting users' understanding, and leveraging geographic maps to illustrate data linked to specific regions or political occurrences. In its entirety, the project's overarching objective is to provide users with a vibrant and interactive chat experience, enabling them to glean comprehensive insights into intricate economic, political, and governmental subjects through engaging interactions with the system.",
+      "An AI Bot chat website using React JS for PT Indonesia Indicator",
       thumbnail: "/img/ebchat/thumbnail.png",
       about: `The project involves creating a specialized chat platform that focuses on discussing and exploring economic, political, governmental, and related subjects. Within this platform, users can interact through chat to receive detailed responses and insights about their questions and topics.
 
@@ -132,7 +132,7 @@ export default function SectionThreePageTwo() {
     {
       title: "Sidesa",
       content:
-        "Sidesa project is a development of a website platform that serves as an integral data management hub for a village community. Within this comprehensive platform, users wield extensive control to execute a range of data-related actions, including creating, viewing, updating, and deleting information. The website's structure encompasses distinct sections meticulously designed to facilitate efficient data management. These segments encompass a main page furnishing essential village details like population figures and ongoing projects, a population data section enabling manipulation of resident information such as names, addresses, birthdates, and marital statuses, a financial data area to oversee village financial records like budgets, income, expenses, and financial reports, and a document upload segment streamlining the submission of vital documents including permits and official papers. Adding to its functionality, the platform introduces a dedicated administrative interface, bestowing village administrators with special access rights to monitor and manage uploaded data. Through this administrative functionality, administrators exercise control over data submissions, granting approval and oversight over content provided by village residents and pertinent parties, thus fostering efficient village administration.",
+        "A village data management website using React JS for PT Indonesia Indicator",
       thumbnail: "/img/sidesa/thumbnail.png",
       about: `Sidesa project involves creating a website platform that serves as a data management hub for a village. Within this platform, users have comprehensive control to perform various data-related actions like creating, viewing, updating, and deleting.
 
@@ -164,7 +164,7 @@ export default function SectionThreePageTwo() {
     {
       title: "Thesis",
       content:
-        "This research employs the XLM-R model for sentiment analysis on Indonesian product reviews. The model is trained on a multilingual dataset encompassing 100 languages, including German, English, Spanish, and French. Notably, the XLM-R model undergoes specific training on Indonesian language alongside other languages. Indonesian is chosen due to its low-resource nature. The study aims to evaluate XLM-R's performance in sentiment classification for low-resource languages. The results demonstrate the model's proficiency in classifying Indonesian text. The model trained with French achieves the highest accuracy of 83.25%. Transfer learning is successfully employed, and the inclusion of Indonesian data significantly impacts accuracy. Notably, the XLM-R model without Indonesian data still exhibits competitive accuracy. The addition of Indonesian data significantly impacts the accuracy, but XLM-R model without Indonesian data still demonstrates competitive accuracy.",
+        "Implementation of Sentiment Classification for Product Reviews in Indonesian E-Commerce using XLM-R",
       thumbnail: "/img/skripsi/thumbnail.png",
       about:
         "This research employs the XLM-R model for sentiment analysis on Indonesian product reviews. The model is trained on a multilingual dataset encompassing 100 languages, including German, English, Spanish, and French. Notably, the XLM-R model undergoes specific training on Indonesian language alongside other languages. Indonesian is chosen due to its low-resource nature. The study aims to evaluate XLM-R's performance in sentiment classification for low-resource languages. The results demonstrate the model's proficiency in classifying Indonesian text. The model trained with French achieves the highest accuracy of 83.25%. Transfer learning is successfully employed, and the inclusion of Indonesian data significantly impacts accuracy. Notably, the XLM-R model without Indonesian data still exhibits competitive accuracy. The addition of Indonesian data significantly impacts the accuracy, but XLM-R model without Indonesian data still demonstrates competitive accuracy.",

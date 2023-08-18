@@ -152,27 +152,29 @@ export default function SectionFourTestimonial() {
                   variant="body1"
                   marginBottom={"4rem"}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  I'm excited to share my perspective on Evan's internship. From
+                  the outset, Evan's can-do attitude was evident, setting a
+                  positive tone for the team. His rapid learning capabilities
+                  were impressive, allowing him to contribute effectively to
+                  projects. Notably, Evan excelled in articulating and
+                  addressing technical issues, making collaboration seamless.
+                  Overall, Evan's internship was defined by his proactive
+                  attitude, quick learning, and strong communication skills in
+                  the realm of technical problem-solving. These attributes
+                  undoubtedly pave the way for his future success.
                 </Typography>
                 <Typography variant="h4" fontWeight={700} color={"primary"}>
-                  John Doe
+                  Maykhel David
                 </Typography>
                 <Typography variant="h6" fontWeight={700}>
-                  Kuli Bangunan Tetangga
+                  Frontend Developer Mentor
                 </Typography>
                 <Typography
                   variant="body2"
                   fontWeight={700}
                   color={"primary.50"}
                 >
-                  Kuli Bangunan Tetangga
+                  PT Hashmicro Solusi Indonesia
                 </Typography>
               </Box>
             </Box>
@@ -200,38 +202,35 @@ export default function SectionFourTestimonial() {
                       marginBottom={"1rem"}
                       color={"primary"}
                     >
-                      I'm excited to share my perspective on Evan's internship.
-                      From the outset, Evan's can-do attitude was evident,
-                      setting a positive tone for the team. His rapid learning
-                      capabilities were impressive, allowing him to contribute
-                      effectively to projects. Notably, Evan excelled in
-                      articulating and addressing technical issues, making
-                      collaboration seamless. Overall, Evan's internship was
-                      defined by his proactive attitude, quick learning, and
-                      strong communication skills in the realm of technical
-                      problem-solving. These attributes undoubtedly pave the way
-                      for his future success.
+                      I have worked with Evan several times and I think Evan is
+                      a great person. He has the ability to learn and adapt
+                      quickly, he can also solve a problem systematically. His
+                      positive mindset makes him not have the slightest
+                      hesitation to ask others who are more experienced when
+                      facing difficult situations. In addition, his co-operation
+                      skills can also increase work productivity. Collaborating
+                      with Evan can be a constructive experience and make a
+                      positive contribution.
                     </Typography>
                     <Typography
                       variant="h4"
                       fontWeight={700}
                       color={"secondary"}
                     >
-                      Maykhel David
-                    </Typography>
+Najim Rizky                    </Typography>
                     <Typography
                       variant="h6"
                       fontWeight={700}
                       color={"tertiary.main"}
                     >
-                      Frontend Developer Mentor
+                      Former Working Partner
                     </Typography>
                     <Typography
                       variant="body2"
                       fontWeight={700}
                       color={"primary.50"}
                     >
-                      PT Hashmicro Solusi Indonesia
+                      PT Indonesia Indicator
                     </Typography>
                   </Box>
                 </Box>
