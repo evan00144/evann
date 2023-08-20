@@ -152,12 +152,12 @@ export default function CertificateTab({inView}:iProps) {
             </TertiaryText>
             <SecondaryText component={"span"} sx={{
               a:{
-                color:'#40b084'
+                color:'#40b084 !important'
               }
             }}>
               <ReactTyped
                 strings={[
-                  `^480Feb2023-<a  href={'https://www.credly.com/badges/666f44c5-c702-46cd-884f-c5f1fdf5d6e2/linked_in?t=rqhoc5'} target="_blank">Certificate</a>`,
+                  `^480Feb2023-<a href='https://www.credly.com/badges/666f44c5-c702-46cd-884f-c5f1fdf5d6e2/linked_in?t=rqhoc' target="_blank">Certificate</a>`,
                 ]}
                 typeSpeed={40}
                 showCursor={false}

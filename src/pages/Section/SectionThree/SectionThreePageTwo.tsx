@@ -207,13 +207,13 @@ export default function SectionThreePageTwo() {
             backgroundColor: "#555",
             marginRight: "1.5rem",
           },
-          overflowY: "scroll",
+          overflowY: openSidebar ? "scroll" : "",
         }}
         left={0}
         width={"100%"}
         height={"100%"}
         // overflow={"scroll"}
-        padding={"5rem 0 2rem 0"}
+        padding={"5rem 0 5rem 0"}
       >
         <Container maxWidth="lg">
           <Grid
