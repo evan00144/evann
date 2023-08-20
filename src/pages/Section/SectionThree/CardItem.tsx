@@ -110,7 +110,8 @@ export default function CardItem({
     return (
       <>
         <Lottie
-          isStopped={pauseItem}
+              isClickToPauseDisabled={true}
+              isStopped={pauseItem}
           options={{
             loop: true,
             autoplay: true,

@@ -108,6 +108,7 @@ export default function SectionOne3D() {
           }}>
             <Lottie
               // isStopped={pause}
+              isClickToPauseDisabled={true}
               options={{
                 loop: true,
                 autoplay: true,

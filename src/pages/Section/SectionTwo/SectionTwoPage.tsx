@@ -245,6 +245,7 @@ export default function SectionTwoPage() {
                 {/* <DownloadIcon /> */}
                 <Lottie
                   isStopped={pause}
+                  isClickToPauseDisabled={true}
                   options={{
                     loop: true,
                     autoplay: true,
