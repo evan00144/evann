@@ -1,4 +1,4 @@
-import { Box,  Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import InformationIcon from "../../../icons/InformationIcon";
 import GearIcon from "../../../icons/GearIcon";
 import UserGearIcon from "../../../icons/UserGearIcon";
@@ -41,12 +41,12 @@ const InformationBox = ({
         direction={"row"}
         alignItems={"center"}
         sx={{
-          color: (theme) => theme.palette.text.secondary,
+          color: (theme) => theme.palette.text.primary,
         }}
         spacing={".5rem"}
       >
         {icon}
-        <Typography variant={"body2"} fontWeight={700} color={"textSecondary"}>
+        <Typography variant={"body2"} fontWeight={700}>
           {title}
         </Typography>
       </Stack>
@@ -62,8 +62,8 @@ const InformationBox = ({
             <Box
               fontWeight={contentBold ? 700 : 300}
               sx={{
-                background: (theme) => theme.palette.secondary.light,
-                color: (theme) => theme.palette.text.secondary,
+                background: (theme) => theme.palette.mode == "dark" ?theme.palette.primary.main : theme.palette.primary.light,
+                color: (theme) => theme.palette.text.primary,
                 fontWeight: "700",
                 borderRadius: "30rem",
                 padding: ".5rem 1rem",
@@ -97,8 +97,10 @@ export default function ProjectSidebar({
       <Box
         padding={"2.25rem 1.5rem"}
         sx={{
-          background:
-            "linear-gradient(180deg, rgba(64,176,132,1) 80%, rgba(24,33,69,1) 100%)",
+          background: (theme) =>
+            theme.palette.mode === "dark"
+              ? "linear-gradient(180deg, rgba(64,176,132,1) 80%, rgba(24,33,69,1) 100%)"
+              : "linear-gradient(180deg, rgba(157, 142, 254,1) 80%, rgba(64, 176, 132,0) 100%)",
           width: "100%",
           height: "100%",
           overflowY: "scroll",
@@ -110,13 +112,13 @@ export default function ProjectSidebar({
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <Typography variant={"h5"} fontWeight={700} color={"textSecondary"}>
+            <Typography variant={"h5"} fontWeight={700}>
               {item?.title}
             </Typography>
             <Box
               sx={{
                 cursor: "pointer",
-                color: (theme) => theme.palette.text.secondary,
+                color: (theme) => theme.palette.text.primary,
               }}
               onClick={handleCloseSidebar}
             >
@@ -181,9 +183,9 @@ export default function ProjectSidebar({
         alignItems={"center"}
         justifyContent={"center"}
         spacing={".35rem"}
-        onClick={() =>{
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-            window.open(`https://${item?.website}`, "_blank")
+        onClick={() => {
+          // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+          window.open(`https://${item?.website}`, "_blank");
         }}
         sx={{
           background: (theme) => theme.palette.secondary.light,

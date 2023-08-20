@@ -147,6 +147,8 @@ export default function CardItem({
           position: "relative",
           transition: ".5s",
           background: bg,
+          filter: "drop-shadow(0px 3.40653px 28.1039px rgba(0, 0, 0, 0.25))",
+
         }}
       >
         <Box

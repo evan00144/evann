@@ -5,6 +5,7 @@ import {
   WhiteText,
   SecondaryText,
   GreyText,
+  SecondaryTextLink,
 } from "../../../styled/text-color.styled";
 import { animatedTextFadeUp } from "../../../styled/animation.styled";
 interface iProps{
@@ -34,9 +35,9 @@ export default function CertificateTab({inView}:iProps) {
           <TertiaryText component={"span"}>{`="`}</TertiaryText>
           <SecondaryText component={"span"}>
             {`${title}`}-
-            <a href={link} target="_blank">
+            <SecondaryTextLink href={link} target="_blank">
               Certificate
-            </a>
+            </SecondaryTextLink>
           </SecondaryText>
           <TertiaryText component={"span"}>{`">`}</TertiaryText>
         </Box>
@@ -149,10 +150,14 @@ export default function CertificateTab({inView}:iProps) {
                 showCursor={false}
               />
             </TertiaryText>
-            <SecondaryText component={"span"}>
+            <SecondaryText component={"span"} sx={{
+              a:{
+                color:'#40b084'
+              }
+            }}>
               <ReactTyped
                 strings={[
-                  `^480Feb2023-<a href={'https://www.credly.com/badges/666f44c5-c702-46cd-884f-c5f1fdf5d6e2/linked_in?t=rqhoc5'} target="_blank">Certificate</a>`,
+                  `^480Feb2023-<a  href={'https://www.credly.com/badges/666f44c5-c702-46cd-884f-c5f1fdf5d6e2/linked_in?t=rqhoc5'} target="_blank">Certificate</a>`,
                 ]}
                 typeSpeed={40}
                 showCursor={false}

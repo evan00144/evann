@@ -4,9 +4,13 @@ declare module "@mui/material/styles" {
   interface Palette {
     tertiary: Palette["primary"];
     light: Palette["primary"];
+    blue: Palette["primary"];
+    green: Palette["primary"];
   }
   interface PaletteOptions {
     tertiary: PaletteOptions["primary"];
+    blue: PaletteOptions["primary"];
+    green: PaletteOptions["primary"];
     light: PaletteOptions["primary"];
   }
 }
@@ -25,14 +29,17 @@ export const getDesignTokens = (mode: PaletteMode) => ({
       ? {
           // palette values for light mode
           primary: {
-            main: "#182145",
-            contrastText: "white",
+            main: "#40B084",
+            dark: "#2C6965",
+            light: "#e8f3f1",
+            contrastText: "#182145",
             "50": "rgba(24, 33, 69, 0.5)",
           },
           secondary: {
-            main: "#40B084",
-            dark: "#2C6965",
-            contrastText: "#182145",
+            main: "#182145",
+            light: "#182145",
+            contrastText: "#f8f7fb",
+            "50": "rgba(24, 33, 69, 0.5)",
           },
           tertiary: {
             main: "#9D8EFE",
@@ -42,10 +49,16 @@ export const getDesignTokens = (mode: PaletteMode) => ({
           },
           text: {
             primary: "#182145",
-            secondary:'#f8f7fb'
+            secondary: "#f8f7fb",
           },
           background: {
             default: "#e8f3f1",
+          },
+          blue: {
+            main: "#182145",
+          },
+          green: {
+            main: "#40B084",
           },
         }
       : {
@@ -69,11 +82,17 @@ export const getDesignTokens = (mode: PaletteMode) => ({
           },
           text: {
             primary: "#f8f7fb",
-            secondary:'#182145'
-            
+            secondary: "#182145",
           },
           background: {
             default: "#182145",
+          },
+
+          blue: {
+            main: "#182145",
+          },
+          green: {
+            main: "#40B084",
           },
         }),
   },

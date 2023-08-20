@@ -87,12 +87,12 @@ export default function SectionTwoPage() {
         </CustomTabPanel>
       </>
     );
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ inView, value]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView, value]);
 
   return (
     <div
-    id='section-two'
+      id="section-two"
       style={{
         position: "relative",
       }}
@@ -109,13 +109,13 @@ export default function SectionTwoPage() {
             top: "30vh",
           },
           ["@media (max-height: 1000px)"]: {
-            top:"27vh"
+            top: "27vh",
           },
           ["@media (max-height: 840px)"]: {
-            top:"22vh"
+            top: "22vh",
           },
           ["@media (max-height: 720px)"]: {
-            top:"15vh"
+            top: "15vh",
           },
           svg: {
             width: "100%",
@@ -176,7 +176,11 @@ export default function SectionTwoPage() {
           justifyContent={"space-between"}
         >
           <Grid item sm={5} ref={ref} className="content-height-box">
-            <Typography variant="body1" marginBottom={"1.5rem"} marginTop={'12vh'}>
+            <Typography
+              variant="body1"
+              marginBottom={"1.5rem"}
+              marginTop={"12vh"}
+            >
               {/* <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span> */}
               Evan is a Front-End / Web Developer with almost 2 years of work
               experience. He is a graduate of Multimedia Nusantara University
@@ -282,8 +286,9 @@ export default function SectionTwoPage() {
             >
               <Box
                 sx={{
-                  background: "#1C1C22",
-                  padding: ".75rem 1rem 0 1rem",
+                  background: (theme) =>
+                    theme.palette.mode === "dark" ? "#1C1C22" : "#C1C0C4",
+                  padding: ".4rem 1rem 0 1rem",
                   borderBottom: ".05px solid rgba(248, 247, 251, 0.25)",
                 }}
               >
@@ -292,11 +297,17 @@ export default function SectionTwoPage() {
                     overflow: "unset",
                     alignItems: "end",
                     ".MuiTab-root": {
-                      background: "#1C1C22",
-                      color: "rgba(248, 247, 251, 0.5)",
+                      background: (theme) =>
+                        theme.palette.mode === "dark" ? "#1C1C22" : "#C1C0C4",
+
+                      color: (theme) =>
+                        theme.palette.mode === "dark"
+                          ? "rgba(248, 247, 251, 0.5)"
+                          : "rgba(110, 118, 129, 0.5)",
+                      fontWeight: 700,
                       gap: ".75rem",
                       padding: "0 1rem",
-                      minHeight: "2.8rem",
+                      minHeight: "2.4rem",
                       display: "flex",
                       verticalAlign: "middle",
                       boxSizing: "border-box",
@@ -313,8 +324,14 @@ export default function SectionTwoPage() {
                       overflow: "unset !important ",
                     },
                     ".Mui-selected": {
-                      background: "#05070F",
-                      color: "white !important",
+                      background: (theme) =>
+                        theme.palette.mode === "dark"
+                          ? "#05070F"
+                          : theme.palette.primary.light,
+                      color: (theme) =>
+                        theme.palette.mode === "dark"
+                          ? "white !important"
+                          : theme.palette.blue.main,
                       position: "relative",
                       borderColor: "rgba(248, 247, 251, 0.25)",
                       "&:after": {
@@ -324,13 +341,16 @@ export default function SectionTwoPage() {
                         left: "0",
                         right: "0",
                         height: "1px",
-                        background: "#05070f",
+                        background: (theme) =>
+                          theme.palette.mode === "dark"
+                            ? "#05070F"
+                            : theme.palette.primary.light,
                         zIndex: "5",
                       },
                     },
                     ".MuiButtonBase-root": {
-                      borderTopRightRadius: ".5rem !important",
-                      borderTopLeftRadius: ".5rem !important",
+                      borderTopRightRadius: ".3rem !important",
+                      borderTopLeftRadius: ".3rem !important",
                     },
                   }}
                   value={value}
@@ -359,12 +379,16 @@ export default function SectionTwoPage() {
               </Box>
               <Box
                 sx={{
-                  background: "#05070F",
+                  background: (theme) =>
+                    theme.palette.mode === "dark"
+                      ? "#05070F"
+                      : theme.palette.primary.light,
                   height: "26.5rem",
                   overflowY: "auto",
                   padding: "1rem 0 1rem 1.5rem",
                   span: {
                     fontFamily: "'Inconsolata', monospace !important",
+                    fontWeight: "600",
                   },
                   a: {
                     fontFamily: "'Inconsolata', monospace !important",
@@ -372,9 +396,7 @@ export default function SectionTwoPage() {
                   },
                 }}
               >
-                <>
-                {tabContent}
-                </>
+                <>{tabContent}</>
               </Box>
             </Box>
           </Grid>

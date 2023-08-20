@@ -135,7 +135,7 @@ export default function SectionFourTestimonial() {
           <Grid item sm={6}>
             <Box
               sx={{
-                backgroundColor: (theme) => theme.palette.secondary.main,
+                backgroundColor: (theme) => theme.palette.green.main,
                 height: "100%",
               }}
             >
@@ -144,13 +144,21 @@ export default function SectionFourTestimonial() {
                   padding: "1.5rem",
                 }}
               >
-                <Typography marginBottom={"1.5rem"} color={"primary"}>
+                <Typography
+                  marginBottom={"1.5rem"}
+                  sx={{
+                    color: (theme) => theme.palette.blue.main,
+                  }}
+                >
                   <QuoteIcon />
                 </Typography>
                 <Typography
                   fontWeight={300}
                   variant="body1"
                   marginBottom={"4rem"}
+                  sx={{
+                    color: (theme) => theme.palette.blue.main,
+                  }}
                 >
                   I'm excited to share my perspective on Evan's internship. From
                   the outset, Evan's can-do attitude was evident, setting a
@@ -163,10 +171,22 @@ export default function SectionFourTestimonial() {
                   the realm of technical problem-solving. These attributes
                   undoubtedly pave the way for his future success.
                 </Typography>
-                <Typography variant="h4" fontWeight={700} color={"primary"}>
+                <Typography
+                  variant="h4"
+                  fontWeight={700}
+                  sx={{
+                    color: (theme) => theme.palette.blue.main,
+                  }}
+                >
                   Maykhel David
                 </Typography>
-                <Typography variant="h6" fontWeight={700}>
+                <Typography
+                  variant="h6"
+                  fontWeight={700}
+                  sx={{
+                    color: "#F8F7FB",
+                  }}
+                >
                   Frontend Developer Mentor
                 </Typography>
                 <Typography
@@ -193,14 +213,19 @@ export default function SectionFourTestimonial() {
                       padding: "1.5rem",
                     }}
                   >
-                    <Typography marginBottom={"1.5rem"} color={"secondary"}>
+                    <Typography
+                      marginBottom={"1.5rem"}
+                      sx={{
+                        color: (theme) => theme.palette.green.main,
+                      }}
+                    >
                       <QuoteIcon />
                     </Typography>
                     <Typography
                       fontWeight={300}
                       variant="body1"
                       marginBottom={"1rem"}
-                      color={"primary"}
+                      color={"textSecondary"}
                     >
                       I have worked with Evan several times and I think Evan is
                       a great person. He has the ability to learn and adapt
@@ -215,9 +240,12 @@ export default function SectionFourTestimonial() {
                     <Typography
                       variant="h4"
                       fontWeight={700}
-                      color={"secondary"}
-                    >
-Najim Rizky                    </Typography>
+
+                      sx={{
+                        color: (theme) => theme.palette.green.main,
+                      }}                    >
+                      Najim Rizky{" "}
+                    </Typography>
                     <Typography
                       variant="h6"
                       fontWeight={700}
@@ -228,8 +256,10 @@ Najim Rizky                    </Typography>
                     <Typography
                       variant="body2"
                       fontWeight={700}
-                      color={"primary.50"}
-                    >
+
+                      sx={{
+                        color:"#F8F7FB",
+                      }}                    >
                       PT Indonesia Indicator
                     </Typography>
                   </Box>
@@ -248,35 +278,54 @@ Najim Rizky                    </Typography>
                       padding: "1.5rem",
                     }}
                   >
-                    <Typography marginBottom={"1.5rem"} color={"primary"}>
+                    <Typography marginBottom={"1.5rem"} 
+                    
+                  sx={{
+                    color: (theme) => theme.palette.blue.main,
+                  }}>
                       <QuoteIcon />
                     </Typography>
                     <Typography
                       fontWeight={300}
                       variant="body1"
                       marginBottom={"1rem"}
+
+                  sx={{
+                    color: "#F8F7FB",
+                  }}
                     >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                      Duis aute irure dolor in reprehenderit in voluptate velit
-                      esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                      sint occaecat cupidatat non proident, sunt in culpa qui
-                      officia deserunt mollit anim id est laborum.
+                      As a partner during my previous internship, I, who was a
+                      UI/UX designer at that time, was highly satisfied with
+                      Evan's work outcomes. For me, Evan was able to translate
+                      complex and seemingly impossible design ideas into reality
+                      through coding. Evan paid meticulous attention to my
+                      design work, ensuring precise realization, even when
+                      dealing with my perfectionist tendencies. Overall,
+                      collaborating with Evan was an amazing experience, and
+                      working with him has set a high standard for other
+                      frontend developers. I am eagerly looking forward to
+                      reconnecting with Evan as a work partner in the future.
+                      Keep up the great work, Evan!
                     </Typography>
-                    <Typography variant="h4" fontWeight={700} color={"primary"}>
-                      John Doe
+                    <Typography 
+                  sx={{
+                    color: (theme) => theme.palette.blue.main,
+                  }} variant="h4" fontWeight={700} >
+                      Vera Felia
                     </Typography>
-                    <Typography variant="h6" fontWeight={700}>
-                      Kuli Bangunan Tetangga
+                    <Typography variant="h6" fontWeight={700}
+                    
+                  sx={{
+                    color: "#F8F7FB",
+                  }}>
+                      Former Working Partner
                     </Typography>
                     <Typography
                       variant="body2"
                       fontWeight={700}
                       color={"primary.50"}
                     >
-                      Kuli Bangunan Tetangga
+                      PT Hashmicro Solusi Indonesia
                     </Typography>
                   </Box>
                 </Box>
