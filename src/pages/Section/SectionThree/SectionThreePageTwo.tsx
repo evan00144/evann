@@ -221,6 +221,13 @@ export default function SectionThreePageTwo() {
             container
             spacing={4.5}
             sx={{
+
+              ["@media(max-width: 2300px)"]: {
+                width: openSidebar ? "84%" : "100%",
+              },
+              ["@media(max-width: 2000px)"]: {
+                width: openSidebar ? "84%" : "100%",
+              },
               ["@media(max-width: 1920px)"]: {
                 width: openSidebar ? "82%" : "100%",
               },
@@ -257,10 +264,8 @@ export default function SectionThreePageTwo() {
                     });
 
                     document.getElementById("project-sidebar")!.scrollTop = 0;
-                    // syntax equivalent to syntax above?
-                    // document.getElementById("section-three")?.scrollIntoView({
-                    //   behavior: "smooth",
-                    // });
+                    // set scroll behaviour of above to smooth
+                    
 
                   }}
                   title={proj.title}
