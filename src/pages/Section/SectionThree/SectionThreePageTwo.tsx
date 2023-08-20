@@ -172,7 +172,7 @@ export default function SectionThreePageTwo() {
       role: "Researcher",
       tech: ["Python", "Google Colab"],
       img: ["/img/skripsi/thumbnail.png"],
-      website:"kc.umn.ac.id/25577"
+      website: "kc.umn.ac.id/25577",
     },
   ];
 
@@ -221,7 +221,6 @@ export default function SectionThreePageTwo() {
             container
             spacing={4.5}
             sx={{
-
               ["@media(max-width: 2300px)"]: {
                 width: openSidebar ? "84%" : "100%",
               },
@@ -254,7 +253,12 @@ export default function SectionThreePageTwo() {
             }}
           >
             {project.map((proj, i) => (
-              <Grid item key={i} md={openSidebar ? 12 : 4} lg={openSidebar ? 6 : 4}>
+              <Grid
+                item
+                key={i}
+                md={openSidebar ? 12 : 4}
+                lg={openSidebar ? 6 : 4}
+              >
                 <CardItem
                   handleClick={() => {
                     setOpenSidebar(true);
@@ -265,8 +269,6 @@ export default function SectionThreePageTwo() {
 
                     document.getElementById("project-sidebar")!.scrollTop = 0;
                     // set scroll behaviour of above to smooth
-                    
-
                   }}
                   title={proj.title}
                   bg={` ${
