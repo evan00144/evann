@@ -36,12 +36,24 @@ export default function SectionFourTestimonial() {
           }
         >
           <Stack height={"100%"} width={"50%"} paddingRight={"3rem"}>
-            <Typography variant="h4" fontWeight={600} marginBottom={"2.6rem"}>
-              Lorem ipsum dolor sit amet
+            <Typography
+              variant="h4"
+              fontWeight={600}
+              marginBottom={"2.6rem"}
+              paddingTop={'5rem'}
+              sx={{
+                // background: "#182145",
+                background: (theme) => theme.palette.mode ==="light" ? 
+                  "linear-gradient(to right, #182145 0%, #9D8EFE 50%, #40B084 100%)": "linear-gradient(to right, #f8f7fb 0%, #9D8EFE 50%, #40B084 100%)",
+                " -webkit-background-clip": "text",
+                "-webkit-text-fill-color": "transparent",
+              }}
+            >
+              Let's bring your incredible design ideas to life with me{" "}
             </Typography>
             <Typography variant="h6" marginBottom={"5rem"}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua
+              Looking to collaborate on an exciting project? Feel free to drop
+              me an email or connect with me through instant messaging!
             </Typography>
 
             <Stack
@@ -240,10 +252,10 @@ export default function SectionFourTestimonial() {
                     <Typography
                       variant="h4"
                       fontWeight={700}
-
                       sx={{
                         color: (theme) => theme.palette.green.main,
-                      }}                    >
+                      }}
+                    >
                       Najim Rizky{" "}
                     </Typography>
                     <Typography
@@ -256,10 +268,10 @@ export default function SectionFourTestimonial() {
                     <Typography
                       variant="body2"
                       fontWeight={700}
-
                       sx={{
-                        color:"#F8F7FB",
-                      }}                    >
+                        color: "#F8F7FB",
+                      }}
+                    >
                       PT Indonesia Indicator
                     </Typography>
                   </Box>
@@ -278,21 +290,21 @@ export default function SectionFourTestimonial() {
                       padding: "1.5rem",
                     }}
                   >
-                    <Typography marginBottom={"1.5rem"} 
-                    
-                  sx={{
-                    color: (theme) => theme.palette.blue.main,
-                  }}>
+                    <Typography
+                      marginBottom={"1.5rem"}
+                      sx={{
+                        color: (theme) => theme.palette.blue.main,
+                      }}
+                    >
                       <QuoteIcon />
                     </Typography>
                     <Typography
                       fontWeight={300}
                       variant="body1"
                       marginBottom={"1rem"}
-
-                  sx={{
-                    color: "#F8F7FB",
-                  }}
+                      sx={{
+                        color: "#F8F7FB",
+                      }}
                     >
                       As a partner during my previous internship, I, who was a
                       UI/UX designer at that time, was highly satisfied with
@@ -307,17 +319,22 @@ export default function SectionFourTestimonial() {
                       reconnecting with Evan as a work partner in the future.
                       Keep up the great work, Evan!
                     </Typography>
-                    <Typography 
-                  sx={{
-                    color: (theme) => theme.palette.blue.main,
-                  }} variant="h4" fontWeight={700} >
+                    <Typography
+                      sx={{
+                        color: (theme) => theme.palette.blue.main,
+                      }}
+                      variant="h4"
+                      fontWeight={700}
+                    >
                       Vera Felia
                     </Typography>
-                    <Typography variant="h6" fontWeight={700}
-                    
-                  sx={{
-                    color: "#F8F7FB",
-                  }}>
+                    <Typography
+                      variant="h6"
+                      fontWeight={700}
+                      sx={{
+                        color: "#F8F7FB",
+                      }}
+                    >
                       Former Working Partner
                     </Typography>
                     <Typography

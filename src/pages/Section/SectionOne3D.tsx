@@ -43,85 +43,99 @@ export default function SectionOne3D() {
       }}
     >
       {/* {render && ( */}
-        <Container maxWidth="lg">
-          <div style={{ minHeight: "100vh", position: "relative" }}>
-            <div
-              style={{
-                position: "absolute",
-                height: "100%",
-                width: "100%",
-                top: "0",
-                left: "0",
-                zIndex: 1,
-                pointerEvents: "none",
-              }}
+      <Container maxWidth="lg">
+        <div style={{ minHeight: "100vh", position: "relative" }}>
+          <div
+            style={{
+              position: "absolute",
+              height: "100%",
+              width: "100%",
+              top: "0",
+              left: "0",
+              zIndex: 1,
+              pointerEvents: "none",
+            }}
+          >
+            <Grid
+              container
+              alignContent={"center"}
+              sx={{ height: "100%", pb: "7vh" }}
             >
-              <Grid
-                container
-                alignContent={"center"}
-                sx={{ height: "100%", pb: "7vh" }}
-              >
-                <Grid item sm={6}></Grid>
-                <Grid item sm={3}>
-                  <Typography variant="h6">
+              <Grid item sm={6}></Grid>
+              <Grid item sm={3}>
+                <Typography variant="h6">
+                  <ReactTyped
+                    strings={["Need a website?"]}
+                    onComplete={onCompleteTyping}
+                    typeSpeed={40}
+                  />
+                  <br />
+                  {firstStringFinished && (
                     <ReactTyped
-                      strings={["Need a website?"]}
-                      onComplete={onCompleteTyping}
+                      strings={["I'll make it for you"]}
+                      // onComplete={onCompleteTyping}
                       typeSpeed={40}
                     />
-                    <br />
-                    {firstStringFinished && (
-                      <ReactTyped
-                        strings={["I'll make it for you"]}
-                        // onComplete={onCompleteTyping}
-                        typeSpeed={40}
-                      />
-                    )}
-                  </Typography>
-                </Grid>
-                <Grid item sm={3}></Grid>
-                <Grid item sm={12}>
-                  <Typography
-                    variant="h1"
-                    fontWeight={"bold"}
-                    textAlign={"center"}
-                    fontSize={"15rem"}
-                  >
-                    Evan
-                  </Typography>
-                  <Typography
-                    variant="h5"
-                    fontWeight={"light"}
-                    textAlign={"center"}
-                  >
-                    Front-End / Web Developer
-                  </Typography>
-                </Grid>
+                  )}
+                </Typography>
               </Grid>
-            </div>
+              <Grid item sm={3}></Grid>
+              <Grid item sm={12}>
+                <Typography
+                  variant="h1"
+                  fontWeight={"bold"}
+                  textAlign={"center"}
+                  fontSize={"15rem"}
+                >
+                  Evan
+                </Typography>
+                <Typography
+                  variant="h5"
+                  fontWeight={"light"}
+                  textAlign={"center"}
+                >
+                  Front-End / Web Developer
+                </Typography>
+              </Grid>
+            </Grid>
           </div>
-          <Box sx={{
+        </div>
+        <Box
+          sx={{
             position: "absolute",
             bottom: "5vh",
             left: "50%",
             transform: "translateX(-50%)",
-          }}>
-            <Lottie
-              // isStopped={pause}
-              isClickToPauseDisabled={true}
-              options={{
-                loop: true,
-                autoplay: true,
-                animationData: themeMode==='light' ? animationMouseLight : animationMouseDark,
-                rendererSettings: {
-                  preserveAspectRatio: "xMidYMid slice",
-                },
-              }}
-              height={64}
-              width={64}
-            />
-          </Box>
-        </Container>
+            cursor: "pointer",
+          }}
+          // onclick to section 2
+          onClick={() => {
+            window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+
+          }}
+        >
+          <Lottie
+            // isStopped={pause}
+            // onclick to section 2
+            // onClick={() => {
+            //   setPause(true);
+            isClickToPauseDisabled={true}
+            options={{
+              loop: true,
+              autoplay: true,
+              animationData:
+                themeMode === "light"
+                  ? animationMouseLight
+                  : animationMouseDark,
+              rendererSettings: {
+                preserveAspectRatio: "xMidYMid slice",
+              },
+            }}
+            height={64}
+            width={64}
+          />
+        </Box>
+      </Container>
       {/* )} */}
       {/* {themeMode == "dark" ? (
         <Spline

@@ -93,8 +93,14 @@ export default function ProjectSidebar({
   item,
 }: iProjectSidebar) {
   return (
-    <Box position={"relative"} right={0} top={0} width={"30%"}>
+    <Box position={"relative"} right={0} top={0} sx={{
+      width: "30%",
+      ['@media (max-width: 1200px)']: { 
+        width: "50%",
+      }
+    }}>
       <Box
+      id="project-sidebar"
         padding={"2.25rem 1.5rem"}
         sx={{
           background: (theme) =>
@@ -104,6 +110,25 @@ export default function ProjectSidebar({
           width: "100%",
           height: "100%",
           overflowY: "scroll",
+
+          "&::-webkit-scrollbar-track": {
+            WebkitBoxShadow: "inset 0 0 6px transparent",
+            borderRadius: "10px",
+            backgroundColor: "transparent",
+            marginRight: "1.5rem",
+          },
+          "&::-webkit-scrollbar": {
+            width: "7px",
+            height: "7px",
+            backgroundColor: "transparent",
+            marginRight: "1.5rem",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            borderRadius: "10px",
+            WebkitBoxShadow: "inset 0 0 6px transparent",
+            backgroundColor: "transparent",
+            marginRight: "1.5rem",
+          },
         }}
       >
         <Box paddingBottom={"7rem"} sx={{}}>

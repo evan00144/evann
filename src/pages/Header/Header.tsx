@@ -23,10 +23,11 @@ export default function Header({ toggleColorMode }: iProps) {
     if (sectionThree) {
       const boundingClient = sectionThree.getBoundingClientRect();
       console.log(boundingClient);
+      console.log(boundingClient);
       if (
-        (boundingClient.top < 0 && boundingClient.bottom > 0) ||
-        (boundingClient.top < boundingClient.height / 4 &&
-          boundingClient.bottom > 0)
+        (boundingClient.top < 0 && boundingClient.bottom > 200) ||
+        (boundingClient.top < boundingClient.height / 6 &&
+          boundingClient.bottom > 200)
       ) {
         setSectionThreeInview(true);
       } else {

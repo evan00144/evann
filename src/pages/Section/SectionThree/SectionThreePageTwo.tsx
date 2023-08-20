@@ -59,7 +59,7 @@ export default function SectionThreePageTwo() {
       implementation: "Project Intern",
       role: "Implementation of Menu Management in Workspaces and Role & User Management",
       tech: ["HTML", "SCSS", "Bootstrap", "Typescript", "React JS"],
-      website: "-",
+      // website: "-",
       img: [
         "/img/sidesaws/1.png",
         "/img/sidesaws/2.png",
@@ -93,7 +93,7 @@ export default function SectionThreePageTwo() {
         "React JS",
         "Mapbox GL",
       ],
-      website: "-",
+      // website: "-",
       img: [
         "/img/ams/1.png",
         "/img/ams/2.png",
@@ -106,7 +106,7 @@ export default function SectionThreePageTwo() {
     {
       title: "Eb Chat",
       content:
-      "An AI Bot chat website using React JS for PT Indonesia Indicator",
+        "An AI Bot chat website using React JS for PT Indonesia Indicator",
       thumbnail: "/img/ebchat/thumbnail.png",
       about: `The project involves creating a specialized chat platform that focuses on discussing and exploring economic, political, governmental, and related subjects. Within this platform, users can interact through chat to receive detailed responses and insights about their questions and topics.
 
@@ -118,8 +118,8 @@ export default function SectionThreePageTwo() {
         `,
       implementation: "Company Project",
       role: "Implement UI Design, User & Role Management, Chat Interaction, Custom Chat Response",
-      tech: ["HTML", "SCSS", "Bootstrap", "Typescript", "React JS","eChart"],
-      website: "-",
+      tech: ["HTML", "SCSS", "Bootstrap", "Typescript", "React JS", "eChart"],
+      // website: "-",
       img: [
         "/img/ebchat/1.png",
         "/img/ebchat/2.png",
@@ -150,7 +150,7 @@ export default function SectionThreePageTwo() {
       implementation: "Company Project",
       role: "Implement UI Design, CRUD Operations, Data Display such as Table, etc",
       tech: ["HTML", "SCSS", "Bootstrap", "Typescript", "React JS"],
-      website: "-",
+      // website: "-",
       img: [
         "/img/sidesa/1.png",
         "/img/sidesa/2.png",
@@ -172,6 +172,7 @@ export default function SectionThreePageTwo() {
       role: "Researcher",
       tech: ["Python", "Google Colab"],
       img: ["/img/skripsi/thumbnail.png"],
+      website:"kc.umn.ac.id/25577"
     },
   ];
 
@@ -219,15 +220,48 @@ export default function SectionThreePageTwo() {
           <Grid
             container
             spacing={4.5}
-            sx={{ width: openSidebar ? "75%" : "100%" }}
+            sx={{
+              ["@media(max-width: 1920px)"]: {
+                width: openSidebar ? "82%" : "100%",
+              },
+
+              ["@media(max-width: 1750px)"]: {
+                width: openSidebar ? "80%" : "100%",
+              },
+
+              ["@media(max-width: 1600px)"]: {
+                width: openSidebar ? "77%" : "100%",
+              },
+
+              ["@media(max-width: 1450px)"]: {
+                width: openSidebar ? "75%" : "100%",
+              },
+
+              ["@media(max-width: 1300px)"]: {
+                width: openSidebar ? "73%" : "100%",
+              },
+
+              ["@media(max-width: 1200px)"]: {
+                width: openSidebar ? "50%" : "100%",
+              },
+            }}
           >
             {project.map((proj, i) => (
-              <Grid item key={i} sm={openSidebar ? 6 : 4}>
+              <Grid item key={i} md={openSidebar ? 12 : 4} lg={openSidebar ? 6 : 4}>
                 <CardItem
                   handleClick={() => {
                     setOpenSidebar(true);
                     setSelectedProject(proj);
-                    document.getElementById("section-three")?.scrollIntoView();
+                    document.getElementById("section-three")?.scrollIntoView({
+                      behavior: "smooth",
+                    });
+
+                    document.getElementById("project-sidebar")!.scrollTop = 0;
+                    // syntax equivalent to syntax above?
+                    // document.getElementById("section-three")?.scrollIntoView({
+                    //   behavior: "smooth",
+                    // });
+
                   }}
                   title={proj.title}
                   bg={` ${
