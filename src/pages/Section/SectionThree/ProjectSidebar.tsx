@@ -223,7 +223,7 @@ export default function ProjectSidebar({
           padding: "1rem",
         }}
       >
-        {item?.website === "-" ? (
+        {item?.website === "-" || !item?.website  ? (
           <>
             <Typography
               variant={"body1"}
