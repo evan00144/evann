@@ -188,6 +188,7 @@ export default function SectionThreePageTwo() {
       }}
     >
       <Stack
+      justifyContent={'center'}
         sx={{
           position: openSidebar ? "absolute" : "",
           "&::-webkit-scrollbar-track": {
@@ -220,35 +221,36 @@ export default function SectionThreePageTwo() {
           <Grid
             container
             spacing={4.5}
+            // marginLeft={0}
             sx={{
               ["@media(max-width: 2300px)"]: {
-                width: openSidebar ? "84%" : "100%",
+                width: openSidebar ? "84%" : "unset",
               },
               ["@media(max-width: 2000px)"]: {
-                width: openSidebar ? "84%" : "100%",
+                width: openSidebar ? "84%" : "unset",
               },
               ["@media(max-width: 1920px)"]: {
-                width: openSidebar ? "82%" : "100%",
+                width: openSidebar ? "82%" : "unset",
               },
 
               ["@media(max-width: 1750px)"]: {
-                width: openSidebar ? "80%" : "100%",
+                width: openSidebar ? "80%" : "unset",
               },
 
               ["@media(max-width: 1600px)"]: {
-                width: openSidebar ? "77%" : "100%",
+                width: openSidebar ? "77%" : "unset",
               },
 
               ["@media(max-width: 1450px)"]: {
-                width: openSidebar ? "75%" : "100%",
+                width: openSidebar ? "75%" : "unset",
               },
 
               ["@media(max-width: 1300px)"]: {
-                width: openSidebar ? "73%" : "100%",
+                width: openSidebar ? "73%" : "unset",
               },
 
               ["@media(max-width: 1200px)"]: {
-                width: openSidebar ? "50%" : "100%",
+                width: openSidebar ? "50%" : "unset",
               },
             }}
           >
@@ -256,7 +258,7 @@ export default function SectionThreePageTwo() {
               <Grid
                 item
                 key={i}
-                md={openSidebar ? 12 : 4}
+                sm={openSidebar ? 12 : 6}
                 lg={openSidebar ? 6 : 4}
               >
                 <CardItem

@@ -119,6 +119,9 @@ export default function SectionTwoPage() {
           svg: {
             width: "100%",
           },
+          ["@media(max-width:1199px)"]: {
+            position: "unset",
+          },
         }}
       >
         <svg
@@ -171,14 +174,22 @@ export default function SectionTwoPage() {
           container
           alignContent={"center"}
           columnSpacing={5}
-          sx={{ height: "100%" }}
+          sx={{ height: "100%", ["@media(max-width:1199px)"]: {
+            alignContent:"start",
+            justifyContent:'end'
+          } }}
           justifyContent={"space-between"}
         >
-          <Grid item sm={5} ref={ref} className="content-height-box">
+          <Grid item lg={5} ref={ref} className="content-height-box">
             <Typography
               variant="body1"
               marginBottom={"1.5rem"}
               marginTop={"12vh"}
+              sx={{
+                ["@media(max-width:1199px)"]: {
+                  marginTop: "2rem",
+                },
+              }}
             >
               {/* <span style={{ fontSize: "4rem", lineHeight: "1" }}>Evan</span> */}
               Evan is a Front-End / Web Developer with almost 2 years of work
@@ -273,7 +284,7 @@ export default function SectionTwoPage() {
               </Stack>
             </Button>
           </Grid>
-          <Grid item sm={6}>
+          <Grid item lg={6}>
             <Box
               sx={{
                 borderRadius: " .75rem 0 0 .75rem",
@@ -282,6 +293,9 @@ export default function SectionTwoPage() {
                 right: "0",
                 width: "44rem",
                 border: ".05px solid rgba(248, 247, 251, 0.25)",
+                ["@media(max-width:1199px)"]: {
+                  // position: "relative",
+                },
               }}
             >
               <Box
