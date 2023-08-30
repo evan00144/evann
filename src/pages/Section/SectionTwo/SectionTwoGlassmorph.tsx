@@ -62,7 +62,6 @@ export default function SectionTwoGlassmorph() {
   };
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-    console.log(newValue);
     setValue(newValue);
   };
 

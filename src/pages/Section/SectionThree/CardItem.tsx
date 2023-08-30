@@ -63,7 +63,6 @@ export default function CardItem({
     const onMouseEnterHandler = (event: MouseEvent) => {
       update(event);
       setTimeout(() => {
-        console.log("s");
         inner.style.transition = "0s";
         container.style.transition = "0s";
       }, 500);

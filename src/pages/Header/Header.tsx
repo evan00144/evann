@@ -22,8 +22,6 @@ export default function Header({ toggleColorMode }: iProps) {
     ) as HTMLElement;
     if (sectionThree) {
       const boundingClient = sectionThree.getBoundingClientRect();
-      console.log(boundingClient);
-      console.log(boundingClient);
       if (
         (boundingClient.top < 0 && boundingClient.bottom > 200) ||
         (boundingClient.top < boundingClient.height / 6 &&
@@ -50,7 +48,6 @@ export default function Header({ toggleColorMode }: iProps) {
   }, [prevScrollY]);
 
   useEffect(() => {
-    console.log(sectionThreeInview);
     const headerElement = document.querySelector(".header") as HTMLElement;
     if (isScrollingUp) {
       if (sectionThreeInview) {

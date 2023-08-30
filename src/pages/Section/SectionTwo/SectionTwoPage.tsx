@@ -66,7 +66,6 @@ export default function SectionTwoPage() {
   };
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-    console.log(newValue);
     setValue(newValue);
   };
 
