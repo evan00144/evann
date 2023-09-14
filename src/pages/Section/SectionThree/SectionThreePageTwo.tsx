@@ -188,7 +188,7 @@ export default function SectionThreePageTwo() {
       }}
     >
       <Stack
-      justifyContent={'center'}
+      // justifyContent={'center'}
         sx={{
           position: openSidebar ? "absolute" : "",
           "&::-webkit-scrollbar-track": {
